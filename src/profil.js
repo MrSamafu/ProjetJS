@@ -12,6 +12,7 @@ import {
   Image,
   Flex
 } from '@chakra-ui/core'
+import APICall from './APICall.js'
 
 const Profil = () => (
   <ThemeProvider theme={theme}>
@@ -26,7 +27,7 @@ const Profil = () => (
           id="imgPlayer"
         />
         <Flex flexDirection="column">
-          <Text id="playerName">Nom Joueur</Text>
+          <Text id="playerName"><APICall /></Text>
           <Text id="lastlogin">derniere connexion</Text>
         </Flex>
       </Flex>
@@ -92,5 +93,7 @@ const Profil = () => (
     </Flex>
   </ThemeProvider>
 )
+
+
 
 export default Profil;
