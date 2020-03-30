@@ -26,6 +26,7 @@ import {
   Heading,
   Image
 } from '@chakra-ui/core'
+import Profil from './profil.js'
 
 const Home = () => (
   <ThemeProvider theme={theme}>
@@ -92,113 +93,7 @@ const Home = () => (
         </Flex>
       </Flex>
     </Flex>
-    <Grid
-      p={10}
-      gap={6}
-      templateColumns="repeat(auto-fit, minmax(350px, 1fr))"
-      display="flex"
-      flexDirection="column"
-      justifyContent="center"
-      alignItems="center"
-    >
-      <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        flexDirection="column"
-      >
-        <Box
-          backgroundColor="white"
-          borderRadius="lg"
-          shadow="sm"
-          pl={3}
-          pr={3}
-          pt={5}
-          pb={5}
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <Flex
-            display="flex"
-            flexDirection="row"
-            alignItems="center"
-            justifyContent="center"
-            backgroundColor="facebook.900"
-            width="100%"
-            height="100px"
-            borderRadius="25px"
-          >
-            <Heading
-              size="md"
-              as="h1"
-              lineHeight="shorter"
-              fontFamily="Bangers"
-              display="flex"
-              flexDirection="row"
-              justifyContent="center"
-              alignItems="center"
-              overflow="visible"
-              textAlign="left"
-              backgroundColor="facebook.900"
-              color="orange.300"
-              fontSize="3xl"
-            >
-              Inspector
-            </Heading>
-          </Flex>
-          <Stack
-            shouldWrapChildren
-            spacing={4}
-            ml={4}
-            mt={4}
-            justifyContent="flex-start"
-            alignItems="flex-start"
-          >
-            <Stack shouldWrapChildren spacing={2}>
-              <Tag size="md" variant="subtle" variantColor="yellow">
-                Update props & style
-              </Tag>
-              <Text fontSize="md" color="gray.600">
-                On the right hand side, you can find the inspectror panel. You
-                will find the tools to edit the component's props and style.
-              </Text>
-              <Tag>Tag name</Tag>
-            </Stack>
-            <Stack shouldWrapChildren spacing={2}>
-              <Tag size="md" variant="subtle" variantColor="yellow">
-                Delete, reset and read doc
-              </Tag>
-              <Text color="gray.600">
-                Reach the yellow bar on the top to delete, reset and access the
-                Chakra doc of each component.
-              </Text>
-            </Stack>
-            <Stack spacing={2} shouldWrapChildren>
-              <Tag size="md" variant="subtle" variantColor="yellow">
-                Sort components
-              </Tag>
-              <Text color="gray.600">
-                By clicking on a component containing children, you will see a
-                Children panel appearing on the right. It enables sorting the
-                children.{' '}
-              </Text>
-            </Stack>
-            <Stack spacing={2} shouldWrapChildren>
-              <Tag size="md" variant="subtle" variantColor="yellow">
-                Sort components
-              </Tag>
-              <Text color="gray.600">
-                By clicking on a component containing children, you will see a
-                Children panel appearing on the right. It enables sorting the
-                children.{' '}
-              </Text>
-            </Stack>
-          </Stack>
-        </Box>
-      </Box>
-    </Grid>
+    <Profil />
   </ThemeProvider>
 )
 

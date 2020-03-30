@@ -16,7 +16,7 @@ import {
 const Profil = () => (
   <ThemeProvider theme={theme}>
     <CSSReset />
-    <Flex justifyContent="space-between">
+    <Flex justifyContent="space-around">
       <Flex justifyContent="flex-end">
         <Image
           height="100px"
