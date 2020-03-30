@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react';
 import {
   ThemeProvider,
   CSSReset,
@@ -12,34 +12,77 @@ import {
   Image,
   Flex
 } from '@chakra-ui/core'
-import APICall from './APICall.js'
 
-const Profil = () => (
-  <ThemeProvider theme={theme}>
+
+class Profil extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      name: "Loading...",
+      gold: "Loading...",
+      silver: "Loading...",
+      bronze: "Loading...",
+      profilImg: "https://www.freepnglogos.com/uploads/vintage-overwatch-logo-png-12.png",
+      levelIcon: "https://www.freepnglogos.com/uploads/vintage-overwatch-logo-png-12.png",
+      level : "Loading...",
+      CharacterName: [],
+      CharacterImg: "https://www.freepnglogos.com/uploads/vintage-overwatch-logo-png-12.png",
+
+
+      error:null,
+
+    }
+  }
+
+  componentDidMount() {
+    fetch("https://ovrstat.com/stats/pc/MrSamafu-2680")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({name: result.name,
+                        gold: result.quickPlayStats.careerStats.allHeroes.matchAwards.medalsGold,
+                        silver: result.quickPlayStats.careerStats.allHeroes.matchAwards.medalsSilver,
+                        bronze: result.quickPlayStats.careerStats.allHeroes.matchAwards.medalsBronze,
+                        profilImg: result.icon,
+                        levelIcon: result.prestigeIcon,
+                        level: result.level});
+          console.log(result);
+        },
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      );
+  }
+  render(){
+    return <ThemeProvider theme={theme}>
     <CSSReset />
     <Flex justifyContent="space-around">
       <Flex justifyContent="flex-end">
         <Image
           height="100px"
           width="100px"
-          src="https://d15f34w2p8l1cc.cloudfront.net/overwatch/1b00b8cab530e98c378de2f3e8834d92ee41b4cd7b118179a8ecbccee83c8104.png"
+          borderRadius = "10px"
+          src={this.state.profilImg}
           display="flex"
           id="imgPlayer"
         />
         <Flex flexDirection="column">
-          <Text id="playerName"><APICall /></Text>
+          <Text id="playerName">{this.state.name}</Text>
           <Text id="lastlogin">derniere connexion</Text>
         </Flex>
       </Flex>
       <Flex display="flex" justifyContent="flex-start">
         <Image
-          height="100px"
-          width="100px"
-          src="https://d15f34w2p8l1cc.cloudfront.net/overwatch/1b00b8cab530e98c378de2f3e8834d92ee41b4cd7b118179a8ecbccee83c8104.png"
+          height="110px"
+          width="110px"
+          src={this.state.levelImg}
           display="flex"
           id="imgLvl"
         />
-        <Text id="lvl">Level</Text>
+        <Text id="lvl">Level : {this.state.level}</Text>
       </Flex>
     </Flex>
     <Flex justifyContent="space-around" alignItems="flex-start">
@@ -69,7 +112,7 @@ const Profil = () => (
             src="https://d15f34w2p8l1cc.cloudfront.net/overwatch/1b00b8cab530e98c378de2f3e8834d92ee41b4cd7b118179a8ecbccee83c8104.png"
             id="imgGold"
           />
-          <Text id="gold">Gold medals</Text>
+          <Text id="gold">Gold medals : {this.state.gold}</Text>
         </Flex>
         <Flex flexDirection="column">
           <Image
@@ -78,7 +121,7 @@ const Profil = () => (
             src="https://d15f34w2p8l1cc.cloudfront.net/overwatch/1b00b8cab530e98c378de2f3e8834d92ee41b4cd7b118179a8ecbccee83c8104.png"
             id="imgSilver"
           />
-          <Text id="silver">Silver Medals</Text>
+          <Text id="silver">Silver Medals : {this.state.silver}</Text>
         </Flex>
         <Flex flexDirection="column">
           <Image
@@ -87,12 +130,13 @@ const Profil = () => (
             src="https://d15f34w2p8l1cc.cloudfront.net/overwatch/1b00b8cab530e98c378de2f3e8834d92ee41b4cd7b118179a8ecbccee83c8104.png"
             id="imgBronze"
           />
-          <Text id="bronze">Bronze medals</Text>
+          <Text id="bronze">Bronze medals : {this.state.bronze}</Text>
         </Flex>
       </Flex>
     </Flex>
   </ThemeProvider>
-)
+  }
+}
 
 
 
