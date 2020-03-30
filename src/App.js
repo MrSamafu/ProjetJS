@@ -24,111 +24,154 @@ import {
   Text,
   Tag,
   Heading,
+  Button,
   Image
 } from '@chakra-ui/core'
 
-const Home = () => (
+const App = () => (
   <ThemeProvider theme={theme}>
     <CSSReset />
     <Flex
       display="flex"
-      flexDirection="row"
+      flexDirection="column"
       alignItems="center"
       justifyContent="center"
       textAlign="center"
-      mt={0}
-      backgroundColor="facebook.900"
-      p={5}
       overflow="visible"
       width="100%"
-      height="20vh"
+      height="50%"
     >
       <Flex
         display="flex"
         flexDirection="row"
         alignItems="center"
         justifyContent="center"
-        backgroundColor="facebook.900"
         width="100%%"
-        height="100%"
-        p={0}
-        m={0}
+        height="50%"
       >
         <Flex
-          justifyContent="center"
-          width="100%"
-          alignItems="center"
+          display="flex"
           flexDirection="row"
-          height="100%"
-        >
-          <Image
-            height="10vh"
-            width="10vh"
-            src="https://www.stickpng.com/assets/images/586273b931349e0568ad89df.png"
-          />
-        </Flex>
-        <Flex
+          alignItems="center"
           justifyContent="center"
           width="100%%"
-          alignItems="center"
-          flexDirection="row"
           height="100%"
-          mr={0}
-          pr={0}
-          backgroundColor="facebook.900"
-        >
-          <Text
-            fontFamily="Bangers"
-            fontSize="5xl"
-            color="orange.300"
-            m={5}
-            display="flex"
-            flexDirection="row"
-            justifyContent="center"
-            alignItems="center"
-          >
-            OVERVIEW
-          </Text>
-        </Flex>
-      </Flex>
-    </Flex>
-    <Grid
-      p={10}
-      gap={6}
-      templateColumns="repeat(auto-fit, minmax(350px, 1fr))"
-      display="flex"
-      flexDirection="column"
-      justifyContent="center"
-      alignItems="center"
-    >
-      <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        flexDirection="column"
-      >
-        <Box
-          backgroundColor="white"
-          borderRadius="lg"
-          shadow="sm"
-          pl={3}
-          pr={3}
-          pt={5}
-          pb={5}
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          alignItems="center"
         >
           <Flex
             display="flex"
             flexDirection="row"
             alignItems="center"
             justifyContent="center"
-            backgroundColor="facebook.900"
+            width="100%%"
+            height="100%"
+          >
+            <Image
+              height="75px"
+              width="75px"
+              src="https://www.stickpng.com/assets/images/586273b931349e0568ad89df.png"
+              m={5}
+            />
+          </Flex>
+          <Text
+            fontFamily="Bangers"
+            color="orange.300"
+            letterSpacing="widest"
+            fontSize="5xl"
             width="100%"
+            height="100%"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            Overview
+          </Text>
+        </Flex>
+      </Flex>
+      <Flex
+        flexDirection="row"
+        justifyContent="center"
+        alignItems="center"
+        width="100%"
+        height="50%"
+      >
+        <Flex
+          justifyContent="center"
+          alignItems="center"
+          height="100%"
+          width="100%"
+        >
+          <Button
+            m={5}
+            backgroundColor="orange.300"
+            color="whiteAlpha.900"
+            letterSpacing="widest"
+            width="200px"
+            height="50px"
+            borderRadius="25px"
+            fontSize="lg"
+          >
+            Sign Up
+          </Button>
+          <Button
+            m={5}
+            backgroundColor="orange.300"
+            color="whiteAlpha.900"
+            letterSpacing="widest"
+            height="50px"
+            width="200px"
+            borderRadius="25px"
+            fontSize="lg"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            Sign In
+          </Button>
+        </Flex>
+      </Flex>
+    </Flex>
+    <Grid
+      gap={6}
+      templateColumns="repeat(auto-fit, minmax(350px, 1fr))"
+      display="flex"
+      flexDirection="column"
+      justifyContent="center"
+      alignItems="center"
+      width="100%"
+      height="100%"
+    >
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        flexDirection="row"
+        width="100%"
+        height="100%"
+        overflow="visible"
+        backgroundColor="whiteAlpha.50"
+      >
+        <Box
+          backgroundColor="facebook.900"
+          shadow="sm"
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+          height="100%"
+          width="100%"
+        >
+          <Flex
+            display="flex"
+            flexDirection="row"
+            alignItems="center"
+            justifyContent="center"
+            backgroundColor="facebook.300"
+            width="75%"
             height="100px"
             borderRadius="25px"
+            mt={5}
+            mb={5}
+            letterSpacing="widest"
           >
             <Heading
               size="md"
@@ -140,66 +183,121 @@ const Home = () => (
               justifyContent="center"
               alignItems="center"
               overflow="visible"
-              textAlign="left"
-              backgroundColor="facebook.900"
+              textAlign="center"
+              letterSpacing="widest"
               color="orange.300"
               fontSize="3xl"
             >
-              Inspector
+              Tracer
             </Heading>
           </Flex>
-          <Stack
-            shouldWrapChildren
-            spacing={4}
-            ml={4}
-            mt={4}
-            justifyContent="flex-start"
-            alignItems="flex-start"
+          <Flex
+            justifyContent="center"
+            alignItems="center"
+            height="100%"
+            width="100%"
+            mb={5}
+            color="facebook.900"
           >
-            <Stack shouldWrapChildren spacing={2}>
-              <Tag size="md" variant="subtle" variantColor="yellow">
-                Update props & style
-              </Tag>
-              <Text fontSize="md" color="gray.600">
-                On the right hand side, you can find the inspectror panel. You
-                will find the tools to edit the component's props and style.
-              </Text>
-              <Tag>Tag name</Tag>
-            </Stack>
-            <Stack shouldWrapChildren spacing={2}>
-              <Tag size="md" variant="subtle" variantColor="yellow">
-                Delete, reset and read doc
-              </Tag>
-              <Text color="gray.600">
-                Reach the yellow bar on the top to delete, reset and access the
-                Chakra doc of each component.
-              </Text>
-            </Stack>
-            <Stack spacing={2} shouldWrapChildren>
-              <Tag size="md" variant="subtle" variantColor="yellow">
-                Sort components
-              </Tag>
-              <Text color="gray.600">
-                By clicking on a component containing children, you will see a
-                Children panel appearing on the right. It enables sorting the
-                children.{' '}
-              </Text>
-            </Stack>
-            <Stack spacing={2} shouldWrapChildren>
-              <Tag size="md" variant="subtle" variantColor="yellow">
-                Sort components
-              </Tag>
-              <Text color="gray.600">
-                By clicking on a component containing children, you will see a
-                Children panel appearing on the right. It enables sorting the
-                children.{' '}
-              </Text>
-            </Stack>
-          </Stack>
+            <Flex
+              display="flex"
+              flexDirection="row"
+              alignItems="center"
+              justifyContent="center"
+              backgroundColor="whiteAlpha.900"
+              width="75%"
+              height="100%"
+              borderRadius="25px"
+            >
+              <Heading
+                size="md"
+                as="h1"
+                fontFamily="heading"
+                display="flex"
+                flexDirection="row"
+                justifyContent="center"
+                alignItems="center"
+                overflow="visible"
+                textAlign="justify"
+                letterSpacing="widest"
+                fontSize="lg"
+                width="75%"
+                height="100%"
+                m={5}
+              >
+                L’ancien agent d’Overwatch connu sous le pseudonyme de Tracer
+                est une aventurière capable de se déplacer dans le temps et une
+                force irrépressible au service du bien. Lena Oxton (nom de code
+                « Tracer ») était la plus jeune recrue de toute l’histoire du
+                programme de vol expérimental d’Overwatch. Ses talents de pilote
+                et son intrépidité lui valurent d’être sélectionnée pour tester
+                un prototype de chasseur-téléporteur, le Sillage.
+                Malheureusement, la matrice de téléportation de l’avion eut une
+                avarie lors du premier vol d’essai et disparut. Lena fut
+                présumée morte. Elle finit par réapparaître des mois plus tard,
+                profondément changée par l’épreuve qu’elle venait de traverser :
+                sa structure moléculaire avait été désynchronisée par rapport à
+                l’écoulement normal du temps. Souffrant de « chrono-dissociation
+                », elle était devenue une sorte de fantôme vivant, disparaissant
+                irrégulièrement pendant des heures ou des jours et incapable de
+                maintenir sa consistance physique dans les rares moments où elle
+                était présente. Les médecins et les chercheurs d’Overwatch
+                étaient perplexes, et son cas semblait désespéré jusqu’à ce
+                qu’un scientifique appelé Winston parvienne à concevoir le
+                chrono-accélérateur, un appareil capable d’ancrer Tracer dans le
+                présent. Cela permit également à Tracer de contrôler son propre
+                flux temporel et de le ralentir ou de l’accélérer à volonté.
+                Grâce à cette nouvelle compétence, elle devint l’un des agents
+                les plus efficaces d’Overwatch. Depuis la dissolution de
+                l’organisation, Tracer continue de lutter pour la bonne cause et
+                de combattre les injustices dès qu’elle en a l’occasion.
+              </Heading>
+            </Flex>
+          </Flex>
         </Box>
       </Box>
     </Grid>
+    <Flex
+      display="flex"
+      flexDirection="row"
+      alignItems="center"
+      justifyContent="center"
+      textAlign="center"
+      backgroundColor="whiteAlpha.900"
+      overflow="visible"
+      width="100%"
+      height="10%"
+      position="sticky"
+      bottom="0"
+    >
+      <Flex
+        display="flex"
+        flexDirection="row"
+        alignItems="center"
+        justifyContent="center"
+        width="100%%"
+        height="100%"
+      >
+        <Image
+          height="50px"
+          width="50px"
+          src="https://www.stickpng.com/assets/images/586273b931349e0568ad89df.png"
+          m={5}
+        />
+      </Flex>
+      <Text
+        letterSpacing="widest"
+        fontSize="lg"
+        width="100%"
+        height="100%"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+      >
+        2020 © Overview. All rights reserved.
+      </Text>
+    </Flex>
   </ThemeProvider>
 )
 
-export default Home;
+export default App
