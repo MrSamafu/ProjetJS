@@ -3,26 +3,10 @@ import {
   ThemeProvider,
   CSSReset,
   theme,
-  Stack,
-  Avatar,
-  AvatarBadge,
-  Alert,
-  AlertIcon,
-  AlertTitle,
-  AlertDescription,
-  FormLabel,
-  Input,
-  FormHelperText,
-  FormErrorMessage,
   Grid,
-  Switch,
-  InputGroup,
-  InputRightElement,
-  Icon,
   Flex,
   Box,
   Text,
-  Tag,
   Heading,
   Button,
   Link,
@@ -64,16 +48,19 @@ const App = () => (
             flexDirection="row"
             alignItems="center"
             justifyContent="center"
-            width="100%%"
+            width="100%"
             height="100%"
+            m={5}
           >
             <Link href="https://playoverwatch.com/fr-fr/" target="_blank">
-            <Image
-              height="75px"
-              width="75px"
-              src="https://www.stickpng.com/assets/images/586273b931349e0568ad89df.png"
-              m={5}
-            />
+              <Image
+                height="75px"
+                width="75px"
+                src="https://www.stickpng.com/assets/images/586273b931349e0568ad89df.png"
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+              />
             </Link>
           </Flex>
           <Text

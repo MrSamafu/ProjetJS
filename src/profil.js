@@ -3,12 +3,7 @@ import {
   ThemeProvider,
   CSSReset,
   theme,
-  Accordion,
-  AccordionItem,
-  AccordionHeader,
-  AccordionPanel,
   Text,
-  AccordionIcon,
   Image,
   Flex
 } from '@chakra-ui/core'
