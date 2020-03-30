@@ -28,7 +28,7 @@ const Profil = () => (
         />
         <Flex flexDirection="column">
           <Text id="playerName"><APICall /></Text>
-          <Text id="lastlogin">derniere connexion</Text>
+          <Text id="lastlogin">Dernière connexion</Text>
         </Flex>
       </Flex>
       <Flex display="flex" justifyContent="flex-start">
@@ -52,12 +52,12 @@ const Profil = () => (
         />
         <Flex flexDirection="column">
           <Flex flexDirection="column">
-            <Text id="nameCharacter">Nom perso</Text>
-            <Text id="lastPlayed">derniere partie</Text>
+            <Text id="nameCharacter">Nom du héro</Text>
+            <Text id="lastPlayed">Dernière partie</Text>
           </Flex>
           <Flex>
-            <Text id="quickScore">Quick score</Text>
-            <Text id="victory">victoires</Text>
+            <Text id="quickScore">Score rapide</Text>
+            <Text id="victory">Victoires</Text>
           </Flex>
         </Flex>
       </Flex>
@@ -96,4 +96,4 @@ const Profil = () => (
 
 
 
-export default Profil;
+export default Profil
