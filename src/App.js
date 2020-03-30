@@ -28,7 +28,7 @@ import {
   Link,
   Image
 } from '@chakra-ui/core'
-import Profil from './Profil.js'
+import Profil from './profil.js'
 
 const App = () => (
   <ThemeProvider theme={theme}>
