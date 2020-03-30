@@ -95,12 +95,12 @@ class Profil extends Component {
         />
         <Flex flexDirection="column">
           <Flex flexDirection="column">
-            <Text id="nameCharacter">Nom perso</Text>
-            <Text id="lastPlayed">derniere partie</Text>
+            <Text id="nameCharacter">Nom du héro</Text>
+            <Text id="lastPlayed">Dernière partie</Text>
           </Flex>
           <Flex>
-            <Text id="quickScore">Quick score</Text>
-            <Text id="victory">victoires</Text>
+            <Text id="quickScore">Score rapide</Text>
+            <Text id="victory">Victoires</Text>
           </Flex>
         </Flex>
       </Flex>
@@ -140,4 +140,4 @@ class Profil extends Component {
 
 
 
-export default Profil;
+export default Profil
