@@ -27,6 +27,7 @@ import {
   Button,
   Image
 } from '@chakra-ui/core'
+import Profil from './profil.js'
 
 const App = () => (
   <ThemeProvider theme={theme}>
@@ -297,6 +298,7 @@ const App = () => (
         2020 © Overview. All rights reserved.
       </Text>
     </Flex>
+    <Profil />
   </ThemeProvider>
 )
 
