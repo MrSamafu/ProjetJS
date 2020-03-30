@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 class APICall extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       username: "Loading..."
@@ -12,7 +12,7 @@ class APICall extends Component {
       .then(res => res.json())
       .then(
         (result) => {
-          this.setState({username: result.name})
+          this.setState({ username: result.name })
         },
         (error) => {
           this.setState({
@@ -22,9 +22,9 @@ class APICall extends Component {
         }
       );
   }
-  render(){
+  render() {
     let user = this.state.username;
     return user;
-  }  
+  }
 }
 export default APICall;

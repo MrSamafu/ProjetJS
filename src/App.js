@@ -25,9 +25,10 @@ import {
   Tag,
   Heading,
   Button,
+  Link,
   Image
 } from '@chakra-ui/core'
-import Profil from './profil.js'
+import Profil from './Profil.js'
 
 const App = () => (
   <ThemeProvider theme={theme}>
@@ -47,7 +48,7 @@ const App = () => (
         flexDirection="row"
         alignItems="center"
         justifyContent="center"
-        width="100%%"
+        width="100%"
         height="50%"
       >
         <Flex
@@ -66,12 +67,14 @@ const App = () => (
             width="100%%"
             height="100%"
           >
+            <Link href="https://playoverwatch.com/fr-fr/" target="_blank">
             <Image
               height="75px"
               width="75px"
               src="https://www.stickpng.com/assets/images/586273b931349e0568ad89df.png"
               m={5}
             />
+            </Link>
           </Flex>
           <Text
             fontFamily="Bangers"
@@ -87,6 +90,15 @@ const App = () => (
             Overview
           </Text>
         </Flex>
+      </Flex>
+      <Flex
+        flexDirection="row"
+        justifyContent="center"
+        alignItems="center"
+        border="100px"
+        borderColor="orange.900"
+      >
+        <Profil />
       </Flex>
       <Flex
         flexDirection="row"
@@ -268,8 +280,7 @@ const App = () => (
       overflow="visible"
       width="100%"
       height="10%"
-      position="sticky"
-      bottom="0"
+      position="scroll"
     >
       <Flex
         display="flex"
@@ -279,12 +290,14 @@ const App = () => (
         width="100%%"
         height="100%"
       >
-        <Image
-          height="50px"
-          width="50px"
-          src="https://www.stickpng.com/assets/images/586273b931349e0568ad89df.png"
-          m={5}
-        />
+        <Link href="https://playoverwatch.com/fr-fr/" target="_blank">
+          <Image
+            height="50px"
+            width="50px"
+            src="https://www.stickpng.com/assets/images/586273b931349e0568ad89df.png"
+            m={5}
+          />
+        </Link>
       </Flex>
       <Text
         letterSpacing="widest"
@@ -298,7 +311,6 @@ const App = () => (
         2020 © Overview. All rights reserved.
       </Text>
     </Flex>
-    <Profil />
   </ThemeProvider>
 )
 
