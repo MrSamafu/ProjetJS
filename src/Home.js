@@ -67,7 +67,7 @@ const Home = () => (
                             height="100%"
                         >
                             Overview
-            </Text>
+                            </Text>
                     </Flex>
                 </Flex>
             </Flex>
@@ -121,7 +121,6 @@ const Home = () => (
                         variant="solid"
                         variantColor="yellow"
                         flexDirection="column"
-
                     >
                         Login
           </Button>

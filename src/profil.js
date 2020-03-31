@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { ImageBackground } from "react";
 import {
   ThemeProvider,
   CSSReset,
@@ -7,13 +6,12 @@ import {
   Text,
   Image,
   Flex,
-  Accordion,
   AccordionItem,
   AccordionHeader,
   AccordionPanel,
   AccordionIcon,
   Box
-  
+
 } from '@chakra-ui/core'
 import ProfilCharacter from "./profilCharacter.js"
 
@@ -62,105 +60,179 @@ class Profil extends Component {
     return <ThemeProvider theme={theme}>
       <CSSReset />
       <AccordionItem>
-        <AccordionHeader backgroundColor="facebook.600" borderRadius="15px">
-          <Box flex="1" textAlign="left" color="gray.400">
+        <AccordionHeader
+          backgroundColor="facebook.500"
+          borderRadius="20px"
+        >
+          <Box
+            flex="1"
+            textAlign="left"
+            color="whiteAlpha.900"
+            letterSpacing="widest"
+            fontSize="xl"
+          >
             Your Profile
           </Box>
-          <AccordionIcon color="gray.400"/>
+          <AccordionIcon color="gray.400" />
         </AccordionHeader>
         <AccordionPanel pb={4}>
-        <Flex flexDirection="column">
-        <Flex justifyContent="space-around" backgroundColor="facebook.600" color="gray.400" fontWeight="bold" textAlign="left" fontSize="2xl" borderRadius="15px"  margin="10px"  pl={4}>
-          <Flex justifyContent="flex-end">
-            <Image
-              height="100px"
-              width="100px"
-              borderRadius="10px"
-              src={this.state.profilImg}
-              display="flex"
-              id="imgPlayer"
-              marginTop={1}
-            />
-            <Flex flexDirection="column" marginLeft={1}>
-              <Text id="playerName" >{this.state.name}</Text>
-              <Text id="lastlogin" fontFamily="Bangers">Temps de jeux :{this.state.timeInGame}</Text>
-            </Flex>
-          </Flex>
-          <Flex display="flex" justifyContent="flex-start">
-            <Image
-              height="110px"
-              width="110px"
-              src={this.state.levelIcon}
-              display="flex"
-              id="imgLvl"
-            />
-            
-            <Text id="lvl" fontFamily="Bangers" marginRight={4}>Level : {this.state.level}</Text>
-            
-          </Flex>
-        </Flex>
-        <Flex flexDirection="row" justifyContent="space-around" alignItems="flex-start">
-        <AccordionItem>
-          <AccordionHeader backgroundColor="facebook.600" borderRadius="15px">
-            <Box flex="1" textAlign="left" color="gray.400">
-              QuickPlay Statistiques
-
-            </Box>
-            <AccordionIcon color="gray.400"/>
-          </AccordionHeader>
-        <AccordionPanel pb={4}>
-          <ProfilCharacter />
-          </AccordionPanel>
-          </AccordionItem>
-          <AccordionItem>
-          <AccordionHeader backgroundColor="facebook.600" borderRadius="15px">
-            <Box flex="1" textAlign="left" color="gray.400">
-              Total Medals
-
-            </Box>
-            <AccordionIcon color="gray.400"/>
-          </AccordionHeader>
-        <AccordionPanel pb={4}>
-          <Flex backgroundColor="gray.400" borderRadius="15px" marginLeft={5} >
-            <Flex flexDirection="column" marginLeft={1} backgroundColor="orange.300" borderRadius="15px" margin={1}>
-              <Flex flexDirection="column">
+          <Flex flexDirection="column">
+            <Flex justifyContent="space-around"
+              backgroundColor="facebook.500"
+              color="whiteAlpha.900"
+              textAlign="left"
+              fontSize="2xl"
+              borderRadius="15px"
+              m="10px"
+              pl={4}
+            >
+              <Flex justifyContent="flex-end">
                 <Image
                   height="100px"
                   width="100px"
-                  src="https://i.ya-webdesign.com/images/overwatch-gold-medal-png.png"
-                  id="imgGold"
+                  borderRadius="10px"
+                  src={this.state.profilImg}
+                  display="flex"
+                  id="imgPlayer"
+                  marginTop={1}
                 />
-                <Text id="gold" textAlign="center" fontFamily="Bangers">Gold medals :</Text>
-                <Text textAlign="center" fontFamily="Bangers">{this.state.gold}</Text>
+                <Flex
+                  flexDirection="column"
+                  marginLeft={1}
+                >
+                  <Text id="playerName">{this.state.name}</Text>
+                  <Text
+                    id="lastlogin"
+                    fontFamily="Bangers"
+                    letterSpacing="widest"
+                    color="blue.300"
+                    fontSize="xl"
+                  >
+                    Playing time: {this.state.timeInGame}
+                  </Text>
+                </Flex>
               </Flex>
-              <Flex flexDirection="column">
+              <Flex display="flex" justifyContent="flex-start">
                 <Image
-                  height="100px"
-                  width="100px"
-                  src="https://cdn.discordapp.com/attachments/636567771785986089/694532685254623302/1585659850232.png"
-                  id="imgSilver"
+                  height="110px"
+                  width="110px"
+                  src={this.state.levelIcon}
+                  display="flex"
+                  id="imgLvl"
                 />
-                <Text id="silver" textAlign="center" fontFamily="Bangers">Silver Medals :</Text>
-                <Text textAlign="center" fontFamily="Bangers">{this.state.silver}</Text>
-              </Flex>
-              <Flex flexDirection="column">
-                <Image
-                  height="100px"
-                  width="100px"
-                  src="https://cdn.discordapp.com/attachments/636567771785986089/694532734072389653/1585659670786.png"
-                  id="imgBronze"
-                />
-                <Text id="bronze" textAlign="center" fontFamily="Bangers">Bronze medals :</Text>
-                <Text textAlign="center" fontFamily="Bangers">{this.state.bronze}</Text>
+
+                <Text
+                  id="lvl"
+                  fontFamily="Bangers"
+                  marginRight={4}
+                  letterSpacing="widest"
+                  color="orange.300"
+                  fontSize="xl"
+                >
+                  Level: {this.state.level}
+                </Text>
+
               </Flex>
             </Flex>
-          </Flex>
-          </AccordionPanel>
-          </AccordionItem>
-        </Flex>
-      </Flex >
+            <Flex flexDirection="row" justifyContent="space-around" alignItems="flex-start">
+              <AccordionItem>
+                <AccordionHeader backgroundColor="facebook.500" borderRadius="15px">
+                  <Box
+                    flex="1"
+                    textAlign="left"
+                    color="whiteAlpha.900"
+                    letterSpacing="widest"
+                    fontSize="lg"
+                  >
+                    QuickPlay Statistics
+
+            </Box>
+                  <AccordionIcon color="gray.300" />
+                </AccordionHeader>
+                <AccordionPanel pb={4}>
+                  <ProfilCharacter />
+                </AccordionPanel>
+              </AccordionItem>
+              <AccordionItem>
+                <AccordionHeader backgroundColor="facebook.500" borderRadius="15px">
+                  <Box
+                    flex="1"
+                    textAlign="left"
+                    color="whiteAlpha.900"
+                    letterSpacing="widest"
+                    fontSize="lg"
+                  >
+                    Total Medals
+
+            </Box>
+                  <AccordionIcon color="whiteAlpha.900" />
+                </AccordionHeader>
+                <AccordionPanel pb={4}>
+                  <Flex backgroundColor="orange.500" borderRadius="15px" marginLeft={5} >
+                    <Flex flexDirection="column" marginLeft={1} backgroundColor="orange.300" borderRadius="15px" margin={1}>
+                      <Flex flexDirection="column">
+                        <Image
+                          height="100px"
+                          width="100px"
+                          src="https://i.ya-webdesign.com/images/overwatch-gold-medal-png.png"
+                          id="imgGold"
+                        />
+                        <Text
+                          id="gold"
+                          textAlign="center"
+                          fontFamily="Bangers">Gold medals :</Text>
+                        <Text
+                          textAlign="center"
+                          fontFamily="Bangers"
+                        >
+                          {this.state.gold}
+                        </Text>
+                      </Flex>
+                      <Flex flexDirection="column">
+                        <Image
+                          height="100px"
+                          width="100px"
+                          src="https://cdn.discordapp.com/attachments/636567771785986089/694532685254623302/1585659850232.png"
+                          id="imgSilver"
+                        />
+                        <Text
+                          id="silver"
+                          textAlign="center"
+                          fontFamily="Bangers"
+                        >
+                          Silver medals :
+                        </Text>
+                        <Text
+                          textAlign="center"
+                          fontFamily="Bangers"
+                        >
+                          {this.state.silver}
+                        </Text>
+                      </Flex>
+                      <Flex flexDirection="column">
+                        <Image
+                          height="100px"
+                          width="100px"
+                          src="https://cdn.discordapp.com/attachments/636567771785986089/694532734072389653/1585659670786.png"
+                          id="imgBronze"
+                        />
+                        <Text
+                          id="bronze"
+                          textAlign="center"
+                          fontFamily="Bangers"
+                        >
+                          Bronze medals :
+                          </Text>
+                        <Text textAlign="center" fontFamily="Bangers">{this.state.bronze}</Text>
+                      </Flex>
+                    </Flex>
+                  </Flex>
+                </AccordionPanel>
+              </AccordionItem>
+            </Flex>
+          </Flex >
         </AccordionPanel>
-      
+
       </AccordionItem>
     </ThemeProvider >
   }
