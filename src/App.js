@@ -9,8 +9,7 @@ import {
   Text,
   Heading,
   Button,
-  Image,
-  IconButton
+  Image
 } from '@chakra-ui/core'
 import Profil from './profil'
 
@@ -78,22 +77,23 @@ const App = () => (
         alignItems="center"
         width="25%"
         height="100%"
+        m={5}
       >
         <Flex
           justifyContent="center"
           alignItems="center"
           p={5}
           height="100%"
-          width="100%"
+          width="140px"
           flexDirection="column"
         >
-          <IconButton // Bouton pour s'enregistrer
+          <Button
             m={3}
             backgroundColor="orange.300"
             color="whiteAlpha.900"
             letterSpacing="widest"
             height="50px"
-            width="25%"
+            width="100%"
             borderRadius="10px"
             fontSize="100%"
             display="flex"
@@ -102,29 +102,28 @@ const App = () => (
             size="md"
             variantColor="yellow"
             flexDirection="column"
-            icon="email"
+            textAlign="center"
           >
             Sign Up
-          </IconButton>
-          <IconButton // Bouton pour se connecter
+          </Button>
+          <Button
             m={3}
             backgroundColor="orange.300"
             color="whiteAlpha.900"
             letterSpacing="widest"
             height="50px"
-            width="25%"
+            width="100%"
             borderRadius="10px"
             fontSize="100%"
             display="flex"
             justifyContent="center"
             alignItems="center"
-            size="md"
+            variant="solid"
             variantColor="yellow"
             flexDirection="column"
-            icon="phone"
           >
-            Sign In
-          </IconButton>
+            Login
+          </Button>
         </Flex>
       </Flex>
     </Flex>
@@ -212,7 +211,7 @@ const App = () => (
                 as="h1"
                 fontFamily="heading"
                 display="flex"
-                flexDirection="row"
+                flexDirection="column"
                 justifyContent="center"
                 alignItems="center"
                 overflow="visible"
@@ -222,7 +221,6 @@ const App = () => (
                 width="100%"
                 height="100%"
               >
-               <Profil /* Appel le composant "Profil" */ />
               </Heading>
             </Flex>
           </Flex>
@@ -251,8 +249,8 @@ const App = () => (
         height="100%"
       >
         <Image
-          height="50px"
-          width="50px"
+          height="35px"
+          width="35px"
           src="https://www.stickpng.com/assets/images/586273b931349e0568ad89df.png"
           m={5}
         />
@@ -277,8 +275,8 @@ const App = () => (
         height="100%"
       >
         <Image
-          height="50px"
-          width="50px"
+          height="35px"
+          width="35px"
           src="https://www.stickpng.com/assets/images/586273b931349e0568ad89df.png"
           m={5}
         />
