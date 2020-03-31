@@ -163,7 +163,7 @@ const App = () => (
             alignItems="center"
             justifyContent="center"
             backgroundColor="facebook.300"
-            width="85%"
+            width="100%"
             height="100px"
             borderRadius="25px"
             mt={5}
@@ -205,24 +205,9 @@ const App = () => (
               width="100%"
               height="100%"
               borderRadius="25px"
+              p={5}
             >
-              <Heading
-                size="md"
-                as="h1"
-                fontFamily="heading"
-                display="flex"
-                flexDirection="column"
-                justifyContent="center"
-                alignItems="center"
-                overflow="visible"
-                textAlign="justify"
-                letterSpacing="widest"
-                fontSize="lg"
-                width="100%"
-                height="100%"
-              >
-                <Profil />
-              </Heading>
+              <Profil />
             </Flex>
           </Flex>
         </Box>
