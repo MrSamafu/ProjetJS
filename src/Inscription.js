@@ -12,7 +12,7 @@ import {
     Button
 } from '@chakra-ui/core'
 
-const App = () => (
+const Inscription = () => (
     <ThemeProvider theme={theme}>
         <CSSReset />
         <Icon
@@ -42,7 +42,7 @@ const App = () => (
             </InputRightElement>
         </InputGroup>
         <InputGroup mt={10} color="yellow.500">
-            <InputLeftAddon fontStyle="italic">Pseudo:</InputLeftAddon>
+            <InputLeftAddon fontStyle="italic">Pseudo :</InputLeftAddon>
             <Input placeholder="Entrez votre Pseudo !" />
             <InputRightElement>
                 <Icon name="star" />
@@ -54,7 +54,7 @@ const App = () => (
             color="yellow.500"
             backgroundColor="yellow.900"
         >
-            <InputLeftAddon>Email: </InputLeftAddon>
+            <InputLeftAddon>E-mail : </InputLeftAddon>
             <Input placeholder="Entrez votre email !" letterSpacing="widest" />
             <InputRightElement>
                 <Icon name="email" />
@@ -67,7 +67,7 @@ const App = () => (
             letterSpacing="wide"
             backgroundColor="gray.900"
         >
-            <InputLeftAddon color="yellow.500">Password:</InputLeftAddon>
+            <InputLeftAddon color="yellow.500">Mot de passe :</InputLeftAddon>
             <Input
                 isFullWidth
                 placeholder="Entrez votre mot de passe !"
@@ -100,4 +100,4 @@ const App = () => (
     </ThemeProvider>
 )
 
-export default App
+export default Inscription
