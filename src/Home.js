@@ -135,7 +135,7 @@ const Home = () => (
             justifyContent="center"
             alignItems="center"
             width="100%"
-            height="70%"
+            height="100%"
         >
             <Box
                 display="flex"

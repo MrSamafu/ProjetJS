@@ -5,11 +5,17 @@ import {
   theme
 } from '@chakra-ui/core'
 import Home from './Home'
+import Inscription from './Inscription'
+import Login from './Login'
 
 const App = () => (
   <ThemeProvider theme={theme}>
     <CSSReset />
-    <Home />
+    <div className= "App">
+      <Inscription />
+      <Login />
+      <Home />
+    </div>
   </ThemeProvider>
 )
 
