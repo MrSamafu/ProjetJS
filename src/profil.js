@@ -68,8 +68,8 @@ class Profil extends Component {
               marginTop={1}
             />
             <Flex flexDirection="column" marginLeft={1}>
-              <Text id="playerName">{this.state.name}</Text>
-              <Text id="lastlogin">Temps de jeux :{this.state.timeInGame}</Text>
+              <Text id="playerName" >{this.state.name}</Text>
+              <Text id="lastlogin" fontFamily="Bangers">Temps de jeux :{this.state.timeInGame}</Text>
             </Flex>
           </Flex>
           <Flex display="flex" justifyContent="flex-start">
@@ -81,7 +81,7 @@ class Profil extends Component {
               id="imgLvl"
             />
             
-            <Text id="lvl" >Level : {this.state.level}</Text>
+            <Text id="lvl" fontFamily="Bangers" marginRight={4}>Level : {this.state.level}</Text>
             
           </Flex>
         </Flex>
@@ -97,8 +97,8 @@ class Profil extends Component {
                   src="https://i.ya-webdesign.com/images/overwatch-gold-medal-png.png"
                   id="imgGold"
                 />
-                <Text id="gold" textAlign="center">Gold medals :</Text>
-                <Text textAlign="center" >{this.state.gold}</Text>
+                <Text id="gold" textAlign="center" fontFamily="Bangers">Gold medals :</Text>
+                <Text textAlign="center" fontFamily="Bangers">{this.state.gold}</Text>
               </Flex>
               <Flex flexDirection="column">
                 <Image
@@ -107,8 +107,8 @@ class Profil extends Component {
                   src="https://cdn.discordapp.com/attachments/636567771785986089/694532685254623302/1585659850232.png"
                   id="imgSilver"
                 />
-                <Text id="silver" textAlign="center">Silver Medals :</Text>
-                <Text textAlign="center" >{this.state.silver}</Text>
+                <Text id="silver" textAlign="center" fontFamily="Bangers">Silver Medals :</Text>
+                <Text textAlign="center" fontFamily="Bangers">{this.state.silver}</Text>
               </Flex>
               <Flex flexDirection="column">
                 <Image
@@ -117,8 +117,8 @@ class Profil extends Component {
                   src="https://cdn.discordapp.com/attachments/636567771785986089/694532734072389653/1585659670786.png"
                   id="imgBronze"
                 />
-                <Text id="bronze" textAlign="center">Bronze medals :</Text>
-                <Text textAlign="center" >{this.state.bronze}</Text>
+                <Text id="bronze" textAlign="center" fontFamily="Bangers">Bronze medals :</Text>
+                <Text textAlign="center" fontFamily="Bangers">{this.state.bronze}</Text>
               </Flex>
             </Flex>
           </Flex>

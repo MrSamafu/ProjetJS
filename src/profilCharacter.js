@@ -66,11 +66,11 @@ class ProfilCharacter extends Component {
               marginTop="15px"
             />
             <Flex flexDirection="column" pl={4}>
-              <Text backgroundColor="facebook.600" color="gray.400" fontWeight="bold" textAlign="left" fontSize="2xl" borderRadius="15px"  marginTop="15px" pl={4} >{name}</Text>
-              <Text backgroundColor="facebook.600" color="gray.400" marginTop="5px" borderRadius="15px" pl={4} >Temps de jeu : {this.state.name[nameCharacter]["game"]["timePlayed"]}</Text>
+              <Text backgroundColor="facebook.600" letterSpacing="widest" fontFamily="Bangers" color="gray.400" fontWeight="bold" textAlign="left" fontSize="2xl" borderRadius="15px"  marginTop="15px" pl={4} >{name}</Text>
+              <Text backgroundColor="facebook.600" fontFamily="Bangers" color="gray.400" marginTop="5px" borderRadius="15px" pl={4} >Temps de jeu : {this.state.name[nameCharacter]["game"]["timePlayed"]}</Text>
               <Flex flexDirection="row"  backgroundColor="facebook.600" color="gray.400" marginTop="5px" marginBottom="5px" borderRadius="15px" padding={4} >
-                <Text>Best Dommage : {this.state.name[nameCharacter]["best"]["allDamageDoneMostInGame"]}</Text>
-                <Text pl={4} >Victoires : {this.state.name[nameCharacter]["game"]["gamesWon"]}</Text>
+                <Text fontFamily="Bangers" >Best Dommage : {this.state.name[nameCharacter]["best"]["allDamageDoneMostInGame"]}</Text>
+                <Text  fontFamily="Bangers"  pl={4} >Victoires : {this.state.name[nameCharacter]["game"]["gamesWon"]}</Text>
               </Flex>
             </Flex>
           </Flex>
