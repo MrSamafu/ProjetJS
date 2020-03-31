@@ -7,7 +7,7 @@ import {
   Image,
   Flex
 } from '@chakra-ui/core'
-
+import ProfilCharacter from "./profilCharacter.js"
 
 class Profil extends Component {
   constructor(props){
@@ -43,7 +43,6 @@ class Profil extends Component {
                         levelIcon: result.prestigeIcon,
                         level: result.level,
                         });
-          console.log(result);
         },
         (error) => {
           this.setState({
@@ -83,24 +82,9 @@ class Profil extends Component {
       </Flex>
     </Flex>
     <Flex justifyContent="space-around" alignItems="flex-start">
-      <Flex>
-        <Image
-          height="100px"
-          width="100px"
-          src="https://www.overbuff.com/assets/images/heroes/moira.png?v=eee943d"
-          id="characterImg"
-        />
-        <Flex flexDirection="column">
-          <Flex flexDirection="column">
-            <Text id="nameCharacter">Nom du héro</Text>
-            <Text id="lastPlayed">Dernière partie</Text>
-          </Flex>
-          <Flex>
-            <Text id="quickScore">Score rapide</Text>
-            <Text id="victory">Victoires</Text>
-          </Flex>
-        </Flex>
-      </Flex>
+      
+      <ProfilCharacter />
+
       <Flex>
         <Flex flexDirection="column">
           <Image
