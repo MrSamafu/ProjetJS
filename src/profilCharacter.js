@@ -24,7 +24,7 @@ class ProfilCharacter extends Component {
   }
 
   componentDidMount() {
-    fetch("https://ovrstat.com/stats/pc/MrSamafu-2680")
+    fetch("https://ovrstat.com/stats/pc/Marcusvult-2114")
       .then(res => res.json())
       .then(
         (result) => {
