@@ -121,6 +121,7 @@ const Home = () => (
                         variant="solid"
                         variantColor="yellow"
                         flexDirection="column"
+
                     >
                         Login
           </Button>
