@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { ImageBackground } from "react";
 import {
   ThemeProvider,
   CSSReset,
@@ -6,6 +7,7 @@ import {
   Text,
   Image,
   Flex
+  
 } from '@chakra-ui/core'
 import ProfilCharacter from "./profilCharacter.js"
 
@@ -54,7 +56,7 @@ class Profil extends Component {
     return <ThemeProvider theme={theme}>
       <CSSReset />
       <Flex flexDirection="column">
-        <Flex justifyContent="space-around">
+        <Flex justifyContent="space-around" backgroundColor="facebook.600" color="gray.400" fontWeight="bold" textAlign="left" fontSize="2xl" borderRadius="15px"  margin="10px"  pl={4}>
           <Flex justifyContent="flex-end">
             <Image
               height="100px"
@@ -63,8 +65,9 @@ class Profil extends Component {
               src={this.state.profilImg}
               display="flex"
               id="imgPlayer"
+              marginTop={1}
             />
-            <Flex flexDirection="column">
+            <Flex flexDirection="column" marginLeft={1}>
               <Text id="playerName">{this.state.name}</Text>
               <Text id="lastlogin">Temps de jeux :{this.state.timeInGame}</Text>
             </Flex>
@@ -73,44 +76,50 @@ class Profil extends Component {
             <Image
               height="110px"
               width="110px"
-              src={this.state.levelImg}
+              src={this.state.levelIcon}
               display="flex"
               id="imgLvl"
             />
-            <Text id="lvl">Level : {this.state.level}</Text>
+            
+            <Text id="lvl" >Level : {this.state.level}</Text>
+            
           </Flex>
         </Flex>
-        <Flex justifyContent="space-around" alignItems="flex-start">
+        <Flex flexDirection="row" justifyContent="space-around" alignItems="flex-start">
 
           <ProfilCharacter />
-
-          <Flex>
-            <Flex flexDirection="column">
-              <Image
-                height="100px"
-                width="100px"
-                src="https://d15f34w2p8l1cc.cloudfront.net/overwatch/1b00b8cab530e98c378de2f3e8834d92ee41b4cd7b118179a8ecbccee83c8104.png"
-                id="imgGold"
-              />
-              <Text id="gold">Gold medals : {this.state.gold}</Text>
-            </Flex>
-            <Flex flexDirection="column">
-              <Image
-                height="100px"
-                width="100px"
-                src="https://d15f34w2p8l1cc.cloudfront.net/overwatch/1b00b8cab530e98c378de2f3e8834d92ee41b4cd7b118179a8ecbccee83c8104.png"
-                id="imgSilver"
-              />
-              <Text id="silver">Silver Medals : {this.state.silver}</Text>
-            </Flex>
-            <Flex flexDirection="column">
-              <Image
-                height="100px"
-                width="100px"
-                src="https://d15f34w2p8l1cc.cloudfront.net/overwatch/1b00b8cab530e98c378de2f3e8834d92ee41b4cd7b118179a8ecbccee83c8104.png"
-                id="imgBronze"
-              />
-              <Text id="bronze">Bronze medals : {this.state.bronze}</Text>
+          <Flex backgroundColor="gray.400" borderRadius="15px" marginLeft={5} >
+            <Flex flexDirection="column" marginLeft={1} backgroundColor="orange.300" borderRadius="15px" margin={1}>
+              <Flex flexDirection="column">
+                <Image
+                  height="100px"
+                  width="100px"
+                  src="https://i.ya-webdesign.com/images/overwatch-gold-medal-png.png"
+                  id="imgGold"
+                />
+                <Text id="gold" textAlign="center">Gold medals :</Text>
+                <Text textAlign="center" >{this.state.gold}</Text>
+              </Flex>
+              <Flex flexDirection="column">
+                <Image
+                  height="100px"
+                  width="100px"
+                  src="https://cdn.discordapp.com/attachments/636567771785986089/694532685254623302/1585659850232.png"
+                  id="imgSilver"
+                />
+                <Text id="silver" textAlign="center">Silver Medals :</Text>
+                <Text textAlign="center" >{this.state.silver}</Text>
+              </Flex>
+              <Flex flexDirection="column">
+                <Image
+                  height="100px"
+                  width="100px"
+                  src="https://cdn.discordapp.com/attachments/636567771785986089/694532734072389653/1585659670786.png"
+                  id="imgBronze"
+                />
+                <Text id="bronze" textAlign="center">Bronze medals :</Text>
+                <Text textAlign="center" >{this.state.bronze}</Text>
+              </Flex>
             </Flex>
           </Flex>
         </Flex>
