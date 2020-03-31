@@ -163,7 +163,7 @@ const Home = () => (
                         alignItems="center"
                         justifyContent="center"
                         backgroundColor="facebook.300"
-                        width="100%"
+                        width="85%"
                         height="100px"
                         borderRadius="25px"
                         mt={5}
