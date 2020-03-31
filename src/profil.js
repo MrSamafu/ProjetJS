@@ -73,7 +73,7 @@ class Profil extends Component {
           >
             Your Profile
           </Box>
-          <AccordionIcon color="gray.400" />
+          <AccordionIcon color="whiteAlpha.900" />
         </AccordionHeader>
         <AccordionPanel pb={4}>
           <Flex flexDirection="column">
@@ -147,7 +147,7 @@ class Profil extends Component {
                     QuickPlay Statistics
 
             </Box>
-                  <AccordionIcon color="gray.300" />
+                  <AccordionIcon color="whiteAlpha.900" />
                 </AccordionHeader>
                 <AccordionPanel pb={4}>
                   <ProfilCharacter />

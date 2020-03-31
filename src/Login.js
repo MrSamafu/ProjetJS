@@ -1,12 +1,12 @@
 import React from 'react';
-import fire from './config/Fire';
+import Fire from './config/Fire';
 
 class Login extends React.Component {
 
     signUp() {
         const email = document.querySelector('#email').value;
         const password = document.querySelector('#password').value;
-        fire.auth().createUserWithEmailAndPassword(email, password)
+        Fire.auth().createUserWithEmailAndPassword(email, password)
             .then((u) => {
                 console.log('Successfully Signed Up');
             })
@@ -18,7 +18,7 @@ class Login extends React.Component {
     login() {
         const email = document.querySelector('#email').value;
         const password = document.querySelector('#password').value;
-        fire.auth().signInWithEmailAndPassword(email, password)
+        Fire.auth().signInWithEmailAndPassword(email, password)
             .then((u) => {
                 console.log('Successfully Logged In');
             })
