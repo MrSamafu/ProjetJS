@@ -6,7 +6,13 @@ import {
   theme,
   Text,
   Image,
-  Flex
+  Flex,
+  Accordion,
+  AccordionItem,
+  AccordionHeader,
+  AccordionPanel,
+  AccordionIcon,
+  Box
   
 } from '@chakra-ui/core'
 import ProfilCharacter from "./profilCharacter.js"
@@ -55,7 +61,15 @@ class Profil extends Component {
   render() {
     return <ThemeProvider theme={theme}>
       <CSSReset />
-      <Flex flexDirection="column">
+      <AccordionItem>
+        <AccordionHeader backgroundColor="facebook.600" borderRadius="15px">
+          <Box flex="1" textAlign="left" color="gray.400">
+            Your Profile
+          </Box>
+          <AccordionIcon color="gray.400"/>
+        </AccordionHeader>
+        <AccordionPanel pb={4}>
+        <Flex flexDirection="column">
         <Flex justifyContent="space-around" backgroundColor="facebook.600" color="gray.400" fontWeight="bold" textAlign="left" fontSize="2xl" borderRadius="15px"  margin="10px"  pl={4}>
           <Flex justifyContent="flex-end">
             <Image
@@ -86,8 +100,27 @@ class Profil extends Component {
           </Flex>
         </Flex>
         <Flex flexDirection="row" justifyContent="space-around" alignItems="flex-start">
+        <AccordionItem>
+          <AccordionHeader backgroundColor="facebook.600" borderRadius="15px">
+            <Box flex="1" textAlign="left" color="gray.400">
+              QuickPlay Statistiques
 
+            </Box>
+            <AccordionIcon color="gray.400"/>
+          </AccordionHeader>
+        <AccordionPanel pb={4}>
           <ProfilCharacter />
+          </AccordionPanel>
+          </AccordionItem>
+          <AccordionItem>
+          <AccordionHeader backgroundColor="facebook.600" borderRadius="15px">
+            <Box flex="1" textAlign="left" color="gray.400">
+              Total Medals
+
+            </Box>
+            <AccordionIcon color="gray.400"/>
+          </AccordionHeader>
+        <AccordionPanel pb={4}>
           <Flex backgroundColor="gray.400" borderRadius="15px" marginLeft={5} >
             <Flex flexDirection="column" marginLeft={1} backgroundColor="orange.300" borderRadius="15px" margin={1}>
               <Flex flexDirection="column">
@@ -122,8 +155,13 @@ class Profil extends Component {
               </Flex>
             </Flex>
           </Flex>
+          </AccordionPanel>
+          </AccordionItem>
         </Flex>
       </Flex >
+        </AccordionPanel>
+      
+      </AccordionItem>
     </ThemeProvider >
   }
 }
