@@ -221,6 +221,7 @@ const App = () => (
                 width="100%"
                 height="100%"
               >
+                <Profil />
               </Heading>
             </Flex>
           </Flex>
@@ -237,7 +238,7 @@ const App = () => (
       overflow="visible"
       width="100%"
       height="10%"
-      position="fixed"
+      position="scroll"
       bottom="0"
     >
       <Flex
