@@ -51,24 +51,24 @@ class ProfilCharacter extends Component {
     for (let nameCharacter of tableauxDeDonnee) {
       console.log(this.state.name[nameCharacter])
 
-      screen[count] = <div>
+      screen[count] = 
+      <Flex>
+      <Flex>
         <Image
           height="100px"
           width="100px"
-          src="https://www.overbuff.com/assets/images/heroes/moira.png?v=eee943d"
-          id="characterImg"
+          src="https://d15f34w2p8l1cc.cloudfront.net/overwatch/1b00b8cab530e98c378de2f3e8834d92ee41b4cd7b118179a8ecbccee83c8104.png"
         />
         <Flex flexDirection="column">
-          <Flex flexDirection="column">
-            <Text id="nameCharacter">Nom du héros</Text>
-            <Text id="lastPlayed">Temps de jeu : {this.state.name[nameCharacter]["game"]["timePlayed"]}</Text>
-          </Flex>
+          <Text>Nom du héros</Text>
+          <Text>Temps de jeu : {this.state.name[nameCharacter]["game"]["timePlayed"]}</Text>
           <Flex>
-            <Text id="quickScore">Meilleur score Dommage : {this.state.name[nameCharacter]["best"]["allDamageDoneMostInGame"]}</Text>
-            <Text id="victory">Victoires : {this.state.name[nameCharacter]["game"]["gamesWon"]}</Text>
+            <Text>Meilleur score Dommage : {this.state.name[nameCharacter]["best"]["allDamageDoneMostInGame"]}</Text>
+            <Text>Victoires : {this.state.name[nameCharacter]["game"]["gamesWon"]}</Text>
           </Flex>
         </Flex>
-      </div>
+      </Flex>
+    </Flex>
       count++;
     }
     const listItems = screen.map((characterStats) =>
@@ -76,11 +76,11 @@ class ProfilCharacter extends Component {
               
               
             
-      return <Flex>
-      <Flex>
+      return <Flex flexDirection="column" alignItems="">
+      
       {listItems}
     </Flex>
-    </Flex> 
+   
 
   }
 }
