@@ -53,38 +53,9 @@ class Profil extends Component {
   render() {
     return <ThemeProvider theme={theme}>
       <CSSReset />
-      <Flex justifyContent="space-around">
-        <Flex justifyContent="flex-end">
-          <Image
-            height="100px"
-            width="100px"
-            borderRadius="10px"
-            src={this.state.profilImg}
-            display="flex"
-            id="imgPlayer"
-          />
-          <Flex flexDirection="column">
-            <Text id="playerName">{this.state.name}</Text>
-            <Text id="lastlogin">Temps de jeux :{this.state.timeInGame}</Text>
-          </Flex>
-        </Flex>
-        <Flex display="flex" justifyContent="flex-start">
-          <Image
-            height="110px"
-            width="110px"
-            src={this.state.levelImg}
-            display="flex"
-            id="imgLvl"
-          />
-          <Text id="lvl">Level : {this.state.level}</Text>
-        </Flex>
-      </Flex>
-      <Flex justifyContent="space-around" alignItems="flex-start">
-
-        <ProfilCharacter />
-
-        <Flex>
-          <Flex flexDirection="column">
+      <Flex flexDirection="column">
+        <Flex justifyContent="space-around">
+          <Flex justifyContent="flex-end">
             <Image
               height="100px"
               width="100px"
@@ -95,7 +66,7 @@ class Profil extends Component {
             />
             <Flex flexDirection="column">
               <Text id="playerName">{this.state.name}</Text>
-              <Text id="lastlogin">derniere connexion</Text>
+              <Text id="lastlogin">Temps de jeux :{this.state.timeInGame}</Text>
             </Flex>
           </Flex>
           <Flex display="flex" justifyContent="flex-start">
@@ -110,24 +81,9 @@ class Profil extends Component {
           </Flex>
         </Flex>
         <Flex justifyContent="space-around" alignItems="flex-start">
-          <Flex>
-            <Image
-              height="100px"
-              width="100px"
-              src="https://www.overbuff.com/assets/images/heroes/moira.png?v=eee943d"
-              id="characterImg"
-            />
-            <Flex flexDirection="column">
-              <Flex flexDirection="column">
-                <Text id="nameCharacter">Nom du héro</Text>
-                <Text id="lastPlayed">Dernière partie</Text>
-              </Flex>
-              <Flex>
-                <Text id="quickScore">Score rapide</Text>
-                <Text id="victory">Victoires</Text>
-              </Flex>
-            </Flex>
-          </Flex>
+
+          <ProfilCharacter />
+
           <Flex>
             <Flex flexDirection="column">
               <Image
@@ -158,8 +114,8 @@ class Profil extends Component {
             </Flex>
           </Flex>
         </Flex>
-      </Flex>
-    </ThemeProvider>
+      </Flex >
+    </ThemeProvider >
   }
 }
 
