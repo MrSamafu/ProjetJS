@@ -17,11 +17,11 @@ class Profil extends Component {
       gold: "Loading...",
       silver: "Loading...",
       bronze: "Loading...",
+      timeInGame : "Loading...",
       profilImg: "https://www.freepnglogos.com/uploads/vintage-overwatch-logo-png-12.png",
       levelIcon: "https://www.freepnglogos.com/uploads/vintage-overwatch-logo-png-12.png",
       level : "Loading...",
-      CharacterName: [],
-      CharacterImg: "https://www.freepnglogos.com/uploads/vintage-overwatch-logo-png-12.png",
+      
 
 
       error:null,
@@ -38,9 +38,11 @@ class Profil extends Component {
                         gold: result.quickPlayStats.careerStats.allHeroes.matchAwards.medalsGold,
                         silver: result.quickPlayStats.careerStats.allHeroes.matchAwards.medalsSilver,
                         bronze: result.quickPlayStats.careerStats.allHeroes.matchAwards.medalsBronze,
+                        timeInGame: result.quickPlayStats.careerStats.allHeroes.game.timePlayed, 
                         profilImg: result.icon,
                         levelIcon: result.prestigeIcon,
-                        level: result.level});
+                        level: result.level,
+                        });
           console.log(result);
         },
         (error) => {
@@ -66,7 +68,7 @@ class Profil extends Component {
         />
         <Flex flexDirection="column">
           <Text id="playerName">{this.state.name}</Text>
-          <Text id="lastlogin">derniere connexion</Text>
+  <Text id="lastlogin">Temps de jeux :{this.state.timeInGame}</Text>
         </Flex>
       </Flex>
       <Flex display="flex" justifyContent="flex-start">
