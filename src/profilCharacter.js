@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import {
-  ThemeProvider,
-  CSSReset,
-  theme,
   Text,
   Image,
   Flex
