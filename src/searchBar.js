@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {
+    Text,
     Flex,
     Input,
     FormErrorMessage,
@@ -14,6 +15,7 @@ import {
     Select,
 } from '@chakra-ui/core'
 
+
 class SearchBar extends Component {
     constructor(props) {
         super(props);
@@ -26,12 +28,11 @@ class SearchBar extends Component {
 
     }
     handleChange(event) {
-        console.log(event.target.id);
-        
-        if(event.target.id == "searchBar"){
-           this.setState({ battleTag: event.target.value }); 
+        if(event.target.id === "searchBar"){
+           this.setState({ battleTag: event.target.value });
+           
         }
-        else if(event.target.id == "platformSelection"){
+        else if(event.target.id === "platformSelection"){
             this.setState({plateform: event.target.value });
         }
         
@@ -41,6 +42,11 @@ class SearchBar extends Component {
         console.log(this.state.battleTag);
         console.log(this.state.plateform);
         event.preventDefault();
+        return <div>
+            <Text id="Facing">
+                Nom : + {this.state.battleTag} + et la plateform + {this.state.plateform}
+            </Text>
+        </div>
     }
 
 
@@ -110,6 +116,7 @@ class SearchBar extends Component {
                 >
                     Find!
                         </Button>
+                        
             </Flex>
             <FormErrorMessage>Error message</FormErrorMessage>
         </Flex>
