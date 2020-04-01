@@ -11,6 +11,7 @@ import {
     Button,
     Image
 } from '@chakra-ui/core'
+import { Link } from 'react-router-dom'
 import SearchBar from './searchBar'
 import Profil from './profil'
 
@@ -89,44 +90,47 @@ const Home = () => (
                     width="140px"
                     flexDirection="column"
                 >
-                    <Button
-                        m={3}
-                        backgroundColor="orange.300"
-                        color="whiteAlpha.900"
-                        letterSpacing="widest"
-                        height="50px"
-                        width="100%"
-                        borderRadius="10px"
-                        fontSize="100%"
-                        display="flex"
-                        justifyContent="center"
-                        alignItems="center"
-                        size="md"
-                        variantColor="yellow"
-                        flexDirection="column"
-                        textAlign="center"
-                    >
-                        Sign Up
+                    <Link to="/register">
+                        <Button
+                            m={3}
+                            backgroundColor="orange.300"
+                            color="whiteAlpha.900"
+                            letterSpacing="widest"
+                            h="50px"
+                            w="100%"
+                            borderRadius="10px"
+                            fontSize="100%"
+                            display="flex"
+                            justifyContent="center"
+                            alignItems="center"
+                            size="md"
+                            variantColor="yellow"
+                            flexDirection="column"
+                            textAlign="center"
+                        >
+                            Sign Up
           </Button>
-                    <Button
-                        m={3}
-                        backgroundColor="orange.300"
-                        color="whiteAlpha.900"
-                        letterSpacing="widest"
-                        height="50px"
-                        width="100%"
-                        borderRadius="10px"
-                        fontSize="100%"
-                        display="flex"
-                        justifyContent="center"
-                        alignItems="center"
-                        variant="solid"
-                        variantColor="yellow"
-                        flexDirection="column"
-                    >
-                        Login
+                    </Link>
+                    <Link to="/login">
+                        <Button
+                            m={3}
+                            backgroundColor="orange.300"
+                            color="whiteAlpha.900"
+                            letterSpacing="widest"
+                            h="50px"
+                            w="100%"
+                            borderRadius="10px"
+                            fontSize="100%"
+                            display="flex"
+                            justifyContent="center"
+                            alignItems="center"
+                            variant="solid"
+                            variantColor="yellow"
+                            flexDirection="column"
+                        >
+                            Login
           </Button>
-
+                    </Link>
                 </Flex>
             </Flex>
         </Flex>

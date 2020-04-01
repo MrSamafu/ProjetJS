@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {
     Flex,
-    FormControl,
     Input,
     FormErrorMessage,
     Button,
@@ -52,7 +51,13 @@ class SearchBar extends Component {
             flexDirection="column"
             width="85%"
         >
-            <Flex>
+            <Flex
+                justifyContent="center"
+                alignItems="center"
+                flexDirection="row"
+                width="100%"
+                mb={2}
+            >
                 <Popover>
                     <PopoverTrigger>
                         <Input
@@ -62,26 +67,24 @@ class SearchBar extends Component {
                             borderRadius="5px"
                             opacity={1}
                             backgroundColor="gray.200"
-                            w="200px"
-                            mb={2}
+                            w="50%"
+                            mr={2}
                             value={this.state.battleTag}
                             onChange={this.handleChange}
-
                         />
                     </PopoverTrigger>
                     <PopoverContent zIndex={4}>
                         <PopoverArrow />
                         <PopoverCloseButton />
-                        <PopoverHeader letterSpacing="wide">How to use :</PopoverHeader>
-                        <PopoverBody letterSpacing="wide">Write your BattleTag and find your plateform.<br />(MrSamafu#2780 -> MrSamafu-2780)</PopoverBody>
+                        <PopoverHeader letterSpacing="wide">How to use:</PopoverHeader>
+                        <PopoverBody letterSpacing="wide">Write your BattleTag and find your plateform.<br />(<u><b>Example:</b></u> MrSamafu#2780 -> MrSamafu-2780)</PopoverBody>
                     </PopoverContent>
                 </Popover>
                 <Select
                     id="platformSelection"
-                    placeholder="Platform"
-                    w="120px"
-                    mb={2}
-                    ml={2}
+                    placeholder="Platforms"
+                    w="50%"
+                    letterSpacing="wide"
                     onChange={this.handleChange}
                 >
                     <option value="pc">PC</option>
@@ -90,15 +93,24 @@ class SearchBar extends Component {
                     <option value="nintendo-switch">Nintendo Switch</option>
                 </Select>
             </Flex>
-            <Button
-                backgroundColor="orange.300"
-                w="200px"
-                letterSpacing="widest"
-                mb={2}
-                onClick={this.handleSubmit}
+            <Flex
+                justifyContent="center"
+                alignItems="center"
+                flexDirection="row"
+                w="100%"
             >
-                Find me!
+                <Button
+                    backgroundColor="orange.300"
+                    w="100%"
+                    letterSpacing="widest"
+                    variantColor="yellow"
+                    color="whiteAlpha.900"
+                    mb={5}
+                    onClick={this.handleSubmit}
+                >
+                    Find!
                         </Button>
+            </Flex>
             <FormErrorMessage>Error message</FormErrorMessage>
         </Flex>
     }
