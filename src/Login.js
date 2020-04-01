@@ -1,5 +1,10 @@
 import React from 'react';
 import Fire from './config/Fire';
+import {
+    Button,
+    Flex
+} from '@chakra-ui/core'
+import { Link } from 'react-router-dom';
 
 class Login extends React.Component {
 
@@ -29,18 +34,22 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div style={{ textAlign: 'center' }}>
+            <Flex
+                flexDirection="column"
+                justifyContent="center"
+                textAlign="center"
+            >
                 <div>
-                    <div>Email</div>
-                    <input id="email" placeholder="Enter Email.." type="text"/>
+                    <div>E-mail:</div>
+                    <input id="email" placeholder="Enter Email.." type="text" />
                 </div>
                 <div>
-                    <div>Password</div>
-                    <input id="password" placeholder="Enter Password.." type="text"/>
+                    <div>Password:</div>
+                    <input id="password" placeholder="Enter Password.." type="text" />
                 </div>
-                <button style={{margin: '10px'}} onClick={this.login}>Login</button>
-                <button style={{margin: '10px'}} onClick={this.signUp}>Sign Up</button>
-            </div>
+                <Button style={{ margin: '10px' }} onClick={this.login}>Login</Button>
+                <Link to="/register"><button style={{ margin: '10px' }} onClick={this.signUp}>Sign Up</button></Link>
+            </Flex>
         )
     }
 }

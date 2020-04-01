@@ -3,101 +3,203 @@ import {
     ThemeProvider,
     CSSReset,
     theme,
+    Button,
+    Flex,
     Icon,
-    Heading,
     InputGroup,
     InputLeftAddon,
     Input,
     InputRightElement,
-    Button
+    Text
 } from '@chakra-ui/core'
+import { Link } from 'react-router-dom'
 
-const Inscription = () => (
+const Register = () => (
     <ThemeProvider theme={theme}>
         <CSSReset />
-        <Icon
-            name="copy"
-            fontSize="4xl"
-            backgroundColor="whiteAlpha.500"
+        <Flex
             display="flex"
-            justifyContent="center"
-            alignItems="stretch"
-        />
-        <Heading
-            as="h1"
-            color="yellow.500"
-            letterSpacing="wider"
-            lineHeight="taller"
-            textAlign="center"
-        >
-            Inscription
-        </Heading>
-        <InputGroup>
-            <InputLeftAddon color="yellow.500" fontStyle="italic">
-                Nom:
-            </InputLeftAddon>
-            <Input placeholder="Entrez votre Nom !" opacity={1} color="yellow.500" />
-            <InputRightElement>
-                <Icon name="check" color="yellow.500" />
-            </InputRightElement>
-        </InputGroup>
-        <InputGroup mt={10} color="yellow.500">
-            <InputLeftAddon fontStyle="italic">Pseudo :</InputLeftAddon>
-            <Input placeholder="Entrez votre Pseudo !" />
-            <InputRightElement>
-                <Icon name="star" />
-            </InputRightElement>
-        </InputGroup>
-        <InputGroup
-            mt={10}
-            fontStyle="italic"
-            color="yellow.500"
-            backgroundColor="yellow.900"
-        >
-            <InputLeftAddon>E-mail : </InputLeftAddon>
-            <Input placeholder="Entrez votre email !" letterSpacing="widest" />
-            <InputRightElement>
-                <Icon name="email" />
-            </InputRightElement>
-        </InputGroup>
-        <InputGroup
-            mt={10}
-            textAlign="left"
-            fontStyle="italic"
-            letterSpacing="wide"
-            backgroundColor="gray.900"
-        >
-            <InputLeftAddon color="yellow.500">Mot de passe :</InputLeftAddon>
-            <Input
-                isFullWidth
-                placeholder="Entrez votre mot de passe !"
-                variant="outline"
-                opacity={1}
-                letterSpacing="widest"
-                lineHeight="tall"
-                color="yellow.500"
-            />
-            <InputRightElement>
-                <Icon name="password" color="yellow.500" />
-            </InputRightElement>
-        </InputGroup>
-        <Button
-            fontStyle="italic"
-            textAlign="justify"
-            color="yellow.500"
-            mt={10}
-            display="flex"
-            rightIcon="arrow-forward"
-            justifyContent="center"
-            borderRadius={10}
             flexDirection="row"
-            alignItems="stretch"
-            pr={2}
-            variant="solid"
+            alignItems="center"
+            justifyContent="center"
+            textAlign="center"
+            backgroundColor="gray.100"
+            p={5}
+            overflow="visible"
+            width="100%"
+            height="25%"
         >
-            Inscription
+            <Flex
+                flexDirection="row"
+                justifyContent="flex-start"
+                alignItems="center"
+                width="46%"
+                height="100%"
+            >
+                <Link to="/">
+                    <Button
+                        display="flex"
+                        flexDirection="row"
+                        justifyContent="center"
+                        alignItems="center"
+                        textAlign="center"
+                        backgroundColor="orange.300"
+                        color="whiteAlpha.900"
+                        letterSpacing="widest"
+                        h="50px"
+                        w="50%"
+                        borderRadius="10px"
+                        fontSize="100%"
+                        size="md"
+                        variantColor="yellow"
+                        leftIcon="arrow-back"
+                        m={3}
+                        pl={10}
+                        pr={10}
+                    >
+                        Back
+          </Button>
+                </Link>
+            </Flex>
+            <Flex
+                justifyContent="center"
+                alignItems="center"
+                width="54%"
+                height="100%"
+            >
+                <Text
+                    display="flex"
+                    justifyContent="flex-start"
+                    alignItems="center"
+                    width="100%"
+                    height="100%"
+                    color="orange.300"
+                    fontSize="5xl"
+                    fontFamily="Bangers"
+                >
+                    Register
+        </Text>
+            </Flex>
+        </Flex>
+        <Flex
+            flexDirection="column"
+            h="100%"
+            w="100%"
+            backgroundColor="facebook.900"
+            pt={10}
+            pb={10}
+            pl={5}
+            pr={5}
+        >
+            <InputGroup
+                w="100%"
+                alignContent
+            >
+                <InputLeftAddon
+                    fontStyle="italic"
+                    width="30%"
+                    justifyContent="center"
+                    color="orange.300"
+                    backgroundColor="facebook.300"
+                    letterSpacing="widest"
+                >
+                    Username:
+                </InputLeftAddon>
+                <Input
+                    fontSize="sm"
+                    placeholder="Type your username"
+                    letterSpacing="widest"
+                    lineHeight="tall"
+                    w="70%"
+                />
+                <InputRightElement>
+                    <Icon
+                        name="star"
+                        color="orange.300"
+                    />
+                </InputRightElement>
+            </InputGroup>
+            <InputGroup
+                mt={10}
+            >
+                <InputLeftAddon
+                    color="orange.300"
+                    backgroundColor="facebook.300"
+                    width="30%"
+                    justifyContent="center"
+                    letterSpacing="widest"
+                >
+                    E-mail:
+                </InputLeftAddon>
+                <Input
+                    fontSize="sm"
+                    placeholder="Type your e-mail"
+                    letterSpacing="widest"
+                    lineHeight="tall"
+                    w="70%" />
+                <InputRightElement>
+                    <Icon
+                        name="email"
+                        color="orange.300"
+                    />
+                </InputRightElement>
+            </InputGroup>
+            <InputGroup
+                mt={10}
+                textAlign="left"
+                fontStyle="italic"
+                letterSpacing="wide"
+                w="100%"
+            >
+                <InputLeftAddon
+                    color="orange.300"
+                    backgroundColor="facebook.300"
+                    width="30%"
+                    justifyContent="center"
+                    letterSpacing="widest"
+                >
+                    Password:
+                </InputLeftAddon>
+                <Input
+                    fontSize="sm"
+                    placeholder="Type your password"
+                    letterSpacing="widest"
+                    lineHeight="tall"
+                    w="70%"
+                />
+                <InputRightElement>
+                    <Icon
+                        name="lock"
+                        color="orange.300"
+                    />
+                </InputRightElement>
+            </InputGroup>
+            <Flex
+                flexDirection="row"
+                justifyContent="center"
+                h="100%"
+                w="100%"
+            >
+                <Button
+                    flexDirection="row"
+                    justifyContent="center"
+                    textAlign="center"
+                    color="whiteAlpha.900"
+                    backgroundColor="orange.300"
+                    mt={10}
+                    display="flex"
+                    rightIcon="arrow-forward"
+                    borderRadius={10}
+                    pr={2}
+                    variant="solid"
+                    w="50%"
+                    letterSpacing="widest"
+                >
+                    Create
         </Button>
-    </ThemeProvider>
+            </Flex>
+        </Flex>
+    </ThemeProvider >
 )
 
-export default Inscription
+export default Register
