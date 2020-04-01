@@ -6,7 +6,6 @@ import {
 } from '@chakra-ui/core'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './Home'
-import Inscription from './Inscription'
 import Login from './Login'
 import SignUp from './SignUp'
 import PrivateRoute from "./PrivateRoute";
