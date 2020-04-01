@@ -27,16 +27,17 @@ class SearchBar extends Component {
             flexDirection="column"
             width="85%"
         >
+            <Flex>
             <Popover>
                 <PopoverTrigger>
                     <Input
                         placeholder="MrSamafu-2680"
-                        mt="15px"
                         borderRadius="5px"
                         opacity={1}
                         backgroundColor="gray.200"
                         w="200px"
-                        mb="15px"
+                        mb={2}
+                        
                     />
                 </PopoverTrigger>
                 <PopoverContent zIndex={4}>
@@ -46,29 +47,27 @@ class SearchBar extends Component {
                     <PopoverBody letterSpacing="wide">Write your BattleTag and find your plateform.<br />(MrSamafu#2780 -> MrSamafu-2780)</PopoverBody>
                 </PopoverContent>
             </Popover>
-            <Flex
-                flexDirection="row"
-                alignItems="center"
-            >
                 <Select
                     id="platformSelection"
                     placeholder="Platform"
                     w="120px"
-                    mb="15px"
+                    mb={2}
+                    ml={2}
                 >
                     <option value="pc">PC</option>
                     <option value="xbl">XBOX</option>
                     <option value="psn">PS4</option>
                     <option value="nintendo-switch">Nintendo Switch</option>
                 </Select>
+                </Flex>
                 <Button
                     backgroundColor="orange.300"
                     w="200px"
                     letterSpacing="widest"
+                    mb={2}
                 >
                     Find me!
                         </Button>
-            </Flex>
             <FormErrorMessage>Error message</FormErrorMessage>
         </Flex>
     }
