@@ -42,11 +42,7 @@ class SearchBar extends Component {
         console.log(this.state.battleTag);
         console.log(this.state.plateform);
         event.preventDefault();
-        return <div>
-            <Text id="Facing">
-                Nom : + {this.state.battleTag} + et la plateform + {this.state.plateform}
-            </Text>
-        </div>
+        
     }
 
 
