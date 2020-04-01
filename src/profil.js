@@ -16,9 +16,10 @@ import {
 import ProfilCharacter from "./profilCharacter.js"
 
 class Profil extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
+      profil: "Your profil",
       name: "Loading...",
       gold: "Loading...",
       silver: "Loading...",
@@ -28,12 +29,18 @@ class Profil extends Component {
       levelIcon: "https://www.freepnglogos.com/uploads/vintage-overwatch-logo-png-12.png",
       level: "Loading...",
       error: null,
+      battleTag:'',
+      plateform:'',
+      search: false
 
-    }
+    };
+   
+
+    
   }
 
   componentDidMount() {
-    fetch("https://ovrstat.com/stats/pc/Marcusvult-2114")
+    fetch("https://ovrstat.com/stats/"+ this.state.plateform +"/"+ this.state.battleTag)
       .then(res => res.json())
       .then(
         (result) => {
@@ -47,6 +54,7 @@ class Profil extends Component {
             levelIcon: result.prestigeIcon,
             level: result.level,
           });
+          console.log(this.props.battleTag);
         },
         (error) => {
           this.setState({
@@ -56,7 +64,15 @@ class Profil extends Component {
         }
       );
   }
+
+  
+  
   render() {
+    if(props.search == true){
+      this.setState.profil = "profil";
+      this.setState.battleTag = props.battleTag;
+      this.setState.plateform = props.plateform;
+    }
     return <ThemeProvider theme={theme}>
       <CSSReset />
       <AccordionItem>
@@ -73,7 +89,7 @@ class Profil extends Component {
             fontSize="xl"
             w="100%"
           >
-            Your Profile
+            {this.state.profil}
           </Flex>
           <AccordionIcon color="whiteAlpha.900" />
         </AccordionHeader>
