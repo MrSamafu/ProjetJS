@@ -1,14 +1,14 @@
 import firebase from 'firebase';
 
-const config = {
-    apiKey: "AIzaSyDG5Iic9_1HQm1ZsT9mdTIzqAJ62xa3SJ0",
-    authDomain: "overview-3625b.firebaseapp.com",
-    databaseURL: "https://overview-3625b.firebaseio.com",
-    projectId: "overview-3625b",
-    storageBucket: "overview-3625b.appspot.com",
-    messagingSenderId: "624543184803",
-    appId: "1:624543184803:web:c113a305be4e47f7ba0c16",
-    measurementId: "G-VSY8GJ6Z3F"
+const app = {
+    apiKey: "AIzaSyDlYuoRyIVqECKnVn5w1JXcosTAZRs3HtQ",
+    authDomain: "overprojet.firebaseapp.com",
+    databaseURL: "https://overprojet.firebaseio.com",
+    projectId: "overprojet",
+    storageBucket: "overprojet.appspot.com",
+    messagingSenderId: "368349389877",
+    appId: "1:368349389877:web:aaf4f9b9d1f5a99bd63d7c"
 };
-const Fire = firebase.initializeApp(config);
-export default Fire;
+// Initialize Firebase
+firebase.initializeApp(app);
+export default app;

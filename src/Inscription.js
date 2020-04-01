@@ -15,14 +15,7 @@ import {
 const Inscription = () => (
     <ThemeProvider theme={theme}>
         <CSSReset />
-        <Icon
-            name="copy"
-            fontSize="4xl"
-            backgroundColor="whiteAlpha.500"
-            display="flex"
-            justifyContent="center"
-            alignItems="stretch"
-        />
+
         <Heading
             as="h1"
             color="yellow.500"
