@@ -3,17 +3,13 @@ import {
     ThemeProvider,
     CSSReset,
     theme,
-    Grid,
     Flex,
-    Box,
     Text,
-    Heading,
     Button,
     Image
 } from '@chakra-ui/core'
 import { Link } from 'react-router-dom'
 import SearchBar from './searchBar'
-import Profil from './profil'
 
 const Home = () => (
     <ThemeProvider theme={theme}>
@@ -131,95 +127,7 @@ const Home = () => (
                 </Flex>
             </Flex>
         </Flex>
-        <Grid
-            gap={6}
-            templateColumns="repeat(auto-fit, minmax(350px, 1fr))"
-            display="flex"
-            flexDirection="column"
-            justifyContent="center"
-            alignItems="center"
-            width="100%"
-            height="100%"
-        >
-            <Box
-                display="flex"
-                justifyContent="center"
-                alignItems="center"
-                flexDirection="row"
-                width="100%"
-                height="100%"
-                overflow="visible"
-                backgroundColor="whiteAlpha.50"
-            >
-
-                <Box
-                    backgroundColor="facebook.900"
-                    shadow="sm"
-                    display="flex"
-                    flexDirection="column"
-                    justifyContent="center"
-                    alignItems="center"
-                    height="100%"
-                    width="100%"
-                >
-                    <Flex
-                        display="flex"
-                        flexDirection="row"
-                        alignItems="center"
-                        justifyContent="center"
-                        backgroundColor="facebook.300"
-                        width="85%"
-                        height="100px"
-                        borderRadius="25px"
-                        mt={5}
-                        mb={5}
-                        letterSpacing="widest"
-                    >
-                        <Heading // Titre du contenu
-                            size="md"
-                            as="h1"
-                            lineHeight="shorter"
-                            fontFamily="Bangers"
-                            display="flex"
-                            flexDirection="row"
-                            justifyContent="center"
-                            alignItems="center"
-                            overflow="visible"
-                            textAlign="center"
-                            letterSpacing="widest"
-                            color="orange.300"
-                            fontSize="4xl"
-                        >
-                            Home
-            </Heading>
-                    </Flex>
-                    <SearchBar />
-                    <Flex
-                        justifyContent="center"
-                        alignItems="center"
-                        height="100%"
-                        width="85%"
-                        mb={5}
-                        color="facebook.900"
-                    >
-                        <Flex
-                            display="flex"
-                            flexDirection="row"
-                            alignItems="center"
-                            justifyContent="center"
-                            backgroundColor="whiteAlpha.900"
-                            width="100%"
-                            height="100%"
-                            borderRadius="25px"
-                            p={5}
-                        >
-
-                            <Profil />
-                        </Flex>
-                    </Flex>
-                </Box>
-            </Box>
-        </Grid>
+        <SearchBar/>
         <Flex // Footer
             display="flex"
             flexDirection="row"
