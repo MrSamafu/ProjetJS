@@ -75,8 +75,8 @@ class ProfilCharacter extends Component {
         </Flex>
       count++;
     }
-    const listItems = screen.map((characterStats) =>
-      <div>{characterStats}</div>);
+    const listItems = screen.map((characterStats, index) =>
+      <div key={index}>{characterStats}</div>);
 
 
 

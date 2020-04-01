@@ -14,7 +14,6 @@ import {
 import { Link } from 'react-router-dom'
 import SearchBar from './searchBar'
 import Profil from './profil'
-import config from "./base";
 
 const Home = () => (
     <ThemeProvider theme={theme}>
@@ -108,28 +107,7 @@ const Home = () => (
                             variantColor="yellow"
                             flexDirection="column"
                         >
-                            Sign Up
-                        </Button>
-                    </Link>
-                    <Link to="">
-                        <Button
-                            m={3}
-                            backgroundColor="orange.300"
-                            color="whiteAlpha.900"
-                            letterSpacing="widest"
-                            h="50px"
-                            w="100%"
-                            borderRadius="10px"
-                            fontSize="100%"
-                            display="flex"
-                            justifyContent="center"
-                            alignItems="center"
-                            variant="solid"
-                            variantColor="yellow"
-                            flexDirection="column"
-                            onClick={config.auth().signOut()}
-                        >
-                           lougout
+                            Sugn Up
                         </Button>
                     </Link>
                     <Link to="/login">
