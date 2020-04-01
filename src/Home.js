@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/core'
 import { Link } from 'react-router-dom'
 import SearchBar from './searchBar'
-import Profil from './profil'
+import Profil from './Profil'
 
 const Home = () => (
     <ThemeProvider theme={theme}>
