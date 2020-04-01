@@ -80,7 +80,7 @@ const Home = () => (
                 height="100%"
                 m={5}
             >
-                
+
                 <Flex
                     justifyContent="center"
                     alignItems="center"
@@ -126,7 +126,7 @@ const Home = () => (
                     >
                         Login
           </Button>
-          
+
                 </Flex>
             </Flex>
         </Flex>
@@ -150,7 +150,7 @@ const Home = () => (
                 overflow="visible"
                 backgroundColor="whiteAlpha.50"
             >
-                
+
                 <Box
                     backgroundColor="facebook.900"
                     shadow="sm"
@@ -161,7 +161,6 @@ const Home = () => (
                     height="100%"
                     width="100%"
                 >
-                    <SearchBar />
                     <Flex
                         display="flex"
                         flexDirection="row"
@@ -193,6 +192,7 @@ const Home = () => (
                             Home
             </Heading>
                     </Flex>
+                    <SearchBar />
                     <Flex
                         justifyContent="center"
                         alignItems="center"
@@ -212,7 +212,7 @@ const Home = () => (
                             borderRadius="25px"
                             p={5}
                         >
-                            
+
                             <Profil />
                         </Flex>
                     </Flex>
