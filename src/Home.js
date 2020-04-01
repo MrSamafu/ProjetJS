@@ -90,47 +90,44 @@ const Home = () => (
                     width="140px"
                     flexDirection="column"
                 >
-                    <Link to="/register">
-                        <Button
-                            m={3}
-                            backgroundColor="orange.300"
-                            color="whiteAlpha.900"
-                            letterSpacing="widest"
-                            h="50px"
-                            w="100%"
-                            borderRadius="10px"
-                            fontSize="100%"
-                            display="flex"
-                            justifyContent="center"
-                            alignItems="center"
-                            size="md"
-                            variantColor="yellow"
-                            flexDirection="column"
-                            textAlign="center"
-                        >
-                            Sign Up
+                    <Button
+                        m={3}
+                        backgroundColor="orange.300"
+                        color="whiteAlpha.900"
+                        letterSpacing="widest"
+                        height="50px"
+                        width="100%"
+                        borderRadius="10px"
+                        fontSize="100%"
+                        display="flex"
+                        justifyContent="center"
+                        alignItems="center"
+                        size="md"
+                        variantColor="yellow"
+                        flexDirection="column"
+                        textAlign="center"
+                    >
+                        Sign Up
           </Button>
-                    </Link>
-                    <Link to="/login">
-                        <Button
-                            m={3}
-                            backgroundColor="orange.300"
-                            color="whiteAlpha.900"
-                            letterSpacing="widest"
-                            h="50px"
-                            w="100%"
-                            borderRadius="10px"
-                            fontSize="100%"
-                            display="flex"
-                            justifyContent="center"
-                            alignItems="center"
-                            variant="solid"
-                            variantColor="yellow"
-                            flexDirection="column"
-                        >
-                            Login
+                    <Button
+                        m={3}
+                        backgroundColor="orange.300"
+                        color="whiteAlpha.900"
+                        letterSpacing="widest"
+                        height="50px"
+                        width="100%"
+                        borderRadius="10px"
+                        fontSize="100%"
+                        display="flex"
+                        justifyContent="center"
+                        alignItems="center"
+                        variant="solid"
+                        variantColor="yellow"
+                        flexDirection="column"
+                    >
+                        Login
           </Button>
-                    </Link>
+
                 </Flex>
             </Flex>
         </Flex>
