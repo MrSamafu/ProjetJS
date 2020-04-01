@@ -68,10 +68,10 @@ class Profil extends Component {
   
   
   render() {
-    if(props.search == true){
+    if(this.props.search == true){
       this.setState.profil = "profil";
-      this.setState.battleTag = props.battleTag;
-      this.setState.plateform = props.plateform;
+      this.setState.battleTag = this.props.battleTag;
+      this.setState.plateform = this.props.plateform;
     }
     return <ThemeProvider theme={theme}>
       <CSSReset />
