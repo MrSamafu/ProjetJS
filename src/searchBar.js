@@ -20,10 +20,10 @@ import Profil from "./profil"
 
 
 class SearchBar extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
-            battleTag: "",
+            battleTag: "lalalala",
             plateform: "pc",
             search: false,
         };
@@ -39,12 +39,12 @@ class SearchBar extends Component {
         else if (event.target.id === "platformSelection") {
             this.setState({ plateform: event.target.value });
         }
+        
 
     }
 
     handleSubmit(event) {
-        console.log(this.state.battleTag);
-        console.log(this.state.plateform);
+        this.state.search = true;
         event.preventDefault();
 
     }
@@ -202,7 +202,7 @@ class SearchBar extends Component {
                             p={5}
                         >
 
-                            <Profil battleTag={this.state.battleTag} plateform={this.state.plateform} />
+                            <Profil battleTag={this.state.battleTag} plateform={this.state.plateform} search={this.state.search} />
                         </Flex>
                     </Flex>
                 </Box>
