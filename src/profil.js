@@ -63,42 +63,49 @@ class Profil extends Component {
         <AccordionHeader
           backgroundColor="facebook.500"
           borderRadius="20px"
+          w="100%"
         >
-          <Box
-            flex="1"
+          <Flex
             textAlign="left"
+            justifyContent="center"
             color="whiteAlpha.900"
             letterSpacing="widest"
             fontSize="xl"
+            w="100%"
           >
             Your Profile
-          </Box>
+          </Flex>
           <AccordionIcon color="whiteAlpha.900" />
         </AccordionHeader>
-        <AccordionPanel pb={4}>
-          <Flex flexDirection="column">
+        <AccordionPanel>
+          <Flex flexDirection="column" w="100%">
             <Flex justifyContent="space-around"
               backgroundColor="facebook.500"
               color="whiteAlpha.900"
               textAlign="left"
               fontSize="2xl"
               borderRadius="15px"
-              m="10px"
-              pl={4}
+              mb={2}
+              w="100%"
             >
               <Flex justifyContent="flex-end">
-                <Image
-                  height="100px"
-                  width="100px"
-                  borderRadius="10px"
-                  src={this.state.profilImg}
-                  display="flex"
-                  id="imgPlayer"
-                  marginTop={1}
-                />
                 <Flex
                   flexDirection="column"
-                  marginLeft={1}
+                  w="35%"
+                >
+                  <Image
+                    display="flex"
+                    height="100px"
+                    width="150px"
+                    borderRadius="15px"
+                    src={this.state.profilImg}
+                    id="imgPlayer"
+                    m={2}
+                  />
+                </Flex>
+                <Flex
+                  flexDirection="column"
+                  w="65%"
                 >
                   <Text id="playerName">{this.state.name}</Text>
                   <Text
@@ -111,16 +118,16 @@ class Profil extends Component {
                     Playing time: {this.state.timeInGame}
                   </Text>
                 </Flex>
-              </Flex>
-              <Flex display="flex" justifyContent="flex-start">
-                <Image
-                  height="110px"
-                  width="110px"
-                  src={this.state.levelIcon}
-                  display="flex"
-                  id="imgLvl"
-                />
 
+                <Flex>
+                  <Image
+                    height="100%"
+                    width="100%"
+                    src={this.state.levelIcon}
+                    display="flex"
+                    id="imgLvl"
+                  />
+                </Flex>
                 <Text
                   id="lvl"
                   fontFamily="Bangers"
@@ -137,16 +144,14 @@ class Profil extends Component {
             <Flex flexDirection="row" justifyContent="space-around" alignItems="flex-start">
               <AccordionItem>
                 <AccordionHeader backgroundColor="facebook.500" borderRadius="15px">
-                  <Box
-                    flex="1"
+                  <Flex
                     textAlign="left"
                     color="whiteAlpha.900"
                     letterSpacing="widest"
                     fontSize="lg"
                   >
                     QuickPlay Statistics
-
-            </Box>
+            </Flex>
                   <AccordionIcon color="whiteAlpha.900" />
                 </AccordionHeader>
                 <AccordionPanel pb={4}>
@@ -168,8 +173,8 @@ class Profil extends Component {
                   <AccordionIcon color="whiteAlpha.900" />
                 </AccordionHeader>
                 <AccordionPanel pb={4}>
-                  <Flex backgroundColor="orange.500" borderRadius="15px" marginLeft={5} >
-                    <Flex flexDirection="column" marginLeft={1} backgroundColor="orange.300" borderRadius="15px" margin={1}>
+                  <Flex backgroundColor="orange.500" borderRadius="15px" marginLeft={5}>
+                    <Flex flexDirection="column" marginLeft={1} backgroundColor="orange.300" borderRadius="15px" m={1}>
                       <Flex flexDirection="column">
                         <Image
                           height="100px"
