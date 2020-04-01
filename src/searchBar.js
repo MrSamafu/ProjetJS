@@ -15,9 +15,34 @@ import {
 } from '@chakra-ui/core'
 
 class SearchBar extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+        this.state = {
+            battleTag: "",
+            plateform: "pc"
+        };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+
     }
+    handleChange(event) {
+        console.log(event.target.id);
+        
+        if(event.target.id == "searchBar"){
+           this.setState({ battleTag: event.target.value }); 
+        }
+        else if(event.target.id == "platformSelection"){
+            this.setState({plateform: event.target.value });
+        }
+        
+    }
+
+    handleSubmit(event) {
+        console.log(this.state.battleTag);
+        console.log(this.state.plateform);
+        event.preventDefault();
+    }
+
 
     render() {
         return <Flex
@@ -36,11 +61,16 @@ class SearchBar extends Component {
                 <Popover>
                     <PopoverTrigger>
                         <Input
+                            id="searchBar"
+                            type="text"
                             placeholder="MrSamafu-2680"
                             borderRadius="5px"
                             opacity={1}
                             backgroundColor="gray.200"
                             w="50%"
+                            mr={2}
+                            value={this.state.battleTag}
+                            onChange={this.handleChange}
                         />
                     </PopoverTrigger>
                     <PopoverContent zIndex={4}>
@@ -55,6 +85,7 @@ class SearchBar extends Component {
                     placeholder="Platforms"
                     w="50%"
                     letterSpacing="wide"
+                    onChange={this.handleChange}
                 >
                     <option value="pc">PC</option>
                     <option value="xbl">XBOX</option>
@@ -75,6 +106,7 @@ class SearchBar extends Component {
                     variantColor="yellow"
                     color="whiteAlpha.900"
                     mb={5}
+                    onClick={this.handleSubmit}
                 >
                     Find!
                         </Button>
