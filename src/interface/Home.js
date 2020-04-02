@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import {
     ThemeProvider,
     CSSReset,
@@ -22,10 +22,50 @@ import SearchBar from './searchBar'
 import config from "../firebase/base";
 import "firebase/database";
 
-const Home = () => {
-    let isUser = config.auth().currentUser
-    return (
-        <ThemeProvider theme={theme}>
+
+
+class Home extends Component {
+    constructor() {
+      super();
+        this.state = {
+            battleTag: "Loading...",
+            email:"Loading...",
+            plateform:"Loading...",
+            displayProfil:'none'
+            }
+
+    let isUser = config.auth().currentUser;
+    let  email, uidUser;
+    if (isUser != null) {
+
+      uidUser = isUser.uid;
+      email = isUser.email;
+      this.setState({
+         email: toString(isUser.email)
+        });
+
+      let refUser = config.database().ref('user/' + uidUser + '/BattleNet');
+      refUser.on('value',(snapshot) => {
+        this.setState({
+          battleTag: snapshot.val(),
+        });  
+      });
+      let refPlate = config.database().ref('plate/' + uidUser + '/PlateForm');
+      refPlate.on('value',(snapshot) => {
+        this.setState({
+          plateform: snapshot.val(),
+        });  
+      });
+      
+      
+      console.log(email)
+    } else {
+      
+    }
+}
+render(){
+    let isUser = config.auth().currentUser;
+    return <ThemeProvider theme={theme}>
         <CSSReset />
         <Flex // Header
             backgroundColor="gray.100"
@@ -166,8 +206,9 @@ const Home = () => {
                                 <PopoverArrow />
                                 <PopoverCloseButton />
                                 <PopoverHeader letterSpacing="wide">Status: Connected </PopoverHeader>
-                                <PopoverBody letterSpacing="wide">Pseudo :<br />Email :<br /> Change Your Plateform ?<Select
-                                    name="PlateForm"
+                                <PopoverBody letterSpacing="wide"> Pseudo : {this.state.battleTag} <br /> Email : {this.state.email} <br /> Change Your Plateform ?
+                                <Select
+                                    value={this.state.plateform}
                                     id="platformSelection"
                                     placeholder="New Plateform?"
 
@@ -307,7 +348,9 @@ const Home = () => {
             </Flex>
         </Flex>
     </ThemeProvider>
-    )
+    }
+    
+
 }
 
 

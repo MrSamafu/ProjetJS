@@ -39,11 +39,10 @@ class Profil extends Component {
     };
     let user = config.auth().currentUser;
     let plate = config.auth().currentUser;
-    let  email, uidUser,uidPlate;
+    let  email, uidUser;
     if (user != null) {
 
       uidUser = user.uid;
-      uidPlate = plate.uid;
       let refUser = config.database().ref('user/' + uidUser + '/BattleNet');
       refUser.on('value',(snapshot) => {
         this.setState({
