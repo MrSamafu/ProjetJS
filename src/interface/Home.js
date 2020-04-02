@@ -19,8 +19,9 @@ import {
 } from '@chakra-ui/core'
 import { Link } from 'react-router-dom'
 import SearchBar from './searchBar'
-import config from "../firebase/base";
-import "firebase/database";
+import config from "../firebase/base"
+import "firebase/database"
+import PanelAdmin from "../admin/panelAdmin"
 
 
 
@@ -315,13 +316,19 @@ class Home extends Component {
                                         mr={1}
                                     >
                                     </Image>
-                                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Partager</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="true">Partager</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                                 </Flex>
                             </Flex>                            
                             </Flex>
                 </Flex>
             </Flex>
             <SearchBar />
+            <Flex
+                justifyContent="center"
+            >
+                <PanelAdmin />
+            </Flex>
+            
             <Flex // Footer
                 display="flex"
                 flexDirection="row"
