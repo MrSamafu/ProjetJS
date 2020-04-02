@@ -25,12 +25,12 @@ class SearchBar extends Component {
         this.state = {
             battleTag: "",
             plateform: "pc",
-            search: false,
             tmpBattleTag:"",
             tmpPlateform:"pc"
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        
 
     }
     handleChange(event) {
@@ -208,7 +208,7 @@ class SearchBar extends Component {
                             p={5}
                         >
 
-                            <Profil battleTag={this.state.battleTag} plateform={this.state.plateform}/>
+                            <Profil battleTag={this.state.battleTag} plateform={this.state.plateform} />
                         </Flex>
                     </Flex>
                 </Box>

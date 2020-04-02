@@ -16,7 +16,7 @@ const Login = ({ history }) => {
                   var BattleNet = config.database().ref('user/' + letUserId + '/BattleNet');
                   BattleNet.on('value', function(snapshot) {
                       //updateStarCount(postElement, snapshot.val());
-                      console.log(snapshot.val())
+                      console.log(snapshot.val());
 
               history.push("/");
           });

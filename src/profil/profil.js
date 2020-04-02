@@ -14,6 +14,7 @@ import {
 
 } from '@chakra-ui/core'
 import ProfilCharacter from "./profilCharacter.js"
+import config from "../firebase/base";
 
 class Profil extends Component {
   constructor() {
@@ -29,41 +30,77 @@ class Profil extends Component {
       levelIcon: "https://www.freepnglogos.com/uploads/vintage-overwatch-logo-png-12.png",
       level: "Loading...",
       error: "none",
-      battleTag: '',
+      battleTag: "",
       plateform: 'pc',
-      search: false,
-      notFound: "block"
+      notFound: "block",
+      connected: false
 
     };
+    let user = config.auth().currentUser;
+    let plate = config.auth().currentUser;
+    let  email, uidUser,uidPlate;
+    if (user != null) {
 
+      uidUser = user.uid;
+      uidPlate = plate.uid;
+      let refUser = config.database().ref('user/' + uidUser + '/BattleNet');
+      refUser.on('value',(snapshot) => {
+        this.setState({
+          battleTag: snapshot.val(),
+        });
+      console.log(this.state.battleTag);  
+      });
+      let refPlate = config.database().ref('plate/' + uidUser + '/PlateForm');
+      refPlate.on('value',(snapshot) => {
+        this.setState({
+          plateform: snapshot.val(),
+          connected: true
+        });
+      console.log(this.state.plateform);  
+      });
+      email = user.email;
+      this.setState({
+        
+      })
+    } else {
+      console.log("Else");
+    }
 
 
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.battleTag !== prevProps.battleTag || this.props.plateform !== prevProps.plateform) {
-      if (this.props.battleTag === "") {
-        this.setState({
-          notFound: "none",
-          error: "block",
-          profil: "Search is empty"
-        })
-
-        return;
+  componentDidUpdate(prevProps,prevState) {
+    if (this.state.battleTag !== prevState.battleTag || this.state.plateform !== prevState.plateform){      
+      if(this.state.connected){
+        /*if(this.state.search){
+          this.setState({
+            battleTag: this.props.battleTag,
+            plateform: this.props.plateform
+          })
+        }*/
       }
-      console.log(this.props);
-        fetch("https://ovrstat.com/stats/" + this.props.plateform + "/" + this.props.battleTag)
+      fetch("https://ovrstat.com/stats/" + this.state.plateform + "/" + this.state.battleTag)
         .then(res => res.json())
         .then(
           (result) => {
-            if(result.message === "Player not found"){
+            if (result.message === "Player not found") {
               this.setState({
                 notFound: "none",
                 error: "block",
                 profil: "Player not found"
               })
               return;
-            }else{
+            }
+            else if (this.state.battleTag === "") {
+              this.setState({
+                notFound: "none",
+                error: "block",
+                profil: "Search is empty"
+              });
+      
+              return;
+            }
+            else {
               this.setState({
                 name: result.name,
                 gold: result.quickPlayStats.careerStats.allHeroes.matchAwards.medalsGold,
@@ -77,15 +114,12 @@ class Profil extends Component {
                 plateform: this.props.plateform,
                 notFound: "block",
                 error: "none",
-                profil: "Profil"
-            });
+                profil: "Your Profil"
+              });
             }
-            
-            
-            console.log("https://ovrstat.com/stats/" + this.props.plateform + "/" + this.props.battleTag);
           });
-      
-      
+
+
 
     }
   }
@@ -207,7 +241,7 @@ class Profil extends Component {
                   <AccordionIcon color="whiteAlpha.900" />
                 </AccordionHeader>
                 <AccordionPanel pb={4}>
-                  <ProfilCharacter battleTag={this.state.battleTag} plateform={this.state.plateform}/>
+                  <ProfilCharacter battleTag={this.state.battleTag} plateform={this.state.plateform} />
                 </AccordionPanel>
               </AccordionItem>
               <AccordionItem>
