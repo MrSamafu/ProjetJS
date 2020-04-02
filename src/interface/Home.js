@@ -34,15 +34,13 @@ class Home extends Component {
             }
 
     let isUser = config.auth().currentUser;
-    let  emailuser, uidUser;
+    let  email, uidUser;
     if (isUser != null) {
-      
       uidUser = isUser.uid;
-      emailuser = isUser.email;
+      email = isUser.email.toString();
       this.setState({
-          email: isUser.email
-      })
-
+          email: email
+      });
       let refUser = config.database().ref('user/' + uidUser + '/BattleNet');
       refUser.on('value',(snapshot) => {
         this.setState({
@@ -60,12 +58,16 @@ class Home extends Component {
 
 componentDidUpdate(prevState){
     if(this.state.email !== prevState.email){
-        console.log(this.state.email)
+        console.log("CouCou");
+        console.log(this.state.email);
+        console.log(prevState.email)
+        
         return;
     }
 }
 
 render(){
+    
     let isUser = config.auth().currentUser;
     return <ThemeProvider theme={theme}>
         <CSSReset />
@@ -293,7 +295,7 @@ render(){
                 </Flex>
             </Flex>
         </Flex>
-        <SearchBar/>
+        <SearchBar />
         <Flex // Footer
             display="flex"
             flexDirection="row"

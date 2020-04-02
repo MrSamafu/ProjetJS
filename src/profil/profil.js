@@ -38,8 +38,7 @@ class Profil extends Component {
 
     };
     let user = config.auth().currentUser;
-    let plate = config.auth().currentUser;
-    let  email, uidUser;
+    let uidUser;
     if (user != null) {
 
       uidUser = user.uid;
@@ -58,13 +57,7 @@ class Profil extends Component {
         });
       console.log(this.state.plateform);  
       });
-      email = user.email;
-      this.setState({
-        
-      })
-    } else {
-      console.log("Else");
-    }
+    } 
 
 
   }
