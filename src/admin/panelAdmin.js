@@ -9,7 +9,6 @@ import {
     Box,
     Button
   } from '@chakra-ui/core'
-  import config from "../firebase/base"
 
 class PanelAdmin extends Component {
     constructor() {
@@ -20,21 +19,6 @@ class PanelAdmin extends Component {
           plateformUser: "none",
           emailUser: "none"
       }
-      let user = config.auth().currentUser;
-      let firebase = config.auth().currentUser;
-      let refUser;
-      if (user != null){
-          refUser = config.database().ref('user');
-          refUser.on("value",function(snapshot){
-              snapshot.forEach(function(childSnapshot){
-                  let battleTagUser = childSnapshot.BattleNet;
-                  console.log(battleTagUser);
-              });
-          });
-          
-      }
-      
-
     }
 
     componentDidUpdate(){
@@ -55,6 +39,7 @@ class PanelAdmin extends Component {
           display="flex"
           alignItems="stretch"
           justifyContent="flex-start"
+          display="none"
         >
           <Box display="flex" flexDirection="column">
             <Button>Profil</Button>
