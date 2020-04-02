@@ -157,6 +157,7 @@ class Profil extends Component {
             color="whiteAlpha.900"
             letterSpacing="widest"
             fontSize="xl"
+            variantColor="blue"
             w="100%"
           >
             {this.state.profil}
