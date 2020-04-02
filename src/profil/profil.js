@@ -14,11 +14,13 @@ import {
 
 } from '@chakra-ui/core'
 import ProfilCharacter from "./profilCharacter.js"
+import config from "../firebase/base";
 
 class Profil extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
+      profil: "Your profil",
       name: "Loading...",
       gold: "Loading...",
       silver: "Loading...",
@@ -27,39 +29,123 @@ class Profil extends Component {
       profilImg: "https://www.freepnglogos.com/uploads/vintage-overwatch-logo-png-12.png",
       levelIcon: "https://www.freepnglogos.com/uploads/vintage-overwatch-logo-png-12.png",
       level: "Loading...",
-      error: null,
+      error: "none",
+      battleTag: "",
+      plateform: 'pc',
+      notFound: "block",
+      connected: false
+
+    };
+    let user = config.auth().currentUser;
+    let plate = config.auth().currentUser;
+    let  email, uidUser,uidPlate;
+    if (user != null) {
+
+      uidUser = user.uid;
+      uidPlate = plate.uid;
+      let refUser = config.database().ref('user/' + uidUser + '/BattleNet');
+      refUser.on('value',(snapshot) => {
+        this.setState({
+          battleTag: snapshot.val(),
+        });
+      console.log(this.state.battleTag);  
+      });
+      let refPlate = config.database().ref('plate/' + uidUser + '/PlateForm');
+      refPlate.on('value',(snapshot) => {
+        this.setState({
+          plateform: snapshot.val(),
+          connected: true
+        });
+      console.log(this.state.plateform);  
+      });
+      email = user.email;
+      this.setState({
+        
+      })
+    } else {
+      console.log("Else");
+    }
+
+
+  }
+
+  componentDidUpdate(prevProps,prevState) {
+    if (this.state.battleTag !== prevState.battleTag || this.state.plateform !== prevState.plateform){      
+      if(this.state.connected){
+        /*if(this.state.search){
+          this.setState({
+            battleTag: this.props.battleTag,
+            plateform: this.props.plateform
+          })
+        }*/
+      }
+      fetch("https://ovrstat.com/stats/" + this.state.plateform + "/" + this.state.battleTag)
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if (result.message === "Player not found") {
+              this.setState({
+                notFound: "none",
+                error: "block",
+                profil: "Player not found"
+              })
+              return;
+            }
+            else if (this.state.battleTag === "") {
+              this.setState({
+                notFound: "none",
+                error: "block",
+                profil: "Search is empty"
+              });
+      
+              return;
+            }
+            else {
+              this.setState({
+                name: result.name,
+                gold: result.quickPlayStats.careerStats.allHeroes.matchAwards.medalsGold,
+                silver: result.quickPlayStats.careerStats.allHeroes.matchAwards.medalsSilver,
+                bronze: result.quickPlayStats.careerStats.allHeroes.matchAwards.medalsBronze,
+                timeInGame: result.quickPlayStats.careerStats.allHeroes.game.timePlayed,
+                profilImg: result.icon,
+                levelIcon: result.prestigeIcon,
+                level: result.level,
+                battleTag: this.props.battleTag,
+                plateform: this.props.plateform,
+                notFound: "block",
+                error: "none",
+                profil: "Your Profil"
+              });
+            }
+          });
+
+
 
     }
   }
 
-  componentDidMount() {
-    fetch("https://ovrstat.com/stats/pc/Marcusvult-2114")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            name: result.name,
-            gold: result.quickPlayStats.careerStats.allHeroes.matchAwards.medalsGold,
-            silver: result.quickPlayStats.careerStats.allHeroes.matchAwards.medalsSilver,
-            bronze: result.quickPlayStats.careerStats.allHeroes.matchAwards.medalsBronze,
-            timeInGame: result.quickPlayStats.careerStats.allHeroes.game.timePlayed,
-            profilImg: result.icon,
-            levelIcon: result.prestigeIcon,
-            level: result.level,
-          });
-        },
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      );
-  }
   render() {
-    return <ThemeProvider theme={theme}>
+    return <ThemeProvider theme={theme} >
       <CSSReset />
-      <AccordionItem>
+      <Flex
+        backgroundColor="facebook.500"
+        borderRadius="20px"
+        w="100%"
+        display={this.state.error}
+      >
+        <Text
+          textAlign="center"
+          justifyContent="center"
+          color="whiteAlpha.900"
+          letterSpacing="widest"
+          fontSize="xl"
+          w="100%"
+          fontFamily="Bangers"
+        >
+          {this.state.profil}
+        </Text>
+      </Flex>
+      <AccordionItem display={this.state.notFound}>
         <AccordionHeader
           backgroundColor="facebook.500"
           borderRadius="20px"
@@ -74,7 +160,7 @@ class Profil extends Component {
             variantColor="blue"
             w="100%"
           >
-            Your Profile
+            {this.state.profil}
           </Flex>
           <AccordionIcon color="whiteAlpha.900" />
         </AccordionHeader>
@@ -156,7 +242,7 @@ class Profil extends Component {
                   <AccordionIcon color="whiteAlpha.900" />
                 </AccordionHeader>
                 <AccordionPanel pb={4}>
-                  <ProfilCharacter />
+                  <ProfilCharacter battleTag={this.state.battleTag} plateform={this.state.plateform} />
                 </AccordionPanel>
               </AccordionItem>
               <AccordionItem>
