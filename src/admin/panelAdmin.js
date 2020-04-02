@@ -3,24 +3,35 @@ import {
     ThemeProvider,
     CSSReset,
     theme,
-    Accordion,
-    AccordionItem,
-    AccordionHeader,
-    AccordionPanel,
     Text,
-    AccordionIcon,
     Flex,
-    Image,
     Grid,
     Box,
     Button
   } from '@chakra-ui/core'
+  import config from "../firebase/base"
 
 class PanelAdmin extends Component {
     constructor() {
       super();
       this.state = {
-          panelDisplay: "profil"
+          panelDisplay: "profil",
+          battleTagUser: "none",
+          plateformUser: "none",
+          emailUser: "none"
+      }
+      let user = config.auth().currentUser;
+      let firebase = config.auth().currentUser;
+      let refUser;
+      if (user != null){
+          refUser = config.database().ref('user');
+          refUser.on("value",function(snapshot){
+              snapshot.forEach(function(childSnapshot){
+                  let battleTagUser = childSnapshot.BattleNet;
+                  console.log(battleTagUser);
+              });
+          });
+          
       }
       
 
@@ -33,7 +44,7 @@ class PanelAdmin extends Component {
     deleteAccount(){
        
     }
-    
+
     render(){
         return <ThemeProvider theme={theme}>
         <CSSReset />
