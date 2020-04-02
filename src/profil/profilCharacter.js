@@ -25,7 +25,6 @@ class ProfilCharacter extends Component {
               return;
             }
             else {
-              console.log(result.message);
               this.setState({
                 name: result.quickPlayStats.careerStats
               });
