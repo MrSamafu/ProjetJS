@@ -2,11 +2,20 @@ import React from 'react'
 import {
     ThemeProvider,
     CSSReset,
+    Grid,
     theme,
     Flex,
     Text,
     Button,
-    Image
+    Image,
+    Popover,
+    PopoverTrigger,
+    PopoverContent,
+    PopoverHeader,
+    PopoverBody,
+    PopoverArrow,
+    PopoverCloseButton, Select,
+
 } from '@chakra-ui/core'
 import { Link } from 'react-router-dom'
 import SearchBar from './searchBar'
@@ -130,25 +139,82 @@ const Home = () => {
                     >
                         Login
                     </Button> </Link> }
-                    { isUser ? <Button
-                        m={3}
-                        backgroundColor="orange.300"
-                        color="whiteAlpha.900"
-                        letterSpacing="widest"
-                        height="50px"
-                        width="100%"
-                        borderRadius="10px"
-                        fontSize="100%"
-                        display="flex"
-                        justifyContent="center"
-                        alignItems="center"
-                        variant="solid"
-                        variantColor="yellow"
-                        flexDirection="column"
+                    { isUser ?
+                        <Popover>
+                            <PopoverTrigger>
+                                <Button
+                                    m={3}
+                                    backgroundColor="orange.300"
+                                    color="whiteAlpha.900"
+                                    letterSpacing="widest"
+                                    height="50px"
+                                    width="100%"
+                                    borderRadius="10px"
+                                    fontSize="100%"
+                                    display="flex"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    variant="solid"
+                                    variantColor="yellow"
+                                    flexDirection="column"
 
-                    >
-                        Profil
-                    </Button>:  <Link to="/register">
+                                >
+                                    Profil
+                                </Button>
+                            </PopoverTrigger>
+                            <PopoverContent zIndex={4}>
+                                <PopoverArrow />
+                                <PopoverCloseButton />
+                                <PopoverHeader letterSpacing="wide">Status: Connected </PopoverHeader>
+                                <PopoverBody letterSpacing="wide">Pseudo :<br />Email :<br /><Select
+                                    name="PlateForm"
+                                    id="platformSelection"
+                                    placeholder="New Plateform?"
+                                    w="50%"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    letterSpacing="wide"
+                                >
+                                    <option value="pc">PC</option>
+                                    <option value="xbl">XBOX</option>
+                                    <option value="psn">PS4</option>
+                                    <option value="nintendo-switch">Nintendo Switch</option>
+                                </Select><Select
+                                    name="PlateForm"
+                                    id="platformSelection"
+                                    placeholder="New Plateform?"
+                                    w="50%"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    letterSpacing="wide"
+                                >
+                                    <option value="pc">PC</option>
+                                    <option value="xbl">XBOX</option>
+                                    <option value="psn">PS4</option>
+                                    <option value="nintendo-switch">Nintendo Switch</option>
+                                </Select><Button
+                                    m={3}
+                                    backgroundColor="orange.300"
+                                    color="whiteAlpha.900"
+                                    letterSpacing="widest"
+                                    height="50px"
+                                    width="90%"
+                                    borderRadius="10px"
+                                    fontSize="100%"
+                                    display="flex"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    size="md"
+                                    variantColor="yellow"
+                                    flexDirection="column"
+                                    textAlign="center"
+
+                                >
+
+                                    Search Profil
+                                </Button><br /></PopoverBody>
+                            </PopoverContent>
+                        </Popover>:  <Link to="/register">
                         <Button
                             m={3}
                             backgroundColor="orange.300"
