@@ -170,14 +170,29 @@ const SignUp = ({ history }) => {
           </Flex>
         </Flex>
       </Flex>
-      <h1 justifyContent="center"></h1>
+      <Flex width="75%" height="100%" p={5}>
+        <Text
+            fontFamily="Bangers"
+            textAlign="center"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            fontSize="5xl"
+            color="orange.300"
+            width="150%"
+            height="100%"
+        >
+         _Sign-Up_
+        </Text>
+      </Flex>
+      <h1 ></h1>
       <form onSubmit={handleSignUp}>
         <label>
         Pseudo :
-        <input name="BattleNet" type="text" placeholder="Peudo Battle.net" />
+        <input justifyContent="center" name="BattleNet" type="text" placeholder="Peudo Battle.net" />
       </label>
         <label>
-          Plateform :
+
           <Select
               name="PlateForm"
               id="platformSelection"
