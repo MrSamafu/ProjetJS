@@ -25,6 +25,7 @@ import PanelAdmin from "../admin/panelAdmin"
 
 
 
+
 class Home extends Component {
     constructor() {
         super();
@@ -242,7 +243,6 @@ class Home extends Component {
                                             variantColor="yellow"
                                             flexDirection="column"
                                             textAlign="center"
-
                                         >
 
                                             Update
