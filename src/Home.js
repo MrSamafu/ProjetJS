@@ -3,19 +3,18 @@ import {
     ThemeProvider,
     CSSReset,
     theme,
-    Grid,
     Flex,
-    Box,
     Text,
-    Heading,
     Button,
     Image
 } from '@chakra-ui/core'
 import { Link } from 'react-router-dom'
 import SearchBar from './searchBar'
-import Profil from './profil'
+import config from "./base";
+import "firebase/database";
 
 const Home = () => (
+
     <ThemeProvider theme={theme}>
         <CSSReset />
         <Flex // Header
@@ -69,7 +68,7 @@ const Home = () => (
                             height="100%"
                         >
                             Overview
-                            </Text>
+                        </Text>
                     </Flex>
                 </Flex>
             </Flex>
@@ -91,138 +90,74 @@ const Home = () => (
                     flexDirection="column"
                 >
                     <Link to="/register">
-                        <Button
-                            m={3}
-                            backgroundColor="orange.300"
-                            color="whiteAlpha.900"
-                            letterSpacing="widest"
-                            h="50px"
-                            w="100%"
-                            borderRadius="10px"
-                            fontSize="100%"
-                            display="flex"
-                            justifyContent="center"
-                            alignItems="center"
-                            variant="solid"
-                            variantColor="yellow"
-                            flexDirection="column"
-                        >
-                            Sugn Up
-                        </Button>
+                    <Button
+                        m={3}
+                        backgroundColor="orange.300"
+                        color="whiteAlpha.900"
+                        letterSpacing="widest"
+                        height="50px"
+                        width="100%"
+                        borderRadius="10px"
+                        fontSize="100%"
+                        display="flex"
+                        justifyContent="center"
+                        alignItems="center"
+                        size="md"
+                        variantColor="yellow"
+                        flexDirection="column"
+                        textAlign="center"
+                    >
+
+                        Sign Up
+                    </Button>
                     </Link>
+                    <Button
+                        m={3}
+                        backgroundColor="orange.300"
+                        color="whiteAlpha.900"
+                        letterSpacing="widest"
+                        height="50px"
+                        width="100%"
+                        borderRadius="10px"
+                        fontSize="100%"
+                        display="flex"
+                        justifyContent="center"
+                        alignItems="center"
+                        size="md"
+                        variantColor="yellow"
+                        flexDirection="column"
+                        textAlign="center"
+                        onClick={() => config.auth().signOut()}
+                    >
+
+                        Logout
+                    </Button>
                     <Link to="/login">
-                        <Button
-                            m={3}
-                            backgroundColor="orange.300"
-                            color="whiteAlpha.900"
-                            letterSpacing="widest"
-                            h="50px"
-                            w="100%"
-                            borderRadius="10px"
-                            fontSize="100%"
-                            display="flex"
-                            justifyContent="center"
-                            alignItems="center"
-                            variant="solid"
-                            variantColor="yellow"
-                            flexDirection="column"
-                        >
-                            Login
-                        </Button>
+                    <Button
+                        m={3}
+                        backgroundColor="orange.300"
+                        color="whiteAlpha.900"
+                        letterSpacing="widest"
+                        height="50px"
+                        width="100%"
+                        borderRadius="10px"
+                        fontSize="100%"
+                        display="flex"
+                        justifyContent="center"
+                        alignItems="center"
+                        variant="solid"
+                        variantColor="yellow"
+                        flexDirection="column"
+
+                    >
+                        Login
+                    </Button>
                     </Link>
 
                 </Flex>
             </Flex>
         </Flex>
-        <Grid
-            gap={6}
-            templateColumns="repeat(auto-fit, minmax(350px, 1fr))"
-            display="flex"
-            flexDirection="column"
-            justifyContent="center"
-            alignItems="center"
-            width="100%"
-            height="100%"
-        >
-            <Box
-                display="flex"
-                justifyContent="center"
-                alignItems="center"
-                flexDirection="row"
-                width="100%"
-                height="100%"
-                overflow="visible"
-                backgroundColor="whiteAlpha.50"
-            >
-
-                <Box
-                    backgroundColor="facebook.900"
-                    shadow="sm"
-                    display="flex"
-                    flexDirection="column"
-                    justifyContent="center"
-                    alignItems="center"
-                    height="100%"
-                    width="100%"
-                >
-                    <Flex
-                        display="flex"
-                        flexDirection="row"
-                        alignItems="center"
-                        justifyContent="center"
-                        backgroundColor="facebook.300"
-                        width="85%"
-                        height="100px"
-                        borderRadius="25px"
-                        mt={5}
-                        mb={5}
-                        letterSpacing="widest"
-                    >
-                        <Heading // Titre du contenu
-                            size="md"
-                            as="h1"
-                            lineHeight="shorter"
-                            fontFamily="Bangers"
-                            display="flex"
-                            flexDirection="row"
-                            justifyContent="center"
-                            alignItems="center"
-                            overflow="visible"
-                            textAlign="center"
-                            letterSpacing="widest"
-                            color="orange.300"
-                            fontSize="4xl"
-                        >
-                            Home
-            </Heading>
-                    </Flex>
-                    <SearchBar />
-                    <Flex
-                        justifyContent="center"
-                        alignItems="center"
-                        height="100%"
-                        width="85%"
-                        mb={5}
-                        color="facebook.900"
-                    >
-                        <Flex
-                            display="flex"
-                            flexDirection="row"
-                            alignItems="center"
-                            justifyContent="center"
-                            backgroundColor="whiteAlpha.900"
-                            width="100%"
-                            height="100%"
-                            borderRadius="25px"
-                            p={5}
-                        >
-
-                            <Profil />
-                        </Flex>
-                    </Flex>
-                </Box>
-            </Box>
-        </Grid>
+        <SearchBar/>
         <Flex // Footer
             display="flex"
             flexDirection="row"
@@ -261,7 +196,7 @@ const Home = () => (
                 alignItems="center"
             >
                 2020 © Overview. All rights reserved.
-      </Text>
+            </Text>
             <Flex
                 display="flex"
                 flexDirection="row"

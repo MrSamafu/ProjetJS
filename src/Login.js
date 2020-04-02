@@ -12,7 +12,15 @@ const Login = ({ history }) => {
         await config
           .auth()
           .signInWithEmailAndPassword(email.value, password.value);
-        history.push("/");
+          const letUserId = config.auth().currentUser.uid
+                  var BattleNet = config.database().ref('user/' + letUserId + '/BattleNet');
+                  BattleNet.on('value', function(snapshot) {
+                      //updateStarCount(postElement, snapshot.val());
+                      console.log(snapshot.val())
+
+              history.push("/");
+          });
+
       } catch (error) {
         alert(error);
       }
