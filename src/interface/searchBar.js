@@ -16,7 +16,7 @@ import {
     PopoverCloseButton,
     Select,
 } from '@chakra-ui/core'
-import Profil from "./profil"
+import Profil from "../profil/profil"
 
 
 class SearchBar extends Component {

@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/core'
 import { Link } from 'react-router-dom'
 import SearchBar from './searchBar'
-import config from "./base";
+import config from "../firebase/base";
 import "firebase/database";
 
 const Home = () => (

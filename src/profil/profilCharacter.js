@@ -4,7 +4,7 @@ import {
   Image,
   Flex
 } from '@chakra-ui/core'
-import Donnee from "./ressources/profilRessources.js"
+import Donnee from "../ressources/profilRessources.js"
 
 class ProfilCharacter extends Component {
   constructor(props) {
