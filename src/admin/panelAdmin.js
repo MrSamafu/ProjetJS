@@ -19,7 +19,21 @@ import {
 class PanelAdmin extends Component {
     constructor() {
       super();
+      this.state = {
+          panelDisplay: "profil"
+      }
+      
+
     }
+
+    componentDidUpdate(){
+
+    }
+
+    deleteAccount(){
+       
+    }
+    
     render(){
         return <ThemeProvider theme={theme}>
         <CSSReset />
