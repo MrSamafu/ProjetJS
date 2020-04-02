@@ -31,18 +31,17 @@ class Home extends Component {
             battleTag: "Loading...",
             email:"Loading...",
             plateform:"Loading...",
-            displayProfil:'none'
             }
 
     let isUser = config.auth().currentUser;
-    let  email, uidUser;
+    let  emailuser, uidUser;
     if (isUser != null) {
-
+      
       uidUser = isUser.uid;
-      email = isUser.email;
+      emailuser = isUser.email;
       this.setState({
-         email: toString(isUser.email)
-        });
+          email: isUser.email
+      })
 
       let refUser = config.database().ref('user/' + uidUser + '/BattleNet');
       refUser.on('value',(snapshot) => {
@@ -56,13 +55,16 @@ class Home extends Component {
           plateform: snapshot.val(),
         });  
       });
-      
-      
-      console.log(email)
-    } else {
-      
+    } 
+}
+
+componentDidUpdate(prevState){
+    if(this.state.email !== prevState.email){
+        console.log(this.state.email)
+        return;
     }
 }
+
 render(){
     let isUser = config.auth().currentUser;
     return <ThemeProvider theme={theme}>
