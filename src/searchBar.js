@@ -23,9 +23,11 @@ class SearchBar extends Component {
     constructor() {
         super();
         this.state = {
-            battleTag: "lalalala",
+            battleTag: "",
             plateform: "pc",
             search: false,
+            tmpBattleTag:"",
+            tmpPlateform:"pc"
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -33,18 +35,22 @@ class SearchBar extends Component {
     }
     handleChange(event) {
         if (event.target.id === "searchBar") {
-            this.setState({ battleTag: event.target.value });
+            this.setState({ tmpBattleTag: event.target.value });
 
         }
         else if (event.target.id === "platformSelection") {
-            this.setState({ plateform: event.target.value });
+            this.setState({ tmpPlateform: event.target.value });
         }
         
 
     }
 
     handleSubmit(event) {
-        this.state.search = true;
+        this.setState({
+            battleTag: this.state.tmpBattleTag,
+            plateform: this.state.tmpPlateform
+        })
+        console.log("searchBar preprops = "+this.state.search)
         event.preventDefault();
 
     }
@@ -137,7 +143,7 @@ class SearchBar extends Component {
                                         backgroundColor="gray.200"
                                         w="50%"
                                         mr={2}
-                                        value={this.state.battleTag}
+                                        value={this.state.tmpBattleTag}
                                         onChange={this.handleChange}
                                     />
                                 </PopoverTrigger>
@@ -202,7 +208,7 @@ class SearchBar extends Component {
                             p={5}
                         >
 
-                            <Profil battleTag={this.state.battleTag} plateform={this.state.plateform} search={this.state.search} />
+                            <Profil battleTag={this.state.battleTag} plateform={this.state.plateform}/>
                         </Flex>
                     </Flex>
                 </Box>

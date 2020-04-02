@@ -20,28 +20,20 @@ class ProfilCharacter extends Component {
     }
   }
 
-  componentDidMount() {
-    fetch("https://ovrstat.com/stats/pc/Marcusvult-2114")
+  componentDidUpdate(prevProps){
+    if (this.props.battleTag !== prevProps.battleTag || this.props.plateform !== prevProps.plateform) {
+      fetch("https://ovrstat.com/stats/" + this.props.plateform+"/"+ this.props.battleTag )
       .then(res => res.json())
       .then(
         (result) => {
           this.setState({
             name: result.quickPlayStats.careerStats
           });
-          console.log(result);
-
-
-
-
-        },
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
+            console.log("https://ovrstat.com/stats/" + this.props.plateform + "/" + this.props.battleTag);
           });
         }
-      );
-  }
+    }
+
   render() {
     let tableauxDeDonnee = Object.keys(this.state.name);
     let screen = [];

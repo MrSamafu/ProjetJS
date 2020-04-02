@@ -28,54 +28,90 @@ class Profil extends Component {
       profilImg: "https://www.freepnglogos.com/uploads/vintage-overwatch-logo-png-12.png",
       levelIcon: "https://www.freepnglogos.com/uploads/vintage-overwatch-logo-png-12.png",
       level: "Loading...",
-      error: null,
-      battleTag:'',
-      plateform:'',
-      search: false
+      error: "none",
+      battleTag: '',
+      plateform: 'pc',
+      search: false,
+      notFound: "block"
 
     };
-   
 
-    
+
+
   }
 
-  componentDidMount() {
-    fetch("https://ovrstat.com/stats/"+ this.state.plateform +"/"+ this.state.battleTag)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            name: result.name,
-            gold: result.quickPlayStats.careerStats.allHeroes.matchAwards.medalsGold,
-            silver: result.quickPlayStats.careerStats.allHeroes.matchAwards.medalsSilver,
-            bronze: result.quickPlayStats.careerStats.allHeroes.matchAwards.medalsBronze,
-            timeInGame: result.quickPlayStats.careerStats.allHeroes.game.timePlayed,
-            profilImg: result.icon,
-            levelIcon: result.prestigeIcon,
-            level: result.level,
-          });
-          console.log(this.props.battleTag);
-        },
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      );
-  }
+  componentDidUpdate(prevProps) {
+    if (this.props.battleTag !== prevProps.battleTag || this.props.plateform !== prevProps.plateform) {
+      if (this.props.battleTag === "") {
+        this.setState({
+          notFound: "none",
+          error: "block",
+          profil: "Search is empty"
+        })
 
-  
-  
-  render() {
-    if(this.props.search == true){
-      this.setState.profil = "profil";
-      this.setState.battleTag = this.props.battleTag;
-      this.setState.plateform = this.props.plateform;
+        return;
+      }
+      console.log(this.props);
+        fetch("https://ovrstat.com/stats/" + this.props.plateform + "/" + this.props.battleTag)
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === "Player not found"){
+              this.setState({
+                notFound: "none",
+                error: "block",
+                profil: "Player not found"
+              })
+              return;
+            }else{
+              this.setState({
+                name: result.name,
+                gold: result.quickPlayStats.careerStats.allHeroes.matchAwards.medalsGold,
+                silver: result.quickPlayStats.careerStats.allHeroes.matchAwards.medalsSilver,
+                bronze: result.quickPlayStats.careerStats.allHeroes.matchAwards.medalsBronze,
+                timeInGame: result.quickPlayStats.careerStats.allHeroes.game.timePlayed,
+                profilImg: result.icon,
+                levelIcon: result.prestigeIcon,
+                level: result.level,
+                battleTag: this.props.battleTag,
+                plateform: this.props.plateform,
+                notFound: "block",
+                error: "none",
+                profil: "Profil"
+            });
+            }
+            
+            
+            console.log("https://ovrstat.com/stats/" + this.props.plateform + "/" + this.props.battleTag);
+          });
+      
+      
+
     }
-    return <ThemeProvider theme={theme}>
+  }
+
+  render() {
+    return <ThemeProvider theme={theme} >
       <CSSReset />
-      <AccordionItem>
+      <Flex
+        backgroundColor="facebook.500"
+        borderRadius="20px"
+        w="100%"
+        display={this.state.error}
+      >
+        <Text
+          textAlign="center"
+          justifyContent="center"
+          color="whiteAlpha.900"
+          letterSpacing="widest"
+          fontSize="xl"
+          w="100%"
+          fontFamily="Bangers"
+        >
+          {this.state.profil}
+        </Text>
+      </Flex>
+      <AccordionItem display={this.state.notFound}>
         <AccordionHeader
           backgroundColor="facebook.500"
           borderRadius="20px"
@@ -171,7 +207,7 @@ class Profil extends Component {
                   <AccordionIcon color="whiteAlpha.900" />
                 </AccordionHeader>
                 <AccordionPanel pb={4}>
-                  <ProfilCharacter />
+                  <ProfilCharacter battleTag={this.state.battleTag} plateform={this.state.plateform}/>
                 </AccordionPanel>
               </AccordionItem>
               <AccordionItem>
