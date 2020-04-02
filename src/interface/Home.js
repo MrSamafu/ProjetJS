@@ -13,9 +13,10 @@ import SearchBar from './searchBar'
 import config from "../firebase/base";
 import "firebase/database";
 
-const Home = () => (
-
-    <ThemeProvider theme={theme}>
+const Home = () => {
+    let isUser = config.auth().currentUser
+    return (
+        <ThemeProvider theme={theme}>
         <CSSReset />
         <Flex // Header
             backgroundColor="gray.100"
@@ -81,6 +82,7 @@ const Home = () => (
                 m={5}
             >
 
+
                 <Flex
                     justifyContent="center"
                     alignItems="center"
@@ -89,8 +91,7 @@ const Home = () => (
                     width="140px"
                     flexDirection="column"
                 >
-                    <Link to="/register">
-                    <Button
+                    { isUser ? <Button
                         m={3}
                         backgroundColor="orange.300"
                         color="whiteAlpha.900"
@@ -106,34 +107,11 @@ const Home = () => (
                         variantColor="yellow"
                         flexDirection="column"
                         textAlign="center"
-                    >
-
-                        Sign Up
-                    </Button>
-                    </Link>
-                    <Button
-                        m={3}
-                        backgroundColor="orange.300"
-                        color="whiteAlpha.900"
-                        letterSpacing="widest"
-                        height="50px"
-                        width="100%"
-                        borderRadius="10px"
-                        fontSize="100%"
-                        display="flex"
-                        justifyContent="center"
-                        alignItems="center"
-                        size="md"
-                        variantColor="yellow"
-                        flexDirection="column"
-                        textAlign="center"
-                        onClick={() => config.auth().signOut()}
+                        onClick={() => {config.auth().signOut(); document.location.reload()}}
                     >
 
                         Logout
-                    </Button>
-                    <Link to="/login">
-                    <Button
+                    </Button>: <Link to="/login" > <Button
                         m={3}
                         backgroundColor="orange.300"
                         color="whiteAlpha.900"
@@ -151,8 +129,50 @@ const Home = () => (
 
                     >
                         Login
-                    </Button>
-                    </Link>
+                    </Button> </Link> }
+                    { isUser ? <Button
+                        m={3}
+                        backgroundColor="orange.300"
+                        color="whiteAlpha.900"
+                        letterSpacing="widest"
+                        height="50px"
+                        width="100%"
+                        borderRadius="10px"
+                        fontSize="100%"
+                        display="flex"
+                        justifyContent="center"
+                        alignItems="center"
+                        variant="solid"
+                        variantColor="yellow"
+                        flexDirection="column"
+
+                    >
+                        Profil
+                    </Button>:  <Link to="/register">
+                        <Button
+                            m={3}
+                            backgroundColor="orange.300"
+                            color="whiteAlpha.900"
+                            letterSpacing="widest"
+                            height="50px"
+                            width="100%"
+                            borderRadius="10px"
+                            fontSize="100%"
+                            display="flex"
+                            justifyContent="center"
+                            alignItems="center"
+                            size="md"
+                            variantColor="yellow"
+                            flexDirection="column"
+                            textAlign="center"
+
+                        >
+
+                            Sign Up
+                        </Button>
+                    </Link> }
+
+
 
                 </Flex>
             </Flex>
@@ -214,6 +234,10 @@ const Home = () => (
             </Flex>
         </Flex>
     </ThemeProvider>
-)
+    )
+}
+
+
+
 
 export default Home
