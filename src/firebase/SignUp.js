@@ -33,7 +33,7 @@ const SignUp = ({ history }) => {
       config.database().ref('plate/' + letUserId).set({
       PlateForm: PlateForm.value,
       });
-
+      alert("Account is created");
       history.push("/");
     } catch (error) {
       alert(error);

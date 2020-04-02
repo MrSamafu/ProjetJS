@@ -23,7 +23,7 @@ const Login = ({ history }) => {
 
               history.push("/");
           });
-
+          alert("Connected !");
       } catch (error) {
         alert(error);
       }
