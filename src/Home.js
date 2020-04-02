@@ -21,78 +21,56 @@ const Home = () => (
         <Flex // Header
             backgroundColor="gray.100"
             display="flex"
-            flexDirection="row"
+            flexDirection="column"
             alignItems="center"
             justifyContent="center"
             textAlign="center"
             overflow="visible"
             width="100%"
             height="20%"
+            p={5}
         >
             <Flex
                 justifyContent="center"
                 alignItems="center"
-                width="75%"
+                width="100%"
                 height="100%"
+                pb={5}
             >
                 <Flex
                     width="100%"
                     height="100%"
-                    justifyContent="center"
-                    alignItems="center"
-                    textAlign="center"
                 >
-                    <Flex
+                    <Text
+                        fontFamily="Bangers"
+                        textAlign="center"
+                        display="flex"
                         justifyContent="center"
                         alignItems="center"
-                        width="25%"
+                        fontSize="5xl"
+                        color="orange.300"
+                        width="100%"
                         height="100%"
                     >
-                        <Image // Logo Overwatch
-                            width="25%"
-                            src="https://www.stickpng.com/assets/images/586273b931349e0568ad89df.png"
-                            display="flex"
-                            justifyContent="center"
-                            alignItems="center"
-                        />
-                    </Flex>
-                    <Flex width="75%" height="100%" p={5}>
-                        <Text
-                            fontFamily="Bangers"
-                            textAlign="center"
-                            display="flex"
-                            justifyContent="center"
-                            alignItems="center"
-                            fontSize="5xl"
-                            color="orange.300"
-                            width="100%"
-                            height="100%"
-                        >
-                            Overview
+                        Overview
                             </Text>
-                    </Flex>
                 </Flex>
             </Flex>
             <Flex
                 flexDirection="row"
                 justifyContent="center"
-                alignItems="center"
-                width="25%"
+                width="100%"
                 height="100%"
-                m={5}
             >
 
                 <Flex
+                    flexDirection="row"
                     justifyContent="center"
-                    alignItems="center"
-                    p={5}
                     height="100%"
-                    width="140px"
-                    flexDirection="column"
+                    width="50px"
                 >
                     <Link to="/register">
                         <Button
-                            m={3}
                             backgroundColor="orange.300"
                             color="whiteAlpha.900"
                             letterSpacing="widest"
@@ -111,27 +89,33 @@ const Home = () => (
                             Sign Up
           </Button>
                     </Link>
-                    <Link to="/login">
-                        <Button
-                            m={3}
-                            backgroundColor="orange.300"
-                            color="whiteAlpha.900"
-                            letterSpacing="widest"
-                            h="50px"
-                            w="100%"
-                            borderRadius="10px"
-                            fontSize="100%"
-                            display="flex"
-                            justifyContent="center"
-                            alignItems="center"
-                            variant="solid"
-                            variantColor="yellow"
-                            flexDirection="column"
-                        >
-                            Sign In
-          </Button>
-                    </Link>
                 </Flex>
+                <Flex
+                    justifyContent="center"
+                    alignItems="center"
+                    height="100%"
+                    width="50px"
+                    flexDirection="row"
+                ></Flex>
+                <Link to="/login">
+                    <Button
+                        backgroundColor="orange.300"
+                        color="whiteAlpha.900"
+                        letterSpacing="widest"
+                        h="50px"
+                        w="100%"
+                        borderRadius="10px"
+                        fontSize="100%"
+                        display="flex"
+                        justifyContent="center"
+                        alignItems="center"
+                        variant="solid"
+                        variantColor="yellow"
+                        flexDirection="column"
+                    >
+                        Sign In
+          </Button>
+                </Link>
             </Flex>
         </Flex>
         <Grid
@@ -260,7 +244,7 @@ const Home = () => (
                 justifyContent="center"
                 alignItems="center"
             >
-                2020 © Overview. All rights reserved.
+                2020 © Overview.<br />All rights reserved.
       </Text>
             <Flex
                 display="flex"
@@ -278,7 +262,7 @@ const Home = () => (
                 />
             </Flex>
         </Flex>
-    </ThemeProvider>
+    </ThemeProvider >
 )
 
 export default Home

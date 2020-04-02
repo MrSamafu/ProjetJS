@@ -82,121 +82,129 @@ const Register = () => (
             </Flex>
         </Flex>
         <Flex
-            flexDirection="column"
+            flexDirection="row"
+            justifyContent="center"
+            backgroundColor="facebook.900"
             h="100%"
             w="100%"
-            backgroundColor="facebook.900"
             pt={10}
             pb={10}
             pl={5}
             pr={5}
         >
-            <InputGroup
-                w="100%"
-                alignContent
-            >
-                <InputLeftAddon
-                    fontStyle="italic"
-                    width="30%"
-                    justifyContent="center"
-                    color="orange.300"
-                    backgroundColor="facebook.300"
-                    letterSpacing="widest"
-                >
-                    Username:
-                </InputLeftAddon>
-                <Input
-                    fontSize="sm"
-                    placeholder="Type your username"
-                    letterSpacing="widest"
-                    lineHeight="tall"
-                    w="70%"
-                />
-                <InputRightElement>
-                    <Icon
-                        name="star"
-                        color="orange.300"
-                    />
-                </InputRightElement>
-            </InputGroup>
-            <InputGroup
-                mt={10}
-            >
-                <InputLeftAddon
-                    color="orange.300"
-                    backgroundColor="facebook.300"
-                    width="30%"
-                    justifyContent="center"
-                    letterSpacing="widest"
-                >
-                    E-mail:
-                </InputLeftAddon>
-                <Input
-                    fontSize="sm"
-                    placeholder="Type your e-mail"
-                    letterSpacing="widest"
-                    lineHeight="tall"
-                    w="70%" />
-                <InputRightElement>
-                    <Icon
-                        name="email"
-                        color="orange.300"
-                    />
-                </InputRightElement>
-            </InputGroup>
-            <InputGroup
-                mt={10}
-                textAlign="left"
-                fontStyle="italic"
-                letterSpacing="wide"
-                w="100%"
-            >
-                <InputLeftAddon
-                    color="orange.300"
-                    backgroundColor="facebook.300"
-                    width="30%"
-                    justifyContent="center"
-                    letterSpacing="widest"
-                >
-                    Password:
-                </InputLeftAddon>
-                <Input
-                    fontSize="sm"
-                    placeholder="Type your password"
-                    letterSpacing="widest"
-                    lineHeight="tall"
-                    w="70%"
-                />
-                <InputRightElement>
-                    <Icon
-                        name="lock"
-                        color="orange.300"
-                    />
-                </InputRightElement>
-            </InputGroup>
             <Flex
-                flexDirection="row"
-                justifyContent="center"
+                flexDirection="column"
                 h="100%"
                 w="100%"
             >
-                <Button
+                <InputGroup
+                    w="100%"
+                    alignContent
+                >
+                    <InputLeftAddon
+                        fontStyle="italic"
+                        width="30%"
+                        justifyContent="center"
+                        color="orange.300"
+                        backgroundColor="facebook.300"
+                        letterSpacing="widest"
+                    >
+                        Username:
+                </InputLeftAddon>
+                    <Input
+                        fontSize="sm"
+                        placeholder="Type your username"
+                        letterSpacing="widest"
+                        lineHeight="tall"
+                        w="70%"
+                    />
+                    <InputRightElement>
+                        <Icon
+                            name="star"
+                            color="orange.300"
+                        />
+                    </InputRightElement>
+                </InputGroup>
+                <InputGroup
+                    mt={10}
+                >
+                    <InputLeftAddon
+                        color="orange.300"
+                        backgroundColor="facebook.300"
+                        width="30%"
+                        justifyContent="center"
+                        letterSpacing="widest"
+                    >
+                        E-mail:
+                </InputLeftAddon>
+                    <Input
+                        fontSize="sm"
+                        placeholder="Type your e-mail"
+                        letterSpacing="widest"
+                        lineHeight="tall"
+                        w="70%" />
+                    <InputRightElement>
+                        <Icon
+                            name="email"
+                            color="orange.300"
+                        />
+                    </InputRightElement>
+                </InputGroup>
+                <InputGroup
+                    mt={10}
+                    textAlign="left"
+                    fontStyle="italic"
+                    letterSpacing="wide"
+                    w="100%"
+                >
+                    <InputLeftAddon
+                        color="orange.300"
+                        backgroundColor="facebook.300"
+                        width="30%"
+                        justifyContent="center"
+                        letterSpacing="widest"
+                    >
+                        Password:
+                </InputLeftAddon>
+                    <Input
+                        fontSize="sm"
+                        placeholder="Type your password"
+                        letterSpacing="widest"
+                        lineHeight="tall"
+                        w="70%"
+                    />
+                    <InputRightElement>
+                        <Icon
+                            name="lock"
+                            color="orange.300"
+                        />
+                    </InputRightElement>
+                </InputGroup>
+                <Flex
                     flexDirection="row"
                     justifyContent="center"
-                    textAlign="center"
-                    color="whiteAlpha.900"
-                    backgroundColor="orange.300"
-                    mt={10}
-                    display="flex"
-                    rightIcon="arrow-forward"
-                    borderRadius={10}
-                    pr={2}
-                    variant="solid"
-                    w="50%"
-                    letterSpacing="widest"
+                    h="100%"
+                    w="100%"
                 >
-                    Create
+                    <Button
+                        flexDirection="row"
+                        justifyContent="center"
+                        textAlign="center"
+                        color="whiteAlpha.900"
+                        backgroundColor="orange.300"
+                        mt={10}
+                        display="flex"
+                        rightIcon="arrow-forward"
+                        borderRadius={10}
+                        pr={2}
+                        variant="solid"
+                        w="50%"
+                        letterSpacing="widest"
+                        variantColor="yellow"
+                    >
+                        Create
         </Button>
+                </Flex>
             </Flex>
         </Flex>
     </ThemeProvider >
