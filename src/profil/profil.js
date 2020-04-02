@@ -33,7 +33,8 @@ class Profil extends Component {
       battleTag: "",
       plateform: 'pc',
       notFound: "block",
-      connected: false
+      connected: false,
+      search: false,
 
     };
     let user = config.auth().currentUser;
@@ -70,15 +71,7 @@ class Profil extends Component {
   }
 
   componentDidUpdate(prevProps,prevState) {
-    if (this.state.battleTag !== prevState.battleTag || this.state.plateform !== prevState.plateform){      
-      if(this.state.connected){
-        /*if(this.state.search){
-          this.setState({
-            battleTag: this.props.battleTag,
-            plateform: this.props.plateform
-          })
-        }*/
-      }
+    if (this.state.battleTag !== prevState.battleTag  && this.state.search === false || this.state.plateform !== prevState.plateform  && this.state.search === false){      
       fetch("https://ovrstat.com/stats/" + this.state.plateform + "/" + this.state.battleTag)
         .then(res => res.json())
         .then(
@@ -118,9 +111,50 @@ class Profil extends Component {
               });
             }
           });
+    }
+    else if(this.props.battleTag !== prevProps.battleTag || this.props.plateform !== prevProps.plateform){
+      
+      fetch("https://ovrstat.com/stats/" + this.props.plateform + "/" + this.props.battleTag)
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if (result.message === "Player not found") {
+              this.setState({
+                notFound: "none",
+                error: "block",
+                profil: "Player not found"
+              })
+              return;
+            }
+            else if (this.props.battleTag === ""){
+              this.setState({
+                notFound: "none",
+                error: "block",
+                profil: "Search is empty"
+              });
+      
+              return;
+            }
+            else {
 
-
-
+              this.setState({
+                search: true,
+                name: result.name,
+                gold: result.quickPlayStats.careerStats.allHeroes.matchAwards.medalsGold,
+                silver: result.quickPlayStats.careerStats.allHeroes.matchAwards.medalsSilver,
+                bronze: result.quickPlayStats.careerStats.allHeroes.matchAwards.medalsBronze,
+                timeInGame: result.quickPlayStats.careerStats.allHeroes.game.timePlayed,
+                profilImg: result.icon,
+                levelIcon: result.prestigeIcon,
+                level: result.level,
+                battleTag: this.props.battleTag,
+                plateform: this.props.plateform,
+                notFound: "block",
+                error: "none",
+                profil: "Profil"
+              });
+            }
+          });
     }
   }
 
