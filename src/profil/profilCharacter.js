@@ -11,28 +11,29 @@ class ProfilCharacter extends Component {
     super(props);
     this.state = {
       name: {},
-
-
-
-
       error: null,
-
     }
   }
 
-  componentDidUpdate(prevProps){
+  componentDidUpdate(prevProps) {
     if (this.props.battleTag !== prevProps.battleTag || this.props.plateform !== prevProps.plateform) {
-      fetch("https://ovrstat.com/stats/" + this.props.plateform+"/"+ this.props.battleTag )
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            name: result.quickPlayStats.careerStats
+      fetch("https://ovrstat.com/stats/" + this.props.plateform + "/" + this.props.battleTag)
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if (result.message =="Player not found" ||result.message =="Failed to retrieve player stats: Invalid platform") {
+              return;
+            }
+            else {
+              console.log(result.message);
+              this.setState({
+                name: result.quickPlayStats.careerStats
+              });
+              
+            }
           });
-            console.log("https://ovrstat.com/stats/" + this.props.plateform + "/" + this.props.battleTag);
-          });
-        }
-    }
+  }
+}
 
   render() {
     let tableauxDeDonnee = Object.keys(this.state.name);
@@ -80,5 +81,7 @@ class ProfilCharacter extends Component {
 
   }
 }
+
+
 
 export default ProfilCharacter;
