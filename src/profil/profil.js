@@ -32,10 +32,10 @@ class Profil extends Component {
       profilImg: "https://www.freepnglogos.com/uploads/vintage-overwatch-logo-png-12.png",
       levelIcon: "https://www.freepnglogos.com/uploads/vintage-overwatch-logo-png-12.png",
       level: <Spinner />,
-      error: "none",
+      error: "block",
       battleTag: "",
       plateform: 'pc',
-      notFound: "block",
+      notFound: "none",
       connected: false,
       search: false,
 
