@@ -10,7 +10,9 @@ import {
   AccordionHeader,
   AccordionPanel,
   AccordionIcon,
-  Box
+  Box,
+  Spinner
+
 
 } from '@chakra-ui/core'
 import ProfilCharacter from "./profilCharacter.js"
@@ -21,14 +23,14 @@ class Profil extends Component {
     super();
     this.state = {
       profil: "Your profil",
-      name: "Loading...",
-      gold: "Loading...",
-      silver: "Loading...",
-      bronze: "Loading...",
-      timeInGame: "Loading...",
+      name: <Spinner />,
+      gold: <Spinner />,
+      silver: <Spinner />,
+      bronze: <Spinner />,
+      timeInGame: <Spinner />,
       profilImg: "https://www.freepnglogos.com/uploads/vintage-overwatch-logo-png-12.png",
       levelIcon: "https://www.freepnglogos.com/uploads/vintage-overwatch-logo-png-12.png",
-      level: "Loading...",
+      level: <Spinner />,
       error: "none",
       battleTag: "",
       plateform: 'pc',
