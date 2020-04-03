@@ -152,7 +152,7 @@ const SignUp = ({ history }) => {//Save data of signUp form to Firebase
                   alignItems="center"
                 >
                 </Image>
-                <div class="fb-share-button" data-href="http://localhost:3000/" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Partager</a></div>
+                <div class="fb-share-button" data-href="http://localhost:3000/" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
               </Flex>
               <Flex>
                 <Image
@@ -163,7 +163,7 @@ const SignUp = ({ history }) => {//Save data of signUp form to Firebase
                   alignItems="center"
                 >
                 </Image>
-                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="true">Partager</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="true">Share</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
               </Flex>
             </Flex>
           </Flex>
