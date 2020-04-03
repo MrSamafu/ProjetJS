@@ -213,66 +213,91 @@ class Profil extends Component {
               color="whiteAlpha.900"
               fontSize="2xl"
               borderRadius="15px"
-              mb={2}
               w="100%"
               h="100%"
               justifyContent="space-around"
+              p={5}
             >
-
               <Flex
                 flexDirection="column"
-                w="35%"
+                justifyContent="center"
+                alignItems="center"
+                w="50%"
               >
-                <Image
-                  display="flex"
-                  height="100px"
-                  width="150px"
-                  borderRadius="15px"
-                  src={this.state.profilImg}
-                  id="imgPlayer"
-                  m={2}
-                />
-
+                <Flex
+                  flexDirection="row"
+                  justifyContent="center"
+                  w="100%"
+                >
+                  <Flex
+                    flexDirection="row"
+                    justifyContent="center"
+                    w="50%"
+                  >
+                    <Image
+                      display="flex"
+                      flexDirection="row"
+                      height="100px"
+                      width="150px"
+                      borderRadius="15px"
+                      src={this.state.profilImg}
+                      id="imgPlayer"
+                      p={2}
+                      size="100%"
+                    />
+                  </Flex>
+                  <Flex
+                    flexDirection="row"
+                    justifyContent="center"
+                    w="50%"
+                  >
+                    <Image
+                      height="40%"
+                      width="40%"
+                      src={this.state.levelIcon}
+                      display="flex"
+                      id="imgLvl"
+                      p={2}
+                      size="100%"
+                    />
+                  </Flex>
+                </Flex>
                 <Flex
                   flexDirection="column"
-                  w="65%"
-                >
-                  <Text id="playerName">{this.state.name}</Text>
-                  <Text
-                    id="lastlogin"
-                    fontFamily="Bangers"
-                    letterSpacing="widest"
-                    color="blue.300"
-                    fontSize="xl"
-                  >
-                    Playing time: {this.state.timeInGame}
-                  </Text>
-                </Flex>
-              </Flex>
-              <Flex flexDirection="column"
-              >
-                <Image
-                  height="40%"
-                  width="40%"
-                  src={this.state.levelIcon}
-                  display="flex"
-                  id="imgLvl"
-                />
-
+                  justifyContent="flex-start"
+                  alignItems="flex-start"
+                  w="100%"
+                ></Flex>
                 <Text
-                  id="lvl"
+                  id="playerName"
+                >
+                  {this.state.name}
+                </Text>
+                <Text
+                  display="flex"
+                  flexDirection="row"
+                  justifyContent="center"
+                  id="lastlogin"
                   fontFamily="Bangers"
-                  marginRight={4}
                   letterSpacing="widest"
-                  color="orange.300"
+                  color="blue.300"
                   fontSize="xl"
                 >
-                  Level: {this.state.level}
+                  Playing time: {this.state.timeInGame}
                 </Text>
               </Flex>
-
+              <Text
+                id="lvl"
+                fontFamily="Bangers"
+                marginRight={4}
+                letterSpacing="widest"
+                color="orange.300"
+                fontSize="xl"
+              >
+                Level: {this.state.level}
+              </Text>
             </Flex>
-            <Flex flexDirection="row" justifyContent="space-around" alignItems="flex-start">
+            <Flex flexDirection="row" justifyContent="space-around" alignItems="flex-start" p={2}>
               <AccordionItem>
                 <AccordionHeader backgroundColor="facebook.500" borderRadius="15px">
                   <Flex
