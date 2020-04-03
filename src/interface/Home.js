@@ -14,7 +14,9 @@ import {
     PopoverHeader,
     PopoverBody,
     PopoverArrow,
-    PopoverCloseButton, Select,
+    PopoverCloseButton, 
+    Select,
+    Skeleton
 
 } from '@chakra-ui/core'
 import { Link } from 'react-router-dom'
@@ -31,7 +33,7 @@ class Home extends Component {
         super();
         this.state = {
             battleTag: "Loading...",//initialize state default
-            email: "Loading...",
+            email: <Skeleton height="20px" my="4px" colorStart="gray" colorEnd="orange"/>,
             plateform: "Loading...",
         }
 
