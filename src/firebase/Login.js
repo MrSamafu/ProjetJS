@@ -8,9 +8,11 @@ import {
     Image, 
     Text,
     FormLabel,
-    Input 
+    Input,
 } from "@chakra-ui/core";
 import { Link } from "react-router-dom";
+
+
 
 // create const login
 const Login = ({ history }) => {
@@ -35,7 +37,7 @@ const Login = ({ history }) => {
 
                     history.push("/");
                 });
-                alert("Connected !");
+                
             } catch (error) {
                 alert(error);
             }
