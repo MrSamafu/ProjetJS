@@ -16,40 +16,8 @@ import {
   PopoverBody,
   PopoverArrow,
   PopoverCloseButton,
-  useToast
 } from "@chakra-ui/core";
 import { Link } from "react-router-dom";
-
-function Toaster() {
-  const toast = useToast();
-  return (
-    <Button
-      mt="15px"
-      backgroundColor="orange.300"
-      color="whiteAlpha.900"
-      letterSpacing="widest"
-      height="50px"
-      width ="125px"
-      borderRadius="10px"
-      fontSize="100%"
-      variantColor="yellow"
-      textAlign="center"
-      type="submit"
-      onClick={() =>
-        toast({
-          position: "bottom-left",
-          title: "Account created.",
-          description: "We've created your account for you.",
-          status: "success",
-          duration: 9000,
-          isClosable: true,
-        })
-      }
-    >
-      Sign Up
-    </Button>
-  );
-}
 
 const SignUp = ({ history }) => {//Save data of signUp form to Firebase
   const handleSignUp = useCallback(async event => {
@@ -70,7 +38,6 @@ const SignUp = ({ history }) => {//Save data of signUp form to Firebase
       config.database().ref('plate/' + letUserId).set({
         PlateForm: PlateForm.value,
       });
-      alert("Account is created");
       history.push("/");
     } catch (error) {
       alert(error);
@@ -322,7 +289,24 @@ const SignUp = ({ history }) => {//Save data of signUp form to Firebase
               <Flex
                 justifyContent="center"
               >
-                {Toaster()}
+                <Button
+                  mt="15px"
+                  backgroundColor="orange.300"
+                  color="whiteAlpha.900"
+                  letterSpacing="widest"
+                  height="50px"
+                  width ="125px"
+                  borderRadius="10px"
+                  fontSize="100%"
+                  variantColor="yellow"
+                  textAlign="center"
+                  type="submit"
+
+
+                >
+
+                  Sign Up
+                            </Button>
               </Flex>
 
             </Flex>
