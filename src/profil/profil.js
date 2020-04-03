@@ -297,9 +297,17 @@ class Profil extends Component {
                 Level: {this.state.level}
               </Text>
             </Flex>
-            <Flex flexDirection={["column-reverse", "row"]} justifyContent={["space-around"]} alignItems={["flex-start"]}>
+            <Flex
+              flexDirection={["column-reverse", "row"]}
+              justifyContent={["space-around"]}
+              alignItems={["flex-start"]}
+              p={2}
+            >
               <AccordionItem>
-                <AccordionHeader backgroundColor="facebook.500" borderRadius="15px">
+                <AccordionHeader
+                  backgroundColor="facebook.500"
+                  borderRadius="15px"
+                >
                   <Flex
                     textAlign="left"
                     color="whiteAlpha.900"
