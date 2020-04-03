@@ -12,7 +12,6 @@ import {
     Input,
 } from "@chakra-ui/core";
 import { Link } from "react-router-dom";
-import swal from "sweetalert";
 
 // create const login
 const Login = ({ history }) => {
