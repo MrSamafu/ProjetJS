@@ -45,83 +45,83 @@ class Profil extends Component {
 
       uidUser = user.uid;
       let refUser = config.database().ref('user/' + uidUser + '/BattleNet');
-      refUser.on('value',(snapshot) => {
+      refUser.on('value', (snapshot) => {
         this.setState({
           battleTag: snapshot.val(),
         });
-      console.log(this.state.battleTag);  
+        console.log(this.state.battleTag);
       });
       let refPlate = config.database().ref('plate/' + uidUser + '/PlateForm');
-      refPlate.on('value',(snapshot) => {
+      refPlate.on('value', (snapshot) => {
         this.setState({
           plateform: snapshot.val(),
           connected: true
         });
-      console.log(this.state.plateform);  
+        console.log(this.state.plateform);
       });
-    }else{
+    } else {
       this.setState({
         battleTag: "no"
       })
-    } 
+    }
 
 
   }
 
-  componentDidUpdate(prevProps,prevState) {//verify if props or state change and update display
+  componentDidUpdate(prevProps, prevState) {//verify if props or state change and update display
     console.log(this.state.battleTag);
-    if (this.state.battleTag !== prevState.battleTag  && this.state.search === false || this.state.plateform !== prevState.plateform  && this.state.search === false){
-      if(this.state.battleTag !== "no"){      
-      fetch("https://ovrstat.com/stats/" + this.state.plateform + "/" + this.state.battleTag)//Make Battletag and plateform state in API OverStats
-        .then(res => res.json())
-        .then(
-          (result) => {
-            if (result.message === "Player not found") {//display if not found
-              this.setState({
-                notFound: "none",
-                error: "block",
-                profil: "Player not found"
-              })
-              return;
-            }
-            else if (this.state.battleTag === "") {//display if empty
-              this.setState({
-                notFound: "none",
-                error: "block",
-                profil: "Search is empty"
-              });
-      
-              return;
-            }
-            else {
-              this.setState({//load every usefull data of the API in state
-                name: result.name,
-                gold: result.quickPlayStats.careerStats.allHeroes.matchAwards.medalsGold,
-                silver: result.quickPlayStats.careerStats.allHeroes.matchAwards.medalsSilver,
-                bronze: result.quickPlayStats.careerStats.allHeroes.matchAwards.medalsBronze,
-                timeInGame: result.quickPlayStats.careerStats.allHeroes.game.timePlayed,
-                profilImg: result.icon,
-                levelIcon: result.prestigeIcon,
-                level: result.level,
-                battleTag: this.props.battleTag,
-                plateform: this.props.plateform,
-                notFound: "block",
-                error: "none",
-                profil: "Your Profil"
-              });
-            }
-          });
-        }else{
-          this.setState({
-            notFound: "none",
-            error: "block",
-            profil: "Search profil or Login for see !"
-          })
-          return;
-        }
+    if (this.state.battleTag !== prevState.battleTag && this.state.search === false || this.state.plateform !== prevState.plateform && this.state.search === false) {
+      if (this.state.battleTag !== "no") {
+        fetch("https://ovrstat.com/stats/" + this.state.plateform + "/" + this.state.battleTag)//Make Battletag and plateform state in API OverStats
+          .then(res => res.json())
+          .then(
+            (result) => {
+              if (result.message === "Player not found") {//display if not found
+                this.setState({
+                  notFound: "none",
+                  error: "block",
+                  profil: "Player not found"
+                })
+                return;
+              }
+              else if (this.state.battleTag === "") {//display if empty
+                this.setState({
+                  notFound: "none",
+                  error: "block",
+                  profil: "Search is empty"
+                });
+
+                return;
+              }
+              else {
+                this.setState({//load every usefull data of the API in state
+                  name: result.name,
+                  gold: result.quickPlayStats.careerStats.allHeroes.matchAwards.medalsGold,
+                  silver: result.quickPlayStats.careerStats.allHeroes.matchAwards.medalsSilver,
+                  bronze: result.quickPlayStats.careerStats.allHeroes.matchAwards.medalsBronze,
+                  timeInGame: result.quickPlayStats.careerStats.allHeroes.game.timePlayed,
+                  profilImg: result.icon,
+                  levelIcon: result.prestigeIcon,
+                  level: result.level,
+                  battleTag: this.props.battleTag,
+                  plateform: this.props.plateform,
+                  notFound: "block",
+                  error: "none",
+                  profil: "Your Profil"
+                });
+              }
+            });
+      } else {
+        this.setState({
+          notFound: "none",
+          error: "block",
+          profil: "Search profil or Login for see !"
+        })
+        return;
+      }
     }
-    else if(this.props.battleTag !== prevProps.battleTag || this.props.plateform !== prevProps.plateform){// same above but with props
-      
+    else if (this.props.battleTag !== prevProps.battleTag || this.props.plateform !== prevProps.plateform) {// same above but with props
+
       fetch("https://ovrstat.com/stats/" + this.props.plateform + "/" + this.props.battleTag)
         .then(res => res.json())
         .then(
@@ -134,13 +134,13 @@ class Profil extends Component {
               })
               return;
             }
-            else if (this.props.battleTag === ""){
+            else if (this.props.battleTag === "") {
               this.setState({
                 notFound: "none",
                 error: "block",
                 profil: "Search is empty"
               });
-      
+
               return;
             }
             else {
@@ -208,30 +208,31 @@ class Profil extends Component {
         </AccordionHeader>
         <AccordionPanel>
           <Flex flexDirection="column" w="100%">
-            <Flex justifyContent="space-around"
+            <Flex
               backgroundColor="facebook.500"
               color="whiteAlpha.900"
-              textAlign="left"
               fontSize="2xl"
               borderRadius="15px"
               mb={2}
               w="100%"
+              h="100%"
+              justifyContent="space-around"
             >
-              <Flex justifyContent="flex-end">
-                <Flex
-                  flexDirection="column"
-                  w="35%"
-                >
-                  <Image
-                    display="flex"
-                    height="100px"
-                    width="150px"
-                    borderRadius="15px"
-                    src={this.state.profilImg}
-                    id="imgPlayer"
-                    m={2}
-                  />
-                </Flex>
+
+              <Flex
+                flexDirection="column"
+                w="35%"
+              >
+                <Image
+                  display="flex"
+                  height="100px"
+                  width="150px"
+                  borderRadius="15px"
+                  src={this.state.profilImg}
+                  id="imgPlayer"
+                  m={2}
+                />
+
                 <Flex
                   flexDirection="column"
                   w="65%"
@@ -247,16 +248,17 @@ class Profil extends Component {
                     Playing time: {this.state.timeInGame}
                   </Text>
                 </Flex>
+              </Flex>
+              <Flex flexDirection="column"
+              >
+                <Image
+                  height="40%"
+                  width="40%"
+                  src={this.state.levelIcon}
+                  display="flex"
+                  id="imgLvl"
+                />
 
-                <Flex>
-                  <Image
-                    height="100%"
-                    width="100%"
-                    src={this.state.levelIcon}
-                    display="flex"
-                    id="imgLvl"
-                  />
-                </Flex>
                 <Text
                   id="lvl"
                   fontFamily="Bangers"
@@ -267,8 +269,8 @@ class Profil extends Component {
                 >
                   Level: {this.state.level}
                 </Text>
-
               </Flex>
+
             </Flex>
             <Flex flexDirection="row" justifyContent="space-around" alignItems="flex-start">
               <AccordionItem>
