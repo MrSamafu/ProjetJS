@@ -30,14 +30,14 @@ class Home extends Component {
     constructor() {
         super();
         this.state = {
-            battleTag: "Loading...",
+            battleTag: "Loading...",//initialize state default
             email: "Loading...",
             plateform: "Loading...",
         }
 
-        let isUser = config.auth().currentUser;
+        let isUser = config.auth().currentUser;//connecting Firebase
         let email, uidUser;
-        if (isUser != null) {
+        if (isUser != null) {//verify if user is connected
             uidUser = isUser.uid;
             email = isUser.email.toString();
             this.setState({
@@ -59,7 +59,7 @@ class Home extends Component {
     }
 
     componentDidUpdate(prevState) {
-        if (this.state.email !== prevState.email) {
+        if (this.state.email !== prevState.email) {//try make email in popover profil(failure)
             console.log("CouCou");
             console.log(this.state.email);
             console.log(prevState.email)
@@ -68,7 +68,7 @@ class Home extends Component {
         }
     }
 
-    render() {
+    render() {//display Home
 
         let isUser = config.auth().currentUser;
         return <ThemeProvider theme={theme}>

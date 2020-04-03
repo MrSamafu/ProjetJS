@@ -20,7 +20,7 @@ import Profil from "../profil/profil"
 
 
 class SearchBar extends Component {
-    constructor() {
+    constructor() {//initialize state default
         super();
         this.state = {
             battleTag: "",
@@ -28,12 +28,12 @@ class SearchBar extends Component {
             tmpBattleTag:"",
             tmpPlateform:"pc"
         };
-        this.handleChange = this.handleChange.bind(this);
+        this.handleChange = this.handleChange.bind(this);//i don't no but initialize methods
         this.handleSubmit = this.handleSubmit.bind(this);
         
 
     }
-    handleChange(event) {
+    handleChange(event) {//save your search with event
         if (event.target.id === "searchBar") {
             this.setState({ tmpBattleTag: event.target.value });
 
@@ -45,7 +45,7 @@ class SearchBar extends Component {
 
     }
 
-    handleSubmit(event) {
+    handleSubmit(event) {//send search in state
         this.setState({
             battleTag: this.state.tmpBattleTag,
             plateform: this.state.tmpPlateform
@@ -208,7 +208,7 @@ class SearchBar extends Component {
                             p={5}
                         >
 
-                            <Profil battleTag={this.state.battleTag} plateform={this.state.plateform} />
+                            <Profil battleTag={this.state.battleTag} plateform={this.state.plateform} /> 
                         </Flex>
                     </Flex>
                 </Box>
@@ -216,7 +216,7 @@ class SearchBar extends Component {
         </Grid>
 
 
-    }
+    }//send to child component props plateform an battletag
 
 
 }
