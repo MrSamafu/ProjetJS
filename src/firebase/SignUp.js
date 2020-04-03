@@ -19,7 +19,7 @@ import {
 } from "@chakra-ui/core";
 import { Link } from "react-router-dom";
 
-const SignUp = ({ history }) => {
+const SignUp = ({ history }) => {//Save data of signUp form to Firebase
   const handleSignUp = useCallback(async event => {
     event.preventDefault();
     const { email, password, BattleNet, PlateForm } = event.target.elements;

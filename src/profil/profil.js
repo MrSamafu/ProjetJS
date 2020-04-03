@@ -17,7 +17,7 @@ import ProfilCharacter from "./profilCharacter.js"
 import config from "../firebase/base";
 
 class Profil extends Component {
-  constructor() {
+  constructor() {//initialize state default
     super();
     this.state = {
       profil: "Your profil",
@@ -37,9 +37,9 @@ class Profil extends Component {
       search: false,
 
     };
-    let user = config.auth().currentUser;
+    let user = config.auth().currentUser;//connecting to FireBase
     let uidUser;
-    if (user != null) {
+    if (user != null) {//verify user is connected(async)
 
       uidUser = user.uid;
       let refUser = config.database().ref('user/' + uidUser + '/BattleNet');
@@ -57,18 +57,24 @@ class Profil extends Component {
         });
       console.log(this.state.plateform);  
       });
+    }else{
+      this.setState({
+        battleTag: "no"
+      })
     } 
 
 
   }
 
-  componentDidUpdate(prevProps,prevState) {
-    if (this.state.battleTag !== prevState.battleTag  && this.state.search === false || this.state.plateform !== prevState.plateform  && this.state.search === false){      
-      fetch("https://ovrstat.com/stats/" + this.state.plateform + "/" + this.state.battleTag)
+  componentDidUpdate(prevProps,prevState) {//verify if props or state change and update display
+    console.log(this.state.battleTag);
+    if (this.state.battleTag !== prevState.battleTag  && this.state.search === false || this.state.plateform !== prevState.plateform  && this.state.search === false){
+      if(this.state.battleTag !== "no"){      
+      fetch("https://ovrstat.com/stats/" + this.state.plateform + "/" + this.state.battleTag)//Make Battletag and plateform state in API OverStats
         .then(res => res.json())
         .then(
           (result) => {
-            if (result.message === "Player not found") {
+            if (result.message === "Player not found") {//display if not found
               this.setState({
                 notFound: "none",
                 error: "block",
@@ -76,7 +82,7 @@ class Profil extends Component {
               })
               return;
             }
-            else if (this.state.battleTag === "") {
+            else if (this.state.battleTag === "") {//display if empty
               this.setState({
                 notFound: "none",
                 error: "block",
@@ -86,7 +92,7 @@ class Profil extends Component {
               return;
             }
             else {
-              this.setState({
+              this.setState({//load every usefull data of the API in state
                 name: result.name,
                 gold: result.quickPlayStats.careerStats.allHeroes.matchAwards.medalsGold,
                 silver: result.quickPlayStats.careerStats.allHeroes.matchAwards.medalsSilver,
@@ -103,8 +109,16 @@ class Profil extends Component {
               });
             }
           });
+        }else{
+          this.setState({
+            notFound: "none",
+            error: "block",
+            profil: "Search profil or Login for see !"
+          })
+          return;
+        }
     }
-    else if(this.props.battleTag !== prevProps.battleTag || this.props.plateform !== prevProps.plateform){
+    else if(this.props.battleTag !== prevProps.battleTag || this.props.plateform !== prevProps.plateform){// same above but with props
       
       fetch("https://ovrstat.com/stats/" + this.props.plateform + "/" + this.props.battleTag)
         .then(res => res.json())

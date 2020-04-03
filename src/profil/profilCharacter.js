@@ -7,7 +7,7 @@ import {
 import Donnee from "../ressources/profilRessources.js"
 
 class ProfilCharacter extends Component {
-  constructor(props) {
+  constructor(props) {//initialize state default
     super(props);
     this.state = {
       name: {},
@@ -16,7 +16,7 @@ class ProfilCharacter extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.battleTag !== prevProps.battleTag || this.props.plateform !== prevProps.plateform) {
+    if (this.props.battleTag !== prevProps.battleTag || this.props.plateform !== prevProps.plateform) {//find every data in API
       fetch("https://ovrstat.com/stats/" + this.props.plateform + "/" + this.props.battleTag)
         .then(res => res.json())
         .then(
@@ -26,7 +26,7 @@ class ProfilCharacter extends Component {
             }
             else {
               this.setState({
-                name: result.quickPlayStats.careerStats
+                name: result.quickPlayStats.careerStats//make array data in state
               });
               
             }
@@ -40,7 +40,7 @@ class ProfilCharacter extends Component {
     let count = -1;
     let picture;
     let name;
-    for (let nameCharacter of tableauxDeDonnee) {
+    for (let nameCharacter of tableauxDeDonnee) {//Loop for every character with data and return this in shape of cards
       picture = Donnee("pictureCharacter", count);
       name = Donnee("nameCharacter", count);
       screen[count] =
@@ -71,7 +71,7 @@ class ProfilCharacter extends Component {
       <div key={index}>{characterStats}</div>);
 
 
-
+    //return the List of all character
     return <Flex flexDirection="column" >
 
       {listItems}
