@@ -109,8 +109,6 @@ const SignUp = ({ history }) => {//Save data of signUp form to Firebase
           height="100%"
           m={5}
         >
-
-
           <Flex
             justifyContent="center"
             alignItems="center"
@@ -139,7 +137,6 @@ const SignUp = ({ history }) => {//Save data of signUp form to Firebase
                 textAlign="center"
 
               >
-
                 Home
                   </Button>
             </Link>
@@ -151,21 +148,17 @@ const SignUp = ({ history }) => {//Save data of signUp form to Firebase
                   display="flex"
                   justifyContent="center"
                   alignItems="center"
-                  mr={1}
                 >
                 </Image>
                 <div class="fb-share-button" data-href="http://localhost:3000/" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Partager</a></div>
               </Flex>
-              <Flex
-                mt={1}
-              >
+              <Flex>
                 <Image
                   width="25%"
                   src="https://s18955.pcdn.co/wp-content/themes/sharethis-custom/assets/images/twitterimg.png"
                   display="flex"
                   justifyContent="center"
                   alignItems="center"
-                  mr={1}
                 >
                 </Image>
                 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="true">Partager</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -175,22 +168,30 @@ const SignUp = ({ history }) => {//Save data of signUp form to Firebase
         </Flex>
       </Flex>
       <Flex
-        flexDirection="column"
+        flexDirection="row"
         justifyContent="center"
         alignItems="center"
-
-
+        textAlign="center"
+        w="100%"
       >
         <Flex
           flexDirection="column"
-          backgroundColor="gray.100"
+          justifyContent="center"
+          alignItems="center"
+          textAlign="center"
+          backgroundColor="facebook.900"
           borderRadius="15px"
           mt='5%'
-          w="50%"
-          pb="15px"
-
+          w="75%"
         >
-          <Flex height="100%" justifyContent="center">
+          <Flex
+            flexDirection="column"
+            justifyContent="center"
+            height="100%"
+            w="100%"
+            backgroundColor="facebook.300"
+            borderRadius="15px"
+          >
             <Text
               fontFamily="Bangers"
               textAlign="center"
@@ -200,31 +201,41 @@ const SignUp = ({ history }) => {//Save data of signUp form to Firebase
               fontSize="5xl"
               color="orange.300"
               height="100%"
+              w="100%"
+              p={5}
             >
-              _Sign-Up_
+              Sign Up
                         </Text>
           </Flex>
           <form onSubmit={handleSignUp}>
             <Flex
               flexDirection="column"
               justifyContent="center"
-              size="90%"
-
+              h="100%"
+              w="100%"
+              p={5}
             >
               <Popover>
                 <PopoverTrigger>
 
                   <Flex
-                      flexDirection="column"
-                      gap={1}
-                      ml="10%"
+                    flexDirection="column"
+                    justifyContent="center"
+                    w="100%"
+                    p={3}
                   >
                     <FormLabel
-                        textAlign="center"
+                      display="flex"
+                      flexDirection="row"
+                      justifyContent="center"
+                      textAlign="center"
+                      w="100%"
+                      letterSpacing="widest"
+                      color="white"
                     >
                       Pseudo
                     </FormLabel>
-                    <Input name="BattleNet" type="text" placeholder="Pseudo" borderRadius="15px" textAlign="center" />
+                    <Input display="flex" flexDirection="row" name="BattleNet" type="text" placeholder="Pseudo" borderRadius="15px" textAlign="center" w="100%" />
                   </Flex>
 
                 </PopoverTrigger>
@@ -232,19 +243,22 @@ const SignUp = ({ history }) => {//Save data of signUp form to Firebase
                   <PopoverArrow />
                   <PopoverCloseButton />
                   <PopoverHeader letterSpacing="wide">Information ! </PopoverHeader>
-                  <PopoverBody letterSpacing="wide" > Pseudo: Exemple <br /><br />( MrSamafu-2680 ) is OK<br />  &<br /> ( MrSamafu#2680 ) is not OK ?
+                  <PopoverBody letterSpacing="wide"> Pseudo: Exemple <br /><br />( MrSamafu-2680 ) is OK<br />  &<br /> ( MrSamafu#2680 ) is not OK ?
 
                   </PopoverBody>
                 </PopoverContent>
               </Popover>
               <Flex
                 flexDirection="column"
-
-                gap={1}
-                ml="10%"
+                justifyContent="center"
+                p={3}
               >
                 <FormLabel
-                  textAlign="center"
+                  display="flex"
+                  flexDirection="row"
+                  justifyContent="center"
+                  letterSpacing="widest"
+                  color="white"
                 >
                   Choose your plateform
                                 </FormLabel>
@@ -263,11 +277,15 @@ const SignUp = ({ history }) => {//Save data of signUp form to Firebase
               </Flex>
               <Flex
                 flexDirection="column"
-                gap={1}
-                ml="10%"
+                justifyContent="center"
+                p={3}
               >
                 <FormLabel
+                  flexDirection="row"
+                  justifyContent="center"
                   textAlign="center"
+                  letterSpacing="widest"
+                  color="white"
                 >
                   Email
                                 </FormLabel>
@@ -276,18 +294,23 @@ const SignUp = ({ history }) => {//Save data of signUp form to Firebase
               <Flex
                 flexDirection="column"
                 justifyContent="center"
-                gap={1}
-                ml="10%"
+                p={3}
               >
                 <FormLabel
+                  flexDirection="row"
+                  justifyContent="center"
                   textAlign="center"
+                  letterSpacing="widest"
+                  color="white"
                 >
                   Password
                                 </FormLabel>
                 <Input name="password" type="password" placeholder="Password" borderRadius="15px" textAlign="center" />
               </Flex>
               <Flex
+                flexDirection="row"
                 justifyContent="center"
+                w="100%"
               >
                 <Button
                   mt="15px"
@@ -295,14 +318,12 @@ const SignUp = ({ history }) => {//Save data of signUp form to Firebase
                   color="whiteAlpha.900"
                   letterSpacing="widest"
                   height="50px"
-                  width ="125px"
+                  width="125px"
                   borderRadius="10px"
                   fontSize="100%"
                   variantColor="yellow"
                   textAlign="center"
                   type="submit"
-
-
                 >
 
                   Sign Up
@@ -314,7 +335,7 @@ const SignUp = ({ history }) => {//Save data of signUp form to Firebase
           </form>
         </Flex>
       </Flex>
-    </div>
+    </div >
   );
 };
 
