@@ -12,16 +12,21 @@ import {
 } from "@chakra-ui/core";
 import { Link } from "react-router-dom";
 
-
+// create const login
 const Login = ({ history }) => {
+
+    // create const handleLogin for connected Db
     const handleLogin = useCallback(
         async event => {
             event.preventDefault();
             const { email, password } = event.target.elements;
             try {
                 await config
+                    //access auth() = authenticate firebase for pull email and password
                     .auth()
                     .signInWithEmailAndPassword(email.value, password.value);
+
+                // letUserId = id user in firebase
                 const letUserId = config.auth().currentUser.uid
                 var BattleNet = config.database().ref('user/' + letUserId + '/BattleNet');
                 BattleNet.on('value', function (snapshot) {
@@ -43,6 +48,8 @@ const Login = ({ history }) => {
     if (currentUser) {
         return <Redirect to="/" />;
     }
+
+    // start your front whit ChakraUI
 
     return (<Flex
                 flexDirection="column"
