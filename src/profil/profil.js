@@ -23,7 +23,7 @@ class Profil extends Component {
   constructor() {//initialize state default
     super();
     this.state = {
-      profil: "Your profil",
+      profil: "Search profile or Login !",
       name: <Spinner />,
       gold: <Spinner />,
       silver: <Spinner />,

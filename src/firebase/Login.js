@@ -11,7 +11,6 @@ import {
     Input,
 } from "@chakra-ui/core";
 import { Link } from "react-router-dom";
-import swal from "sweetalert";
 
 
 
@@ -35,7 +34,7 @@ const Login = ({ history }) => {
                 BattleNet.on('value', function (snapshot) {
                     //updateStarCount(postElement, snapshot.val());
                     console.log(snapshot.val());
-                    swal("You Connected !", "You clicked the button!", "success");
+
                     history.push("/");
                 });
                 
@@ -165,7 +164,7 @@ const Login = ({ history }) => {
                                     mr={1}
                                 >
                                 </Image>
-                                <div class="fb-share-button" data-href="http://localhost:3000/" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                                <div class="fb-share-button" data-href="http://localhost:3000/" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Partager</a></div>
                             </Flex>
                             <Flex
                                 mt={1}
@@ -179,7 +178,7 @@ const Login = ({ history }) => {
                                     mr={1}
                                 >
                                 </Image>
-                                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="true">Share</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="true">Partager</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                             </Flex>
                         </Flex>
                     </Flex>
