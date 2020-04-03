@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
 import { withRouter } from "react-router";
 import config from "./base";
+import swal from 'sweetalert';
 import {
   Button,
   Flex,
@@ -38,6 +39,7 @@ const SignUp = ({ history }) => {//Save data of signUp form to Firebase
       config.database().ref('plate/' + letUserId).set({
         PlateForm: PlateForm.value,
       });
+      swal("You Connected !", "You clicked the button!", "success");
       history.push("/");
     } catch (error) {
       alert(error);

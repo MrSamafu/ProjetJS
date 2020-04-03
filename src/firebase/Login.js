@@ -2,6 +2,7 @@ import React, { useCallback, useContext } from "react";
 import { withRouter, Redirect } from "react-router";
 import config from "./base";
 import { AuthContext } from "./Auth.js";
+import swal from 'sweetalert';
 import { 
     Button, 
     Flex, 
@@ -34,7 +35,7 @@ const Login = ({ history }) => {
                 BattleNet.on('value', function (snapshot) {
                     //updateStarCount(postElement, snapshot.val());
                     console.log(snapshot.val());
-
+                    swal("You Connected !", "You clicked the button!", "success");
                     history.push("/");
                 });
                 
