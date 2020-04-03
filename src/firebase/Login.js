@@ -12,10 +12,9 @@ import {
 } from "@chakra-ui/core";
 import { Link } from "react-router-dom";
 import swal from "sweetalert";
-
 // create const login
 const Login = ({ history }) => {
-
+ 
     // create const handleLogin for connected Db
     const handleLogin = useCallback(
         async event => {
@@ -26,7 +25,7 @@ const Login = ({ history }) => {
                     //access auth() = authenticate firebase for pull email and password
                     .auth()
                     .signInWithEmailAndPassword(email.value, password.value);
-
+ 
                 // letUserId = id user in firebase
                 const letUserId = config.auth().currentUser.uid
                 var BattleNet = config.database().ref('user/' + letUserId + '/BattleNet');
@@ -36,22 +35,22 @@ const Login = ({ history }) => {
                     swal("You Connected !", "You clicked the button!", "success");
                     history.push("/");
                 });
-
+ 
             } catch (error) {
                 alert(error);
             }
         },
         [history]
     );
-
+ 
     const { currentUser } = useContext(AuthContext);
-
+ 
     if (currentUser) {
         return <Redirect to="/" />;
     }
-
+ 
     // start your front whit ChakraUI
-
+ 
     return (<Flex
         flexDirection="column"
     >
@@ -118,8 +117,8 @@ const Login = ({ history }) => {
                 height="100%"
                 m={5}
             >
-
-
+ 
+ 
                 <Flex
                     justifyContent="center"
                     alignItems="center"
@@ -128,7 +127,7 @@ const Login = ({ history }) => {
                     width="140px"
                     flexDirection="column"
                 >
-
+ 
                     <Link to="/">
                         <Button
                             m={3}
@@ -146,9 +145,9 @@ const Login = ({ history }) => {
                             variantColor="yellow"
                             flexDirection="column"
                             textAlign="center"
-
+ 
                         >
-
+ 
                             Home
                         </Button>
                     </Link>
@@ -183,8 +182,8 @@ const Login = ({ history }) => {
                 </Flex>
             </Flex>
         </Flex>
-
-
+ 
+ 
         <Flex
             flexDirection="column"
             justifyContent="center"
@@ -285,9 +284,9 @@ const Login = ({ history }) => {
             </Flex>
         </Flex>
     </Flex>
-
-
+ 
+ 
     );
 };
-
+ 
 export default withRouter(Login);
