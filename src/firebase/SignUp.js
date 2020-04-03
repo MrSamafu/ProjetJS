@@ -224,7 +224,7 @@ const SignUp = ({ history }) => {//Save data of signUp form to Firebase
                     >
                       Pseudo
                     </FormLabel>
-                    <Input name="email" type="email" placeholder="Pseudo" borderRadius="15px" textAlign="center" />
+                    <Input name="BattleNet" type="text" placeholder="Pseudo" borderRadius="15px" textAlign="center" />
                   </Flex>
 
                 </PopoverTrigger>

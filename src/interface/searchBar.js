@@ -156,46 +156,7 @@ class SearchBar extends Component {
                                     <PopoverBody letterSpacing="wide">Write your BattleTag and find your plateform.<br />(<u><b>Example:</b></u> MrSamafu#2780 -> MrSamafu-2780)</PopoverBody>
                                 </PopoverContent>
                             </Popover>
-                            <Popover>
-                                <PopoverTrigger>
 
-                                    <Button
-                                        variantColor="yellow"
-                                        display="inline"
-                                        flexDirection="row-reverse"
-                                        width="20px"
-                                        borderRadius="6px"
-                                        leftIcon="add"
-                                        justifyContent="flex-end"
-                                        alignItems="center"
-                                        ml="-45px"
-                                        mr="30px"
-                                    ></Button>
-
-                                </PopoverTrigger>
-                                <PopoverContent zIndex={4}>
-                                    <PopoverArrow />
-                                    <PopoverCloseButton />
-                                    <PopoverHeader letterSpacing="wide">Player </PopoverHeader>
-                                    <PopoverBody letterSpacing="wide" > <br /><Button
-                                        variantColor="facebook"
-                                        display="block"
-                                        flexDirection="row-reverse"
-                                        width="100%"
-                                        borderRadius="6px"
-
-                                    >Add friends</Button><br /> <Button
-                                        variantColor="yellow"
-                                        display="block"
-                                        flexDirection="row-reverse"
-                                        width="100%"
-                                        borderRadius="6px"
-
-                                    >Signal Player</Button><br />
-
-                                    </PopoverBody>
-                                </PopoverContent>
-                            </Popover>
                             <Select
                                 id="platformSelection"
                                 placeholder="Platforms"

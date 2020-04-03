@@ -229,26 +229,51 @@ class Home extends Component {
                                             <option value="xbl">XBOX</option>
                                             <option value="psn">PS4</option>
                                             <option value="nintendo-switch">Nintendo Switch</option>
-                                        </Select><Button
-                                            m={3}
-                                            backgroundColor="orange.300"
-                                            color="whiteAlpha.900"
-                                            letterSpacing="widest"
-                                            height="50px"
-                                            width="90%"
-                                            borderRadius="10px"
-                                            fontSize="100%"
-                                            display="flex"
-                                            justifyContent="center"
-                                            alignItems="center"
-                                            size="md"
-                                            variantColor="yellow"
-                                            flexDirection="column"
-                                            textAlign="center"
-                                        >
+                                        </Select><br /><Popover>
+                                            <PopoverTrigger>
 
-                                            Update
-                                </Button><Button
+                                                <Button
+                                                    m={3}
+                                                    backgroundColor="orange.300"
+                                                    color="whiteAlpha.900"
+                                                    letterSpacing="widest"
+                                                    height="50px"
+                                                    width="90%"
+                                                    borderRadius="10px"
+                                                    fontSize="100%"
+                                                    display="flex"
+                                                    justifyContent="center"
+                                                    alignItems="center"
+                                                    size="md"
+                                                    variantColor="yellow"
+                                                    flexDirection="column"
+                                                    textAlign="center"
+                                                >Players</Button>
+
+                                            </PopoverTrigger>
+                                            <PopoverContent zIndex={4}>
+                                                <PopoverArrow />
+                                                <PopoverCloseButton />
+                                                <PopoverHeader letterSpacing="wide">Player </PopoverHeader>
+                                                <PopoverBody letterSpacing="wide" > <br /><Button
+                                                    variantColor="facebook"
+                                                    display="block"
+                                                    flexDirection="row-reverse"
+                                                    width="100%"
+                                                    borderRadius="6px"
+
+                                                >Add friends</Button><br /> <Button
+                                                    variantColor="yellow"
+                                                    display="block"
+                                                    flexDirection="row-reverse"
+                                                    width="100%"
+                                                    borderRadius="6px"
+
+                                                >Signal Player</Button><br />
+
+                                                </PopoverBody>
+                                            </PopoverContent>
+                                        </Popover><Button
                                             m={3}
                                             backgroundColor="orange.300"
                                             color="whiteAlpha.900"
