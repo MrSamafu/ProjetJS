@@ -2,7 +2,6 @@ import React, { useCallback, useContext } from "react";
 import { withRouter, Redirect } from "react-router";
 import config from "./base";
 import { AuthContext } from "./Auth.js";
-import swal from 'sweetalert';
 import {
     Button,
     Flex,
@@ -12,6 +11,7 @@ import {
     Input,
 } from "@chakra-ui/core";
 import { Link } from "react-router-dom";
+import swal from "sweetalert";
 
 // create const login
 const Login = ({ history }) => {
@@ -163,7 +163,7 @@ const Login = ({ history }) => {
                                 mr={1}
                             >
                             </Image>
-                            <div class="fb-share-button" data-href="http://localhost:3000/" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                            <div class="fb-share-button" data-href="http://localhost:3000/" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Partager</a></div>
                         </Flex>
                         <Flex
                             mt={1}
@@ -177,7 +177,7 @@ const Login = ({ history }) => {
                                 mr={1}
                             >
                             </Image>
-                            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="true">Share</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="true">Partager</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                         </Flex>
                     </Flex>
                 </Flex>
@@ -189,17 +189,24 @@ const Login = ({ history }) => {
             flexDirection="column"
             justifyContent="center"
             alignItems="center"
-
-
         >
             <Flex
                 flexDirection="column"
-                backgroundColor="gray.100"
+                justifyContent="center"
+                alignItems="center"
+                backgroundColor="facebook.900"
                 borderRadius="15px"
-                mt='10%'
-
+                mt='100px'
             >
-                <Flex width="75%" height="100%" p={5}>
+                <Flex
+                    flexDirection="row"
+                    justifyContent="center"
+                    backgroundColor="facebook.300"
+                    width="100%"
+                    height="100%"
+                    borderRadius="15px"
+                    p={5}
+                >
                     <Text
                         fontFamily="Bangers"
                         textAlign="center"
@@ -211,61 +218,69 @@ const Login = ({ history }) => {
                         width="150%"
                         height="100%"
                     >
-                        _Login_
+                        Login
                         </Text>
                 </Flex>
                 <form onSubmit={handleLogin} >
                     <Flex
                         flexDirection="column"
-                        size="90%"
-
+                        justifyContent="center"
+                        alignItems="center"
+                        size="100%"
+                        p={5}
                     >
                         <Flex
                             flexDirection="column"
-                            gap={1}
-                            ml="10%"
+                            justifyContent="center"
+                            alignItems="center"
+                            p={2}
                         >
                             <FormLabel
                                 textAlign="center"
+                                color="white"
                             >
-                                Email
+                                Email:
                                 </FormLabel>
                             <Input name="email" type="email" placeholder="Email" borderRadius="15px" textAlign="center" />
                         </Flex>
                         <Flex
                             flexDirection="column"
                             justifyContent="center"
-                            gap={1}
-                            ml="10%"
+                            p={2}
                         >
                             <FormLabel
+                                flexDirection="row"
+                                justifyContent="center"
                                 textAlign="center"
+                                color="white"
                             >
-                                Password
+                                Password:
                                 </FormLabel>
-                            <Input name="password" type="password" placeholder="Password" borderRadius="15px" textAlign="center" />
+                            <Input name="password" type="password" placeholder="Password" borderRadius="15px" flexDirection="row" justifyContent="center" textAlign="center" />
                         </Flex>
-
-                        <Button
-                            m={3}
-                            backgroundColor="orange.300"
-                            color="whiteAlpha.900"
-                            letterSpacing="widest"
-                            height="50px"
-                            width="100%"
-                            borderRadius="10px"
-                            fontSize="100%"
-                            variantColor="yellow"
-                            textAlign="center"
-                            type="submit"
-
-
+                        <Flex
+                            flexDirection="row"
+                            justifyContent="center"
+                            alignItems="center"
+                            w="100%"
+                            p={5}
                         >
-
-                            Login
+                            <Button
+                                backgroundColor="orange.300"
+                                color="whiteAlpha.900"
+                                letterSpacing="widest"
+                                height="50px"
+                                width="100%"
+                                borderRadius="10px"
+                                fontSize="100%"
+                                variantColor="yellow"
+                                textAlign="center"
+                                type="submit"
+                            >
+                                Login
                         </Button>
+                        </Flex>
                     </Flex>
-
                 </form>
             </Flex>
         </Flex>
