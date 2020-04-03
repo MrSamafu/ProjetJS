@@ -11,7 +11,8 @@ import {
   AccordionPanel,
   AccordionIcon,
   Box,
-  Spinner
+  Spinner,
+  Accordion
 
 
 } from '@chakra-ui/core'
@@ -187,7 +188,8 @@ class Profil extends Component {
           {this.state.profil}
         </Text>
       </Flex>
-      <AccordionItem display={this.state.notFound}>
+      <Accordion allowToggle>
+      <AccordionItem display={this.state.notFound} >
         <AccordionHeader
           backgroundColor="facebook.500"
           borderRadius="20px"
@@ -395,6 +397,7 @@ class Profil extends Component {
         </AccordionPanel>
 
       </AccordionItem>
+      </Accordion>
     </ThemeProvider >
   }
 }
