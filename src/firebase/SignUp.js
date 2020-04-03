@@ -8,7 +8,14 @@ import {
   Text,
   FormLabel,
   Input,
-  Select
+  Select,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverHeader,
+  PopoverBody,
+  PopoverArrow,
+  PopoverCloseButton
 } from "@chakra-ui/core";
 import { Link } from "react-router-dom";
 
@@ -205,18 +212,32 @@ const SignUp = ({ history }) => {
               size="90%"
 
             >
-              <Flex
-                flexDirection="column"
-                gap={1}
-                ml="10%"
-              >
-                <FormLabel
-                  textAlign="center"
-                >
-                  Pseudo
-                                </FormLabel>
-                <Input name="email" type="email" placeholder="Pseudo" borderRadius="15px" textAlign="center" />
-              </Flex>
+              <Popover>
+                <PopoverTrigger>
+
+                  <Flex
+                      flexDirection="column"
+                      gap={1}
+                      ml="10%"
+                  >
+                    <FormLabel
+                        textAlign="center"
+                    >
+                      Pseudo
+                    </FormLabel>
+                    <Input name="email" type="email" placeholder="Pseudo" borderRadius="15px" textAlign="center" />
+                  </Flex>
+
+                </PopoverTrigger>
+                <PopoverContent zIndex={4}>
+                  <PopoverArrow />
+                  <PopoverCloseButton />
+                  <PopoverHeader letterSpacing="wide">Information ! </PopoverHeader>
+                  <PopoverBody letterSpacing="wide" > Pseudo: Exemple <br /><br />( MrSamafu-2680 ) is OK<br />  &<br /> ( MrSamafu#2680 ) is not OK ?
+
+                  </PopoverBody>
+                </PopoverContent>
+              </Popover>
               <Flex
                 flexDirection="column"
 
