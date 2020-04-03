@@ -297,7 +297,7 @@ class Profil extends Component {
                 Level: {this.state.level}
               </Text>
             </Flex>
-            <Flex flexDirection="row" justifyContent="space-around" alignItems="flex-start" p={2}>
+            <Flex flexDirection={["column-reverse", "row"]} justifyContent={["space-around"]} alignItems={["flex-start"]}>
               <AccordionItem>
                 <AccordionHeader backgroundColor="facebook.500" borderRadius="15px">
                   <Flex
@@ -307,15 +307,15 @@ class Profil extends Component {
                     fontSize="lg"
                   >
                     QuickPlay Statistics
-            </Flex>
+                  </Flex>
                   <AccordionIcon color="whiteAlpha.900" />
                 </AccordionHeader>
                 <AccordionPanel pb={4}>
                   <ProfilCharacter battleTag={this.state.battleTag} plateform={this.state.plateform} />
                 </AccordionPanel>
               </AccordionItem>
-              <AccordionItem>
-                <AccordionHeader backgroundColor="facebook.500" borderRadius="15px">
+              <AccordionItem >
+                <AccordionHeader backgroundColor="facebook.500" borderRadius="15px" justifyContent="center">
                   <Box
                     flex="1"
                     textAlign="left"
@@ -330,7 +330,7 @@ class Profil extends Component {
                 </AccordionHeader>
                 <AccordionPanel pb={4}>
                   <Flex backgroundColor="orange.500" borderRadius="15px" marginLeft={5}>
-                    <Flex flexDirection="column" marginLeft={1} backgroundColor="orange.300" borderRadius="15px" m={1}>
+                    <Flex flexDirection="row" marginLeft={1} backgroundColor="orange.300" borderRadius="15px" m={1}>
                       <Flex flexDirection="column">
                         <Image
                           height="100px"
