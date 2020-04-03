@@ -243,7 +243,7 @@ const SignUp = ({ history }) => {//Save data of signUp form to Firebase
                   <PopoverArrow />
                   <PopoverCloseButton />
                   <PopoverHeader letterSpacing="wide">Information ! </PopoverHeader>
-                  <PopoverBody letterSpacing="wide"> Pseudo: Exemple <br /><br />( MrSamafu-2680 ) is OK<br />  &<br /> ( MrSamafu#2680 ) is not OK ?
+                  <PopoverBody letterSpacing="wide"> Pseudo: Exemple <br /><br />( MrSamafu-2680 ) is OK !<br />  &<br /> ( MrSamafu#2680 ) is not OK !
 
                   </PopoverBody>
                 </PopoverContent>
